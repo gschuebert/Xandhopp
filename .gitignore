@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Production builds
+dist/
+build/
+.next/
+var/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+
+# Database
+*.sqlite
+*.db
+
+# Symfony specific
+/apps/symfony-api/var/
+/apps/symfony-api/vendor/
+/apps/symfony-api/.env.local
+/apps/symfony-api/.env.local.php
+/apps/symfony-api/.env.*.local
+/apps/symfony-api/config/secrets/prod/prod.decrypt.private.php
+/apps/symfony-api/public/bundles/
+/apps/symfony-api/var/
+/apps/symfony-api/vendor/
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.parcel-cache/
+

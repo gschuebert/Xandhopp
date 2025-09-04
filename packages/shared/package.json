@@ -1,0 +1,27 @@
+{
+  "name": "@portalis/shared",
+  "version": "1.0.0",
+  "description": "Shared schemas and types for Portalis",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "generate:openapi": "openapi-typescript http://localhost:8080/docs.json -o src/openapi.d.ts"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@portalis/config": "workspace:*",
+    "openapi-typescript": "^6.7.4",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
+}

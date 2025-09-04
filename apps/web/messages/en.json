@@ -1,0 +1,52 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "navigation": {
+    "home": "Home",
+    "countries": "Countries",
+    "compare": "Compare",
+    "wizard": "Wizard"
+  },
+  "home": {
+    "hero": {
+      "title": "Portalis – Your Gateway to the World",
+      "subtitle": "Discover the best countries for residency, work, and investment opportunities worldwide."
+    },
+    "valueProps": {
+      "comprehensive": {
+        "title": "Comprehensive Database",
+        "description": "Access detailed information about residency programs, tax rates, and living costs across 100+ countries."
+      },
+      "expert": {
+        "title": "Expert Guidance",
+        "description": "Connect with verified immigration experts and service providers in your target destination."
+      },
+      "personalized": {
+        "title": "Personalized Recommendations",
+        "description": "Use our eligibility wizard to find the perfect residency program for your unique situation."
+      }
+    },
+    "cta": {
+      "primary": "Start Your Journey",
+      "secondary": "Explore Countries"
+    }
+  },
+  "country": {
+    "overview": "Overview",
+    "programs": "Residency Programs",
+    "providers": "Service Providers",
+    "checklist": "Checklist",
+    "costOfLiving": "Cost of Living Index",
+    "taxRate": "Tax Rate"
+  }
+}

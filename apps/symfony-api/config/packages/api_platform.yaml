@@ -1,0 +1,38 @@
+api_platform:
+    title: 'Portalis API'
+    version: '1.0.0'
+    description: 'API for Portalis - Your Gateway to the World'
+    
+    # OpenAPI configuration
+    openapi:
+        contact:
+            name: 'Portalis Team'
+            email: 'api@portalis.com'
+        license:
+            name: 'Proprietary'
+    
+    # Formats
+    formats:
+        jsonld: ['application/ld+json']
+        json: ['application/json']
+        html: ['text/html']
+        
+    # Documentation
+    docs_formats:
+        jsonopenapi: ['application/vnd.openapi+json']
+        
+    # Defaults
+    defaults:
+        pagination_enabled: true
+        pagination_items_per_page: 30
+        pagination_maximum_items_per_page: 100
+        
+    # Exception handling
+    exception_to_status:
+        Symfony\Component\Serializer\Exception\ExceptionInterface: 400
+        ApiPlatform\Exception\InvalidArgumentException: 400
+        ApiPlatform\Exception\FilterValidationException: 400
+        Doctrine\ORM\OptimisticLockException: 409
+        
+    # Enable profiler in dev
+    enable_profiler: '%kernel.debug%'

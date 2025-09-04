@@ -1,0 +1,52 @@
+{
+  "common": {
+    "loading": "Lädt...",
+    "error": "Ein Fehler ist aufgetreten",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "countries": "Länder",
+    "compare": "Vergleichen",
+    "wizard": "Assistent"
+  },
+  "home": {
+    "hero": {
+      "title": "Portalis – Dein Tor zur Welt",
+      "subtitle": "Entdecke die besten Länder für Residenz-, Arbeits- und Investitionsmöglichkeiten weltweit."
+    },
+    "valueProps": {
+      "comprehensive": {
+        "title": "Umfassende Datenbank",
+        "description": "Zugang zu detaillierten Informationen über Residenzprogramme, Steuersätze und Lebenshaltungskosten in über 100 Ländern."
+      },
+      "expert": {
+        "title": "Expertenberatung",
+        "description": "Verbinde dich mit verifizierten Einwanderungsexperten und Dienstleistern in deinem Zielland."
+      },
+      "personalized": {
+        "title": "Personalisierte Empfehlungen",
+        "description": "Nutze unseren Berechtigungsassistenten, um das perfekte Residenzprogramm für deine einzigartige Situation zu finden."
+      }
+    },
+    "cta": {
+      "primary": "Beginne deine Reise",
+      "secondary": "Länder erkunden"
+    }
+  },
+  "country": {
+    "overview": "Übersicht",
+    "programs": "Residenzprogramme",
+    "providers": "Dienstleister",
+    "checklist": "Checkliste",
+    "costOfLiving": "Lebenshaltungskostenindex",
+    "taxRate": "Steuersatz"
+  }
+}

@@ -1,0 +1,108 @@
+
+
+services:
+  # Web Frontend (Next.js)
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_BASE=http://localhost:8080
+    depends_on:
+      - api
+
+  # Admin Frontend (Next.js)
+  admin:
+    build:
+      context: ./apps/admin
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./apps/admin:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_BASE=http://localhost:8080
+    depends_on:
+      - api
+
+  # API Backend (Symfony)
+  api:
+    build:
+      context: ./apps/symfony-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_ENV=dev
+      - DATABASE_URL=postgresql://portalis:portalis@postgres:5432/portalis?serverVersion=15&charset=utf8
+      - JWT_PASSPHRASE=portalis
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./apps/symfony-api:/app
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=portalis
+      - POSTGRES_USER=portalis
+      - POSTGRES_PASSWORD=portalis
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portalis -d portalis"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Meilisearch (Search Engine)
+  meilisearch:
+    image: getmeili/meilisearch:v1.5
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_ENV=development
+      - MEILI_MASTER_KEY=portalis-search-key
+    volumes:
+      - meilisearch_data:/meili_data
+
+  # Redis (Cache & Sessions)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # MinIO (S3-compatible storage)
+  minio:
+    image: minio/minio:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=portalis
+      - MINIO_ROOT_PASSWORD=portalis123
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+volumes:
+  postgres_data:
+  meilisearch_data:
+  redis_data:
+  minio_data:
