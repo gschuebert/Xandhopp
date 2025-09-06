@@ -1,3 +1,9 @@
 module.exports = {
-  extends: ["@portalis/config/eslint", "next/core-web-vitals"],
+  extends: [
+    'next/core-web-vitals',
+    'next/typescript'
+  ],
+  rules: {
+    // Add any custom rules here
+  }
 };

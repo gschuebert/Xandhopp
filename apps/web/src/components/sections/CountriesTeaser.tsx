@@ -1,7 +1,7 @@
 'use client';
 
 import type { ContentSchema } from '../../../content/schema';
-import type { Locale } from '../../../lib/i18n';
+import type { Locale } from '../../lib/i18n';
 
 interface CountriesTeaserProps {
   content: ContentSchema;

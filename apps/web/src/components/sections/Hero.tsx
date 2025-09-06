@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { PortalisLogo } from '../portalis-logo';
 import type { ContentSchema } from '../../../content/schema';
-import type { Locale } from '../../../lib/i18n';
+import type { Locale } from '../../lib/i18n';
 
 interface HeroProps {
   content: ContentSchema;

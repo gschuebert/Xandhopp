@@ -4,8 +4,15 @@ import { useEffect, useState } from 'react';
 
 export function useScrollSpy(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string>('');
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,7 +41,7 @@ export function useScrollSpy(sectionIds: string[]) {
         }
       });
     };
-  }, [sectionIds]);
+  }, [sectionIds, isClient]);
 
-  return activeSection;
+  return isClient ? activeSection : '';
 }

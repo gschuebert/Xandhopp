@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { PortalisLogo } from '../portalis-logo';
 import { MobileNav } from './MobileNav';
 import { useScrollSpy } from '../../lib/useScrollSpy';
-import { getAlternateLocale, type Locale } from '../../../lib/i18n';
+import { getAlternateLocale, type Locale } from '../../lib/i18n';
 import type { ContentSchema } from '../../../content/schema';
 
 interface SiteHeaderProps {
@@ -32,7 +32,7 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
   }, []);
 
   const alternateLocale = getAlternateLocale(locale);
-  const alternatePath = pathname.replace(`/${locale}`, `/${alternateLocale}`);
+  const alternatePath = pathname?.replace(`/${locale}`, `/${alternateLocale}`) || `/${alternateLocale}`;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

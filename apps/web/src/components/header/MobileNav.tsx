@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { getAlternateLocale, type Locale } from '../../../lib/i18n';
+import { getAlternateLocale, type Locale } from '../../lib/i18n';
 import type { ContentSchema } from '../../../content/schema';
 
 interface MobileNavProps {

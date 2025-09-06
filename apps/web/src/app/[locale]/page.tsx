@@ -10,7 +10,7 @@ import { CompareTeaser } from '../../components/sections/CompareTeaser';
 import { WizardTeaser } from '../../components/sections/WizardTeaser';
 import { Trust } from '../../components/sections/Trust';
 import { Cta } from '../../components/sections/Cta';
-import { getContent, isValidLocale, type Locale } from '../../../lib/i18n';
+import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
 
 interface HomePageProps {
