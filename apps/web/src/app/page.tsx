@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 export default function RootPage() {
-  // Redirect to simple working page
-  redirect('/simple');
+  // Redirect to English by default
+  redirect('/en');
 }

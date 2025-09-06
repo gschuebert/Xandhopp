@@ -1,37 +1,50 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "../globals.css";
+import { getContent, isValidLocale, type Locale } from '../../../lib/i18n';
 import { notFound } from 'next/navigation';
-import { Header } from '../../components/header';
-import { Footer } from '../../components/footer';
-import { AuthProvider } from '../../lib/auth';
-import { Providers } from './providers';
 
-const locales = ['en', 'de'];
+const inter = Inter({ subsets: ["latin"] });
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+interface LocaleLayoutProps {
+  children: React.ReactNode;
+  params: {
+    locale: string;
+  };
 }
 
-export default function LocaleLayout({
-  children,
-  params: { locale }
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
-  if (!locales.includes(locale as any)) {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  if (!isValidLocale(params.locale)) {
+    return {
+      title: 'Page Not Found',
+    };
+  }
+
+  const locale = params.locale as Locale;
+  const content = getContent(locale);
+
+  return {
+    title: content.meta.title,
+    description: content.meta.description,
+    keywords: content.meta.keywords,
+    openGraph: {
+      title: content.meta.title,
+      description: content.meta.description,
+      type: 'website',
+      locale: locale,
+      alternateLocale: locale === 'en' ? 'de' : 'en',
+    },
+  };
+}
+
+export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  if (!isValidLocale(params.locale)) {
     notFound();
   }
 
   return (
-    <AuthProvider>
-      <Providers>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </Providers>
-    </AuthProvider>
+    <html lang={params.locale}>
+      <body className={inter.className}>{children}</body>
+    </html>
   );
 }

@@ -4,27 +4,36 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 45 100% 97%;
+    --foreground: 35 55% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 35 55% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 35 55% 15%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 100% 92%;
+    --secondary-foreground: 35 55% 15%;
+    --muted: 45 100% 92%;
+    --muted-foreground: 35 25% 45%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --destructive-foreground: 45 100% 97%;
+    --border: 43 50% 85%;
+    --input: 43 50% 85%;
+    --ring: 25 95% 53%;
+    --radius: 1rem;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FFF7EC;
+  }
+}
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -47,7 +56,6 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
   }
-}
 
 @layer base {
   * {
@@ -55,5 +63,31 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-medium shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portalis-accent focus-visible:ring-offset-2 transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-portalis-accent text-white hover:bg-portalis-accent-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-portalis-accent border-2 border-portalis-accent hover:bg-portalis-accent hover:text-white;
+  }
+  
+  .container-default {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300;
   }
 }

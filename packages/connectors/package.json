@@ -1,0 +1,35 @@
+{
+  "name": "@portalis/connectors",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./worldbank": "./dist/worldbank.js",
+    "./oecd": "./dist/oecd.js",
+    "./whoGho": "./dist/whoGho.js",
+    "./stateDept": "./dist/stateDept.js",
+    "./fcdo": "./dist/fcdo.js",
+    "./openaq": "./dist/openaq.js",
+    "./geonames": "./dist/geonames.js",
+    "./wikidata": "./dist/wikidata.js",
+    "./numbeo": "./dist/numbeo.js",
+    "./tradingEconomics": "./dist/tradingEconomics.js"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "p-retry": "^6.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@portalis/config": "workspace:*",
+    "typescript": "^5.6.0",
+    "@types/node": "^20.0.0"
+  }
+}

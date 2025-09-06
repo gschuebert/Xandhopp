@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <!-- Enable HTTP CORS for development -->
+    <http_server_default_response>
+        <![CDATA[<html><head><title>ClickHouse Server</title></head><body>ClickHouse server is running.</body></html>]]>
+    </http_server_default_response>
+    
+    <!-- Memory and performance settings for development -->
+    <max_memory_usage>4000000000</max_memory_usage>
+    <max_concurrent_queries>100</max_concurrent_queries>
+    
+    <!-- Enable query logging -->
+    <query_log>
+        <database>system</database>
+        <table>query_log</table>
+        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
+    </query_log>
+</clickhouse>

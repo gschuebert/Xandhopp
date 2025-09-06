@@ -1,5 +1,3 @@
-
-
 services:
   # Web Frontend (Next.js)
   web:
@@ -101,8 +99,36 @@ services:
       - minio_data:/data
     command: server /data --console-address ":9001"
 
+  # ClickHouse (Analytical Database)
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    ports:
+      - "8123:8123"  # HTTP
+      - "9002:9000"  # Native (changed from 9000 to avoid conflict with MinIO)
+    environment:
+      - CLICKHOUSE_DB=portalis
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./infra/clickhouse/config:/etc/clickhouse-server/config.d
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+  # ClickHouse UI (optional - commented out due to image availability)
+  # clickhouse-ui:
+  #   image: ghcr.io/clickhouse/clickhouse-play:latest
+  #   depends_on: [clickhouse]
+  #   ports:
+  #     - "8443:443"
+  #   environment:
+  #     - CLICKHOUSE_HOST=clickhouse
+  #     - CLICKHOUSE_PORT=8123
+
 volumes:
   postgres_data:
   meilisearch_data:
   redis_data:
   minio_data:
+  clickhouse_data:

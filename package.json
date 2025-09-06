@@ -17,6 +17,15 @@
     "db:migrate": "docker-compose exec api php bin/console doctrine:migrations:migrate -n",
     "db:seed": "docker-compose exec api php bin/console app:seed:demo",
     "api:docs": "pnpm --filter @portalis/shared run generate:openapi",
+    "ch:init": "docker-compose up -d clickhouse",
+    "ch:schema": "docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql",
+    "ch:setup": "pnpm run ch:init && timeout /t 15 /nobreak && pnpm run ch:schema",
+    "ingestion:dev": "pnpm --filter @portalis/connectors build && pnpm --filter @portalis/ingestion-worker dev",
+    "ingestion:build": "pnpm --filter @portalis/connectors build && pnpm --filter @portalis/ingestion-worker build",
+    "ingestion:start": "pnpm --filter @portalis/ingestion-worker start",
+    "data:health": "curl -s http://localhost:3000/api/health",
+    "data:countries": "curl -s http://localhost:3000/api/countries",
+    "data:snapshot": "curl -s http://localhost:3000/api/country/DE/snapshot",
     "setup": "pnpm install && pnpm run docker:up && timeout /t 10 && pnpm run db:create && pnpm run db:migrate && pnpm run db:seed && pnpm run api:docs"
   },
   "devDependencies": {
@@ -25,5 +34,6 @@
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67"
 }
