@@ -4,7 +4,7 @@ import type { ContentSchema } from '../../../content/schema';
 
 export function Solution({ content }: { content: ContentSchema }) {
   return (
-    <section id="solution" className="section-padding bg-gradient-to-r from-portalis-accent to-portalis-accent-light">
+    <section id="solution" className="section-padding bg-gradient-to-r from-xandhopp-orange to-xandhopp-orange-light">
       <div className="container-default">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">

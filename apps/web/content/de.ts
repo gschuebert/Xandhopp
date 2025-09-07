@@ -2,7 +2,7 @@ import { ContentSchema } from './schema';
 
 export const de: ContentSchema = {
   meta: {
-    title: "PORTALIS - Ihr perfekter Umzug weltweit",
+    title: "Xandhopp - Ihr perfekter Umzug weltweit",
     description: "Erleben Sie nahtlose globale Umzüge mit einer vertrauenswürdigen Plattform. Vergleichen Sie Länder, verstehen Sie Anforderungen und treffen Sie die richtige Entscheidung mit Klarheit und Vertrauen.",
     keywords: "umzug, globaler umzug, visum, länder, einwanderung, expat"
   },
@@ -19,7 +19,7 @@ export const de: ContentSchema = {
   },
 
   hero: {
-    title: "PORTALIS",
+    title: "Xandhopp",
     subtitle: "Ihr perfekter Umzug weltweit", 
     description: "Erleben Sie nahtlose globale Umzüge mit einer vertrauenswürdigen Plattform. Vergleichen Sie Länder, verstehen Sie Anforderungen und treffen Sie die richtige Entscheidung mit Klarheit und Vertrauen.",
     ctaPrimary: "Anmelden",
@@ -38,7 +38,7 @@ export const de: ContentSchema = {
 
   solution: {
     headline: "Alles an einem Ort",
-    description: "Portalis sammelt offizielle Quellen, Expertenwissen und Echtzeit-Updates—damit Sie einmal planen und mit Sicherheit handeln können. Keine Vermutungen mehr, nur informierte Entscheidungen."
+    description: "Xandhopp sammelt offizielle Quellen, Expertenwissen und Echtzeit-Updates—damit Sie einmal planen und mit Sicherheit handeln können. Keine Vermutungen mehr, nur informierte Entscheidungen."
   },
 
   features: {
@@ -150,7 +150,7 @@ export const de: ContentSchema = {
       terms: "Nutzungsbedingungen", 
       contact: "Kontakt"
     },
-    copyright: "© 2024 Portalis. Alle Rechte vorbehalten."
+    copyright: "© 2024 Xandhopp. Alle Rechte vorbehalten."
   },
 
   placeholders: {

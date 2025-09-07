@@ -13,22 +13,25 @@ module.exports = {
       ...baseConfig.theme?.extend,
       colors: {
         ...baseConfig.theme?.extend?.colors,
-        portalis: {
-          bg: '#FFF7EC',
-          accent: '#E9752B',
-          'accent-light': '#F59E0B',
-          'accent-dark': '#D97706',
-          warm: {
-            50: '#FFF7EC',
-            100: '#FFEDD5',
-            200: '#FED7AA',
-            300: '#FDBA74',
-            400: '#FB923C',
-            500: '#E9752B',
-            600: '#DC2626',
-            700: '#B91C1C',
-            800: '#991B1B',
-            900: '#7F1D1D',
+        xandhopp: {
+          bg: '#FFFFFF',
+          orange: '#F78F1E',
+          'orange-light': '#FF8C00',
+          'orange-dark': '#E67E00',
+          blue: '#003366',
+          'blue-light': '#004785',
+          'blue-dark': '#002244',
+          neutral: {
+            50: '#F8F9FA',
+            100: '#F1F3F4',
+            200: '#E8EAED',
+            300: '#DADCE0',
+            400: '#BDC1C6',
+            500: '#9AA0A6',
+            600: '#80868B',
+            700: '#5F6368',
+            800: '#3C4043',
+            900: '#202124',
           }
         }
       },

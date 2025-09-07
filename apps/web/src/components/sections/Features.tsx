@@ -40,7 +40,7 @@ export function Features({ content }: { content: ContentSchema }) {
     <section id="features" className="section-padding bg-white">
       <div className="container-default">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-xandhopp-blue mb-6">
             {content.features.headline}
           </h2>
         </div>
@@ -48,13 +48,13 @@ export function Features({ content }: { content: ContentSchema }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.features.items.map((feature, index) => (
             <div key={index} className="card p-8 text-center group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-portalis-accent to-portalis-accent-light rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:shadow-lg transition-shadow duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-xandhopp-orange to-xandhopp-orange-light rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:shadow-lg transition-shadow duration-300">
                 {iconMap[feature.icon as keyof typeof iconMap]}
               </div>
-              <h3 className="text-xl font-bold text-amber-900 mb-4">
+              <h3 className="text-xl font-bold text-xandhopp-blue mb-4">
                 {feature.title}
               </h3>
-              <p className="text-amber-700 leading-relaxed">
+              <p className="text-xandhopp-blue/80 leading-relaxed">
                 {feature.description}
               </p>
             </div>

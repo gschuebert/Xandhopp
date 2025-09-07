@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PortalisLogo } from '../../../components/portalis-logo';
+import { XandhoppLogo } from '../../../components/xandhopp-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 
 interface CountriesPageProps {
@@ -12,14 +12,14 @@ export default function CountriesPage({ params }: CountriesPageProps) {
   const content = getContent(params.locale);
 
   return (
-    <div className="min-h-screen bg-portalis-bg">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-md shadow-sm">
         <div className="container-default">
           <div className="flex items-center justify-between h-16">
             <Link href={`/${params.locale}`} className="flex items-center space-x-3">
-              <PortalisLogo size="sm" />
-              <span className="text-xl font-bold text-amber-900">PORTALIS</span>
+              <XandhoppLogo size="sm" />
+              <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
             </Link>
             <Link
               href={`/${params.locale}`}
@@ -41,19 +41,19 @@ export default function CountriesPage({ params }: CountriesPageProps) {
               </svg>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-amber-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-xandhopp-blue mb-6">
               {content.teasers.countries.headline}
             </h1>
             
-            <p className="text-xl text-amber-700 mb-8 leading-relaxed">
+            <p className="text-xl text-xandhopp-blue/80 mb-8 leading-relaxed">
               {content.teasers.countries.description}
             </p>
             
             <div className="bg-amber-50 rounded-2xl p-8 mb-8">
-              <h2 className="text-2xl font-bold text-amber-900 mb-4">
+              <h2 className="text-2xl font-bold text-xandhopp-blue mb-4">
                 {content.placeholders.comingSoon}
               </h2>
-              <p className="text-amber-700">
+              <p className="text-xandhopp-blue/80">
                 We're building a comprehensive database of countries with detailed information about visa requirements, costs, and living conditions.
               </p>
             </div>

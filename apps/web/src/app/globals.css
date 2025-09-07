@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 45 100% 97%;
-    --foreground: 35 55% 15%;
+    --background: 0 0% 100%;
+    --foreground: 210 100% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 35 55% 15%;
+    --card-foreground: 210 100% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 35 55% 15%;
-    --primary: 25 95% 53%;
+    --popover-foreground: 210 100% 20%;
+    --primary: 30 100% 54%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 45 100% 92%;
-    --secondary-foreground: 35 55% 15%;
-    --muted: 45 100% 92%;
-    --muted-foreground: 35 25% 45%;
-    --accent: 25 95% 53%;
+    --secondary: 210 100% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 210 5% 45%;
+    --accent: 30 100% 54%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 100% 97%;
-    --border: 43 50% 85%;
-    --input: 43 50% 85%;
-    --ring: 25 95% 53%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 30 100% 54%;
     --radius: 1rem;
   }
 
@@ -31,7 +31,7 @@
   }
 
   body {
-    background-color: #FFF7EC;
+    background-color: #FFFFFF;
   }
 }
 
@@ -68,15 +68,15 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-medium shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portalis-accent focus-visible:ring-offset-2 transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-medium shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-xandhopp-orange focus-visible:ring-offset-2 transition-all duration-200;
   }
   
   .btn-primary {
-    @apply bg-portalis-accent text-white hover:bg-portalis-accent-dark;
+    @apply bg-xandhopp-blue text-white hover:bg-xandhopp-blue-dark;
   }
   
   .btn-secondary {
-    @apply bg-white text-portalis-accent border-2 border-portalis-accent hover:bg-portalis-accent hover:text-white;
+    @apply bg-white text-xandhopp-blue border-2 border-xandhopp-blue hover:bg-xandhopp-blue hover:text-white;
   }
   
   .container-default {
@@ -88,6 +88,6 @@
   }
   
   .card {
-    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+    @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-xandhopp-neutral-200;
   }
 }

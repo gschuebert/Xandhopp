@@ -8,10 +8,10 @@ interface ProblemProps {
 
 export function Problem({ content }: ProblemProps) {
   return (
-    <section id="problem" className="section-padding bg-white/50">
+    <section id="problem" className="section-padding bg-xandhopp-neutral-50">
       <div className="container-default">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-xandhopp-blue mb-12">
             {content.problem.headline}
           </h2>
           
@@ -24,7 +24,7 @@ export function Problem({ content }: ProblemProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <p className="text-amber-800 text-lg leading-relaxed">
+                  <p className="text-xandhopp-blue text-lg leading-relaxed">
                     {bullet}
                   </p>
                 </div>

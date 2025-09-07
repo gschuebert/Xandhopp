@@ -70,8 +70,8 @@ export function MobileNav({
                 onClick={() => onNavigate(section.id)}
                 className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-colors ${
                   activeSection === section.id
-                    ? 'bg-portalis-accent text-white'
-                    : 'text-amber-800 hover:bg-amber-50'
+                    ? 'bg-xandhopp-blue text-white'
+                    : 'text-xandhopp-blue hover:bg-xandhopp-neutral-50'
                 }`}
               >
                 {section.label}
@@ -80,12 +80,12 @@ export function MobileNav({
           </nav>
 
           {/* Language Toggle */}
-          <div className="border-t border-amber-200 pt-6">
+          <div className="border-t border-xandhopp-neutral-200 pt-6">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-amber-700">Language</span>
+              <span className="text-sm font-medium text-xandhopp-blue">Language</span>
               <Link
                 href={`/${alternateLocale}`}
-                className="text-sm font-medium text-portalis-accent hover:text-portalis-accent-dark transition-colors"
+                className="text-sm font-medium text-xandhopp-orange hover:text-xandhopp-orange-dark transition-colors"
                 onClick={onClose}
               >
                 {content.nav.languageToggle[alternateLocale]}

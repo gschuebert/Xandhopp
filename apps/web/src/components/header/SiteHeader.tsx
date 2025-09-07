@@ -58,31 +58,31 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-3">
             <PortalisLogo size="sm" />
-            <span className="text-xl font-bold text-amber-900">PORTALIS</span>
+            <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('countries')}
-              className={`text-sm font-medium transition-colors hover:text-portalis-accent ${
-                activeSection === 'countries' ? 'text-portalis-accent' : 'text-amber-800'
+              className={`text-sm font-medium transition-colors hover:text-xandhopp-orange ${
+                activeSection === 'countries' ? 'text-xandhopp-orange' : 'text-xandhopp-blue'
               }`}
             >
               {content.nav.countries}
             </button>
             <button
               onClick={() => scrollToSection('compare')}
-              className={`text-sm font-medium transition-colors hover:text-portalis-accent ${
-                activeSection === 'compare' ? 'text-portalis-accent' : 'text-amber-800'
+              className={`text-sm font-medium transition-colors hover:text-xandhopp-orange ${
+                activeSection === 'compare' ? 'text-xandhopp-orange' : 'text-xandhopp-blue'
               }`}
             >
               {content.nav.compare}
             </button>
             <button
               onClick={() => scrollToSection('wizard')}
-              className={`text-sm font-medium transition-colors hover:text-portalis-accent ${
-                activeSection === 'wizard' ? 'text-portalis-accent' : 'text-amber-800'
+              className={`text-sm font-medium transition-colors hover:text-xandhopp-orange ${
+                activeSection === 'wizard' ? 'text-xandhopp-orange' : 'text-xandhopp-blue'
               }`}
             >
               {content.nav.wizard}
@@ -94,7 +94,7 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
             {/* Language Toggle */}
             <Link
               href={alternatePath}
-              className="text-sm font-medium text-amber-700 hover:text-portalis-accent transition-colors"
+              className="text-sm font-medium text-xandhopp-blue hover:text-xandhopp-orange transition-colors"
             >
               {content.nav.languageToggle[alternateLocale]}
             </Link>
@@ -110,7 +110,7 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-amber-800 hover:text-portalis-accent transition-colors"
+              className="lg:hidden p-2 text-xandhopp-blue hover:text-xandhopp-orange transition-colors"
               aria-label="Toggle mobile menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

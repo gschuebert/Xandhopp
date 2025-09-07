@@ -2,7 +2,7 @@ import { ContentSchema } from './schema';
 
 export const en: ContentSchema = {
   meta: {
-    title: "PORTALIS - Your perfect move worldwide",
+    title: "Xandhopp - Your perfect move worldwide",
     description: "Experience seamless global relocation with one trusted platform. Compare countries, understand requirements, and make the right move with clarity and confidence.",
     keywords: "relocation, global move, visa, countries, immigration, expat"
   },
@@ -19,7 +19,7 @@ export const en: ContentSchema = {
   },
 
   hero: {
-    title: "PORTALIS",
+    title: "Xandhopp",
     subtitle: "Your perfect move worldwide", 
     description: "Experience seamless global relocation with one trusted platform. Compare countries, understand requirements, and make the right move with clarity and confidence.",
     ctaPrimary: "Login",
@@ -38,7 +38,7 @@ export const en: ContentSchema = {
 
   solution: {
     headline: "Everything in one place",
-    description: "Portalis aggregates official sources, expert insights, and real-time updates—so you can plan once and act with certainty. No more guesswork, just informed decisions."
+    description: "Xandhopp aggregates official sources, expert insights, and real-time updates—so you can plan once and act with certainty. No more guesswork, just informed decisions."
   },
 
   features: {
@@ -150,7 +150,7 @@ export const en: ContentSchema = {
       terms: "Terms of Service", 
       contact: "Contact"
     },
-    copyright: "© 2024 Portalis. All rights reserved."
+    copyright: "© 2024 Xandhopp. All rights reserved."
   },
 
   placeholders: {

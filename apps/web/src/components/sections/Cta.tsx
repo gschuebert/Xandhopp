@@ -43,7 +43,7 @@ export function Cta({ content }: CtaProps) {
   };
 
   return (
-    <section id="cta" className="section-padding bg-gradient-to-r from-portalis-accent to-portalis-accent-light">
+    <section id="cta" className="section-padding bg-gradient-to-r from-xandhopp-orange to-xandhopp-orange-light">
       <div className="container-default">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -62,13 +62,13 @@ export function Cta({ content }: CtaProps) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={content.cta.emailPlaceholder}
                 required
-                className="flex-1 px-6 py-4 rounded-2xl border-0 text-amber-900 placeholder-amber-500 focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="flex-1 px-6 py-4 rounded-2xl border-0 text-xandhopp-blue placeholder-xandhopp-blue/50 focus:outline-none focus:ring-2 focus:ring-white/50"
                 disabled={status === 'loading'}
               />
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="btn bg-white text-portalis-accent hover:bg-amber-50 px-8 py-4 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn bg-white text-xandhopp-blue hover:bg-xandhopp-neutral-50 px-8 py-4 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'loading' ? '...' : content.cta.button}
               </button>
