@@ -1,5 +1,5 @@
 {
-  "name": "@portalis/shared",
+  "name": "@xandhopp/shared",
   "version": "1.0.0",
   "description": "Shared schemas and types for Portalis",
   "main": "dist/index.js",

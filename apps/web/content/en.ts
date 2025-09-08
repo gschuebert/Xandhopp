@@ -117,12 +117,12 @@ export const en: ContentSchema = {
     headline: "Trusted by relocators worldwide",
     testimonials: [
       {
-        quote: "Portalis made my move to Portugal incredibly smooth. Having all the information in one place saved me months of research.",
+        quote: "Xandhopp made my move to Portugal incredibly smooth. Having all the information in one place saved me months of research.",
         author: "Sarah Chen",
         role: "Software Engineer"
       },
       {
-        quote: "The visa guidance was spot-on. I wish I had found Portalis before my first failed attempt at relocating.",
+        quote: "The visa guidance was spot-on. I wish I had found Xandhopp before my first failed attempt at relocating.",
         author: "Marcus Schmidt", 
         role: "Digital Nomad"
       },
@@ -136,7 +136,7 @@ export const en: ContentSchema = {
 
   cta: {
     headline: "Be first to move right",
-    subtitle: "Join the Early Access list and get priority access to Portalis when we launch",
+    subtitle: "Join the Early Access list and get priority access to Xandhopp when we launch",
     emailPlaceholder: "you@domain.com",
     button: "Get Early Access",
     successMessage: "Thanks! We'll be in touch soon.",

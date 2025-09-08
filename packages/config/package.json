@@ -1,5 +1,5 @@
 {
-  "name": "@portalis/config",
+  "name": "@xandhopp/config",
   "version": "1.0.0",
   "description": "Shared configuration for Portalis monorepo",
   "main": "index.js",

@@ -1,4 +1,4 @@
-# Portalis - Your Gateway to the World
+# Xandhopp - Your perfect move worldwide
 
 A production-ready monorepo for managing residency and immigration programs worldwide.
 
@@ -159,7 +159,7 @@ The seed command creates:
 - 4 residency programs (including digital nomad visas)
 - 3 service providers
 - Sample checklist items
-- Admin user (admin@portalis.com / admin)
+  - Admin user (admin@xandhopp.com / admin)
 
 ## Tech Stack
 
@@ -188,7 +188,7 @@ The seed command creates:
 ## Project Structure
 
 ```
-portalis/
+xandhopp/
 ├── apps/
 │   ├── web/                 # Next.js frontend
 │   ├── admin/               # Next.js admin panel

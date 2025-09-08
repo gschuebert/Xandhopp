@@ -1,5 +1,5 @@
 {
-  "name": "@portalis/ui",
+  "name": "@xandhopp/ui",
   "version": "1.0.0",
   "description": "Shared UI components for Portalis",
   "main": "dist/index.js",

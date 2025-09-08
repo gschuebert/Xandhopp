@@ -1,5 +1,5 @@
 {
-  "name": "@portalis/ingestion-worker",
+  "name": "@xandhopp/ingestion-worker",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@clickhouse/client": "^1.5.0",
-    "@portalis/connectors": "workspace:*",
+    "@xandhopp/connectors": "workspace:*",
     "bullmq": "^5.12.0",
     "ioredis": "^5.4.1",
     "pino": "^9.4.0",
@@ -20,7 +20,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@portalis/config": "workspace:*",
+    "@xandhopp/config": "workspace:*",
     "@types/node": "^20.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"

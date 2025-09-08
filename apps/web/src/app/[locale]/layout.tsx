@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     title: content.meta.title,
     description: content.meta.description,
     keywords: content.meta.keywords,
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.svg',
+      apple: '/favicon.svg',
+    },
     openGraph: {
       title: content.meta.title,
       description: content.meta.description,

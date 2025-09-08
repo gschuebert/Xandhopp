@@ -117,12 +117,12 @@ export const de: ContentSchema = {
     headline: "Vertraut von Umziehern weltweit",
     testimonials: [
       {
-        quote: "Portalis hat meinen Umzug nach Portugal unglaublich reibungslos gemacht. Alle Informationen an einem Ort zu haben hat mir Monate der Recherche erspart.",
+        quote: "Xandhopp hat meinen Umzug nach Portugal unglaublich reibungslos gemacht. Alle Informationen an einem Ort zu haben hat mir Monate der Recherche erspart.",
         author: "Sarah Chen",
         role: "Software-Ingenieurin"
       },
       {
-        quote: "Die Visumsberatung war punktgenau. Ich wünschte, ich hätte Portalis vor meinem ersten gescheiterten Umzugsversuch gefunden.",
+        quote: "Die Visumsberatung war punktgenau. Ich wünschte, ich hätte Xandhopp vor meinem ersten gescheiterten Umzugsversuch gefunden.",
         author: "Marcus Schmidt", 
         role: "Digitaler Nomade"
       },
@@ -136,7 +136,7 @@ export const de: ContentSchema = {
 
   cta: {
     headline: "Seien Sie der Erste, der richtig umzieht",
-    subtitle: "Treten Sie der Early Access Liste bei und erhalten Sie vorrangigen Zugang zu Portalis beim Launch",
+    subtitle: "Treten Sie der Early Access Liste bei und erhalten Sie vorrangigen Zugang zu Xandhopp beim Launch",
     emailPlaceholder: "ihre@email.de",
     button: "Early Access erhalten",
     successMessage: "Danke! Wir melden uns bald bei Ihnen.",

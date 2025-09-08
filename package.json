@@ -1,7 +1,7 @@
 {
-  "name": "portalis",
+  "name": "xandhopp",
   "version": "1.0.0",
-  "description": "Portalis - Your Gateway to the World",
+  "description": "Xandhopp - Your perfect move worldwide",
   "private": true,
   "scripts": {
     "dev": "pnpm --parallel --filter \"./apps/*\" run dev",
@@ -16,20 +16,20 @@
     "db:create": "docker-compose exec api php bin/console doctrine:database:create --if-not-exists",
     "db:migrate": "docker-compose exec api php bin/console doctrine:migrations:migrate -n",
     "db:seed": "docker-compose exec api php bin/console app:seed:demo",
-    "api:docs": "pnpm --filter @portalis/shared run generate:openapi",
+    "api:docs": "pnpm --filter @xandhopp/shared run generate:openapi",
     "ch:init": "docker-compose up -d clickhouse",
-    "ch:schema": "docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql",
+    "ch:schema": "docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql",
     "ch:setup": "pnpm run ch:init && timeout /t 15 /nobreak && pnpm run ch:schema",
-    "ingestion:dev": "pnpm --filter @portalis/connectors build && pnpm --filter @portalis/ingestion-worker dev",
-    "ingestion:build": "pnpm --filter @portalis/connectors build && pnpm --filter @portalis/ingestion-worker build",
-    "ingestion:start": "pnpm --filter @portalis/ingestion-worker start",
+    "ingestion:dev": "pnpm --filter @xandhopp/connectors build && pnpm --filter @xandhopp/ingestion-worker dev",
+    "ingestion:build": "pnpm --filter @xandhopp/connectors build && pnpm --filter @xandhopp/ingestion-worker build",
+    "ingestion:start": "pnpm --filter @xandhopp/ingestion-worker start",
     "data:health": "curl -s http://localhost:3000/api/health",
     "data:countries": "curl -s http://localhost:3000/api/countries",
     "data:snapshot": "curl -s http://localhost:3000/api/country/DE/snapshot",
     "setup": "pnpm install && pnpm run docker:up && timeout /t 10 && pnpm run db:create && pnpm run db:migrate && pnpm run db:seed && pnpm run api:docs"
   },
   "devDependencies": {
-    "@portalis/config": "workspace:*"
+    "@xandhopp/config": "workspace:*"
   },
   "engines": {
     "node": ">=18.0.0",

@@ -56,13 +56,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=portalis
-      - POSTGRES_USER=portalis
-      - POSTGRES_PASSWORD=portalis
+      - POSTGRES_DB=xandhopp
+      - POSTGRES_USER=xandhopp
+      - POSTGRES_PASSWORD=xandhopp
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U portalis -d portalis"]
+      test: ["CMD-SHELL", "pg_isready -U xandhopp -d xandhopp"]
       interval: 10s
       timeout: 5s
       retries: 5
