@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
+import { writeFile, mkdir, readFile } from 'fs/promises';
 import { join } from 'path';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,15 +34,17 @@ export async function POST(request: NextRequest) {
     let existingData: any[] = [];
     
     try {
-      const fs = await import('fs/promises');
-      const fileContent = await fs.readFile(filePath, 'utf-8');
+      const fileContent = await readFile(filePath, 'utf-8');
       existingData = JSON.parse(fileContent);
     } catch (error) {
       // File doesn't exist yet, start with empty array
     }
 
-    // Check if email already exists
-    const emailExists = existingData.some(entry => entry.email === email);
+    // Check if email already exists (case-insensitive)
+    const emailExists = existingData.some(entry => 
+      entry.email.toLowerCase() === email.toLowerCase()
+    );
+    
     if (emailExists) {
       return NextResponse.json(
         { error: 'This email is already registered' },
@@ -52,10 +54,12 @@ export async function POST(request: NextRequest) {
 
     // Add new entry
     const newEntry = {
-      email,
+      id: Date.now(), // Simple ID generation
+      email: email.toLowerCase(),
       locale,
       timestamp: new Date().toISOString(),
-      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
+      userAgent: request.headers.get('user-agent') || 'unknown'
     };
 
     existingData.push(newEntry);
@@ -63,7 +67,18 @@ export async function POST(request: NextRequest) {
     // Write back to file
     await writeFile(filePath, JSON.stringify(existingData, null, 2));
 
-    return NextResponse.json({ ok: true });
+    console.log('Early access registration successful:', newEntry);
+
+    return NextResponse.json({ 
+      ok: true,
+      message: 'Successfully registered for early access!',
+      data: {
+        id: newEntry.id,
+        email: newEntry.email,
+        locale: newEntry.locale,
+        timestamp: newEntry.timestamp
+      }
+    });
   } catch (error) {
     console.error('Early access signup error:', error);
     return NextResponse.json(

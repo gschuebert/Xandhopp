@@ -202,6 +202,153 @@ portalis/
 └── pnpm-workspace.yaml      # Monorepo configuration
 ```
 
+## Production Deployment - Server Requirements
+
+### Managed Server Requirements
+
+For hosting the Xandhopp application on a managed server, the following features and software must be available:
+
+#### **Core Runtime Environment**
+- **Node.js**: Version 18.20.8 or higher (LTS recommended)
+- **pnpm**: Version 8+ (package manager)
+- **Git**: For deployment and version control
+
+#### **Web Server & Reverse Proxy**
+- **Nginx** or **Apache**: For serving static files and reverse proxy
+- **SSL/TLS Support**: Let's Encrypt or commercial certificates
+- **HTTP/2 Support**: For better performance
+- **Gzip Compression**: For static asset optimization
+
+#### **Database Requirements**
+- **PostgreSQL**: Version 14+ (main database)
+- **Database Management**: pgAdmin or similar tool access
+- **Backup System**: Automated daily backups
+- **Connection Pooling**: For optimal database performance
+
+#### **File System & Storage**
+- **SSD Storage**: Minimum 20GB for application files
+- **File Permissions**: Proper user/group permissions for web server
+- **Log Rotation**: Automated log management
+- **Static File Serving**: Optimized delivery of images, CSS, JS
+
+#### **Security Features**
+- **Firewall**: Port restrictions (80, 443, 22, 5432)
+- **DDoS Protection**: Basic protection against attacks
+- **SSL/TLS**: HTTPS enforcement
+- **Security Headers**: HSTS, CSP, X-Frame-Options
+- **Regular Updates**: OS and software security patches
+
+#### **Performance & Monitoring**
+- **CDN Integration**: For global asset delivery
+- **Caching**: Redis or Memcached for session storage
+- **Monitoring**: Server resource monitoring (CPU, RAM, Disk)
+- **Uptime Monitoring**: Service availability tracking
+- **Error Logging**: Centralized error collection
+
+#### **Development & Deployment**
+- **SSH Access**: Secure shell for server management
+- **CI/CD Pipeline**: Automated deployment (GitHub Actions, GitLab CI)
+- **Environment Variables**: Secure configuration management
+- **Process Manager**: PM2 or similar for Node.js process management
+
+#### **Domain & DNS**
+- **Domain Management**: DNS configuration access
+- **Subdomain Support**: For staging/testing environments
+- **Email Configuration**: For contact forms and notifications
+
+### **Minimum Server Specifications**
+
+#### **Shared Hosting (Not Recommended)**
+- **RAM**: 2GB minimum
+- **CPU**: 2 cores
+- **Storage**: 20GB SSD
+- **Bandwidth**: 100GB/month
+
+#### **VPS/Cloud Server (Recommended)**
+- **RAM**: 4GB minimum (8GB recommended)
+- **CPU**: 2-4 cores
+- **Storage**: 50GB SSD
+- **Bandwidth**: 1TB/month
+- **OS**: Ubuntu 22.04 LTS or CentOS 8+
+
+#### **Dedicated Server (Enterprise)**
+- **RAM**: 16GB+
+- **CPU**: 8+ cores
+- **Storage**: 200GB+ SSD
+- **Bandwidth**: Unlimited
+- **Redundancy**: RAID configuration
+
+### **Deployment Checklist**
+
+#### **Pre-Deployment**
+- [ ] Server meets minimum requirements
+- [ ] Domain configured and pointing to server
+- [ ] SSL certificate obtained and configured
+- [ ] Database server provisioned
+- [ ] Environment variables prepared
+
+#### **Application Setup**
+- [ ] Node.js and pnpm installed
+- [ ] Application code deployed
+- [ ] Dependencies installed (`pnpm install`)
+- [ ] Database migrations run
+- [ ] Static assets built (`pnpm build`)
+- [ ] Process manager configured (PM2)
+
+#### **Web Server Configuration**
+- [ ] Nginx/Apache configured for reverse proxy
+- [ ] Static file serving optimized
+- [ ] SSL/TLS properly configured
+- [ ] Security headers implemented
+- [ ] Gzip compression enabled
+
+#### **Post-Deployment**
+- [ ] Application accessible via HTTPS
+- [ ] Database connections working
+- [ ] Email functionality tested
+- [ ] Monitoring and logging active
+- [ ] Backup system verified
+- [ ] Performance testing completed
+
+### **Recommended Hosting Providers**
+
+#### **Budget-Friendly Options**
+- **DigitalOcean**: VPS starting at $6/month
+- **Linode**: Reliable VPS with good support
+- **Vultr**: High-performance VPS options
+
+#### **Enterprise Solutions**
+- **AWS**: EC2 with RDS and CloudFront
+- **Google Cloud**: Compute Engine with Cloud SQL
+- **Azure**: Virtual Machines with managed databases
+
+#### **Managed WordPress/Node.js Hosts**
+- **Heroku**: Easy deployment but limited customization
+- **Railway**: Modern platform with good Node.js support
+- **Render**: Simple deployment with automatic SSL
+
+### **Environment Variables for Production**
+
+```bash
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/xandhopp_prod
+
+# Application
+NODE_ENV=production
+NEXT_PUBLIC_API_URL=https://api.xandhopp.com
+NEXT_PUBLIC_APP_URL=https://xandhopp.com
+
+# Security
+JWT_SECRET=your-super-secure-jwt-secret
+NEXTAUTH_SECRET=your-nextauth-secret
+
+# Email (if using contact forms)
+SMTP_HOST=smtp.your-provider.com
+SMTP_PORT=587
+SMTP_USER=your-email@xandhopp.com
+SMTP_PASS=your-email-password
+```
+
 ## Contributing
 
 1. Follow the existing code style (ESLint + Prettier configured)
