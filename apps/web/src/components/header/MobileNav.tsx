@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
+import { SearchForm } from './SearchForm';
 import { getAlternateLocale, type Locale } from '../../lib/i18n';
 import type { ContentSchema } from '../../../content/schema';
 
@@ -62,6 +63,11 @@ export function MobileNav({
       {/* Mobile Menu */}
       <div className="fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl z-50 animate-slide-up">
         <div className="container-default py-6">
+          {/* Search Form */}
+          <div className="mb-6">
+            <SearchForm locale={locale} />
+          </div>
+
           {/* Navigation Links */}
           <nav className="space-y-4 mb-8">
             {navSections.map((section) => (

@@ -28,7 +28,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@portalis/config": "workspace:*",
+    "@xandhopp/config": "workspace:*",
     "typescript": "^5.6.0",
     "@types/node": "^20.0.0"
   }

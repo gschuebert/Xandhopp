@@ -2,34 +2,34 @@ services:
   # Web Frontend (Next.js)
   web:
     build:
-      context: ./apps/web
-      dockerfile: Dockerfile.dev
+      context: .
+      dockerfile: ./apps/web/Dockerfile.dev
     ports:
       - "3000:3000"
     volumes:
-      - ./apps/web:/app
+      - ./apps/web:/app/apps/web
       - /app/node_modules
-      - /app/.next
+      - /app/apps/web/.next
     environment:
       - NODE_ENV=development
-      - NEXT_PUBLIC_API_BASE=http://localhost:8080
+      - NEXT_PUBLIC_API_BASE=http://localhost:8081
     depends_on:
       - api
 
   # Admin Frontend (Next.js)
   admin:
     build:
-      context: ./apps/admin
-      dockerfile: Dockerfile.dev
+      context: .
+      dockerfile: ./apps/admin/Dockerfile.dev
     ports:
       - "3001:3001"
     volumes:
-      - ./apps/admin:/app
+      - ./apps/admin:/app/apps/admin
       - /app/node_modules
-      - /app/.next
+      - /app/apps/admin/.next
     environment:
       - NODE_ENV=development
-      - NEXT_PUBLIC_API_BASE=http://localhost:8080
+      - NEXT_PUBLIC_API_BASE=http://localhost:8081
     depends_on:
       - api
 
@@ -37,13 +37,20 @@ services:
   api:
     build:
       context: ./apps/symfony-api
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.simple
     ports:
-      - "8080:8080"
+      - "8081:8080"
     environment:
       - APP_ENV=dev
-      - DATABASE_URL=postgresql://portalis:portalis@postgres:5432/portalis?serverVersion=15&charset=utf8
-      - JWT_PASSPHRASE=portalis
+      - APP_SECRET=xandhopp-secret-key-for-development
+      - DATABASE_URL=postgresql://xandhopp:xandhopp@postgres:5432/xandhopp?serverVersion=15&charset=utf8
+      - JWT_PASSPHRASE=xandhopp
+      - REDIS_URL=redis://redis:6379
+      - CLICKHOUSE_URL=http://clickhouse:8123
+      - MEILISEARCH_URL=http://meilisearch:7700
+      - MEILISEARCH_API_KEY=91RkaSPLkqMRqx9zv7IkI46fp3OWZR5O5aJuYulPMqjfyLulJI8twoPfXVDRqBT7kmr5qomSqvG6BFO19o3gtBIFcxQYP9irQKd7SzgiJyFKRk1br
+      - CORS_ALLOW_ORIGIN=^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$
+      - MAILER_DSN=null://null
     depends_on:
       postgres:
         condition: service_healthy
@@ -54,7 +61,7 @@ services:
   postgres:
     image: postgres:15-alpine
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_DB=xandhopp
       - POSTGRES_USER=xandhopp
@@ -71,10 +78,10 @@ services:
   meilisearch:
     image: getmeili/meilisearch:v1.5
     ports:
-      - "7700:7700"
+      - "7701:7700"
     environment:
       - MEILI_ENV=development
-      - MEILI_MASTER_KEY=portalis-search-key
+      - MEILI_MASTER_KEY=91RkaSPLkqMRqx9zv7IkI46fp3OWZR5O5aJuYulPMqjfyLulJI8twoPfXVDRqBT7kmr5qomSqvG6BFO19o3gtBIFcxQYP9irQKd7SzgiJyFKRk1br
     volumes:
       - meilisearch_data:/meili_data
 
@@ -82,7 +89,7 @@ services:
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - "6380:6379"
     volumes:
       - redis_data:/data
 
@@ -90,11 +97,11 @@ services:
   minio:
     image: minio/minio:latest
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9004:9000"
+      - "9005:9001"
     environment:
-      - MINIO_ROOT_USER=portalis
-      - MINIO_ROOT_PASSWORD=portalis123
+      - MINIO_ROOT_USER=xandhopp
+      - MINIO_ROOT_PASSWORD=xandhopp123
     volumes:
       - minio_data:/data
     command: server /data --console-address ":9001"
@@ -103,10 +110,10 @@ services:
   clickhouse:
     image: clickhouse/clickhouse-server:24.8
     ports:
-      - "8123:8123"  # HTTP
-      - "9002:9000"  # Native (changed from 9000 to avoid conflict with MinIO)
+      - "8124:8123"  # HTTP (changed from 8123 to avoid conflict)
+      - "9003:9000"  # Native (changed from 9002 to avoid conflict)
     environment:
-      - CLICKHOUSE_DB=portalis
+      - CLICKHOUSE_DB=xandhopp
       - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
     volumes:
       - clickhouse_data:/var/lib/clickhouse

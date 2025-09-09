@@ -39,6 +39,9 @@ security:
         - { path: ^/docs, roles: PUBLIC_ACCESS }
         - { path: ^/docs.json, roles: PUBLIC_ACCESS }
         - { path: ^/api/early-access, roles: PUBLIC_ACCESS }
+        - { path: ^/api/prelaunch, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/stytch/webhook, roles: PUBLIC_ACCESS }
+        - { path: ^/api/test, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 
 when@test:

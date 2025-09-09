@@ -1,4 +1,4 @@
 module.exports = {
-  extends: ['@portalis/config/eslint'],
+  extends: ['@xandhopp/config/eslint'],
 };
 

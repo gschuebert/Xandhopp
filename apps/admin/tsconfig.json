@@ -1,5 +1,5 @@
 {
-  "extends": "@portalis/config/tsconfig/nextjs.json",
+  "extends": "@xandhopp/config/tsconfig/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],

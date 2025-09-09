@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PortalisLogo } from '../portalis-logo';
 import { MobileNav } from './MobileNav';
+import { SearchForm } from './SearchForm';
 import { useScrollSpy } from '../../lib/useScrollSpy';
 import { getAlternateLocale, type Locale } from '../../lib/i18n';
 import type { ContentSchema } from '../../../content/schema';
@@ -91,6 +92,9 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
 
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
+            {/* Search Form */}
+            <SearchForm locale={locale} />
+
             {/* Language Toggle */}
             <Link
               href={alternatePath}

@@ -20,5 +20,13 @@
     "timestamp": "2025-09-08T19:02:53.016Z",
     "ip": "::1",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+  },
+  {
+    "id": 1757401719376,
+    "email": "gs@green4net.com",
+    "locale": "de",
+    "timestamp": "2025-09-09T07:08:39.376Z",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
   }
 ]

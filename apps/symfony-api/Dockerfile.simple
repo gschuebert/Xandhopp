@@ -1,0 +1,50 @@
+# Simple Symfony API Dockerfile for development
+FROM php:8.2-cli-alpine
+
+# Install system dependencies
+RUN apk add --no-cache \
+    git \
+    unzip \
+    libzip-dev \
+    postgresql-dev \
+    icu-dev \
+    oniguruma-dev \
+    curl \
+    && docker-php-ext-install \
+    pdo \
+    pdo_pgsql \
+    zip \
+    intl \
+    mbstring \
+    opcache
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /app
+
+# Copy composer files first for better caching
+COPY composer.json composer.lock ./
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+
+# Copy application code
+COPY . .
+
+# Generate JWT keys if they don't exist
+RUN mkdir -p config/jwt
+RUN if [ ! -f config/jwt/private.pem ]; then \
+        openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096 -pass pass:xandhopp; \
+        openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout -passin pass:xandhopp; \
+    fi
+
+# Set permissions
+RUN chmod -R 755 /app
+
+# Expose port
+EXPOSE 8080
+
+# Start PHP built-in server
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]

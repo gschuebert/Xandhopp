@@ -1,4 +1,4 @@
-const baseConfig = require("@portalis/config/tailwind");
+const baseConfig = require("@xandhopp/config/tailwind");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

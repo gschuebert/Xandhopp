@@ -1,7 +1,7 @@
 {
   "name": "@xandhopp/config",
   "version": "1.0.0",
-  "description": "Shared configuration for Portalis monorepo",
+  "description": "Shared configuration for Xandhopp monorepo",
   "main": "index.js",
   "files": [
     "eslint",

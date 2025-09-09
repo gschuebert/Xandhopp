@@ -1,7 +1,7 @@
 {
   "name": "@xandhopp/ui",
   "version": "1.0.0",
-  "description": "Shared UI components for Portalis",
+  "description": "Shared UI components for Xandhopp",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -22,7 +22,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@portalis/config": "workspace:*",
+    "@xandhopp/config": "workspace:*",
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
     "react": "^18.2.0",
