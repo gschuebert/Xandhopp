@@ -17,6 +17,11 @@ RUN apk add --no-cache \
     mbstring \
     opcache
 
+# Install Redis extension
+RUN apk add --no-cache redis-dev \
+    && pecl install redis \
+    && docker-php-ext-enable redis
+
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
@@ -46,20 +51,21 @@ FROM caddy:2-alpine
 
 # Install PHP
 RUN apk add --no-cache \
-    php82 \
-    php82-fpm \
-    php82-pdo \
-    php82-pdo_pgsql \
-    php82-zip \
-    php82-intl \
-    php82-mbstring \
-    php82-opcache \
-    php82-session \
-    php82-tokenizer \
-    php82-xml \
-    php82-ctype \
-    php82-json \
-    php82-pcntl \
+    php83 \
+    php83-fpm \
+    php83-pdo \
+    php83-pdo_pgsql \
+    php83-zip \
+    php83-intl \
+    php83-mbstring \
+    php83-opcache \
+    php83-session \
+    php83-tokenizer \
+    php83-xml \
+    php83-ctype \
+    php83-json \
+    php83-pcntl \
+    php83-redis \
     supervisor
 
 # Copy Caddy configuration
@@ -91,7 +97,7 @@ COPY <<EOF /etc/caddy/Caddyfile
 EOF
 
 # Copy PHP-FPM configuration
-COPY <<EOF /etc/php82/php-fpm.d/www.conf
+COPY <<EOF /etc/php83/php-fpm.d/www.conf
 [www]
 user = caddy
 group = caddy
@@ -112,7 +118,7 @@ nodaemon=true
 user=root
 
 [program:php-fpm]
-command=php-fpm82 --nodaemonize
+command=php-fpm83 --nodaemonize
 autostart=true
 autorestart=true
 stderr_logfile=/var/log/php-fpm.err.log

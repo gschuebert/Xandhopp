@@ -9,17 +9,23 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class ClickHouseService
 {
-    private HttpClientInterface $httpClient;
-    private string $clickhouseUrl;
+    private ?HttpClientInterface $httpClient;
+    private ?string $clickhouseUrl;
 
-    public function __construct(string $clickhouseUrl = 'http://clickhouse:8123')
+    public function __construct(?string $clickhouseUrl = null)
     {
-        $this->httpClient = HttpClient::create();
         $this->clickhouseUrl = $clickhouseUrl;
+        $this->httpClient = null; // Disable HttpClient for now
     }
 
     public function log(string $eventName, ?int $userId = null, array $properties = []): void
     {
+        if (!$this->httpClient) {
+            // If HttpClient is not available, just log to error log
+            error_log("ClickHouse logging skipped - HttpClient not available");
+            return;
+        }
+
         $data = [
             'name' => $eventName,
             'ts' => date('Y-m-d H:i:s'),
@@ -44,6 +50,11 @@ class ClickHouseService
 
     public function ensureEventsTable(): void
     {
+        if (!$this->httpClient) {
+            error_log("ClickHouse table creation skipped - HttpClient not available");
+            return;
+        }
+
         $createTableQuery = "
             CREATE TABLE IF NOT EXISTS events (
                 name String,

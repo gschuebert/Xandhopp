@@ -41,6 +41,7 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
       if (response.status === 200) {
         setSuccess('Login successful!');
         localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
         
         if (onSuccess) {
           onSuccess(data.user);

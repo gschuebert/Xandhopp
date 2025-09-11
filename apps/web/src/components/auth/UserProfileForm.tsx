@@ -61,8 +61,66 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
         ...user,
         dateOfBirth: user.dateOfBirth ? user.dateOfBirth.split('T')[0] : '',
       });
+    } else {
+      // Load user data from API if no user prop provided
+      loadUserProfile();
     }
   }, [user]);
+
+  const loadUserProfile = async () => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      const storedUser = localStorage.getItem('user');
+      
+      if (!token) {
+        setError('No authentication token found. Please log in again.');
+        return;
+      }
+
+      // First, try to get user data from localStorage (from login)
+      if (storedUser) {
+        try {
+          const userData = JSON.parse(storedUser);
+          setProfile({
+            ...profile,
+            ...userData,
+            dateOfBirth: userData.dateOfBirth ? userData.dateOfBirth.split('T')[0] : '',
+          });
+        } catch (e) {
+          console.error('Error parsing stored user data:', e);
+        }
+      }
+
+      // Then try to load additional profile data from API
+      const response = await fetch('/api/auth/profile', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.user) {
+          setProfile(prevProfile => ({
+            ...prevProfile,
+            ...data.user,
+            dateOfBirth: data.user.dateOfBirth ? data.user.dateOfBirth.split('T')[0] : '',
+          }));
+        }
+      } else {
+        // If API fails but we have stored user data, that's okay
+        if (!storedUser) {
+          setError('Failed to load profile data');
+        }
+      }
+    } catch (err) {
+      console.error('Error loading profile:', err);
+      if (!localStorage.getItem('user')) {
+        setError('Failed to load profile data');
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
