@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { XandhoppLogo } from '../../../components/xandhopp-logo';
+import { PortalisLogo } from '../../../components/portalis-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 
 interface CountriesPageProps {
@@ -18,7 +18,7 @@ export default function CountriesPage({ params }: CountriesPageProps) {
         <div className="container-default">
           <div className="flex items-center justify-between h-16">
             <Link href={`/${params.locale}`} className="flex items-center space-x-3">
-              <XandhoppLogo size="sm" />
+              <PortalisLogo size="sm" />
               <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
             </Link>
             <Link

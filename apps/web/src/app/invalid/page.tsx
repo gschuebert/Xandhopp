@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function InvalidPage() {
   const searchParams = useSearchParams();
-  const reason = searchParams.get('reason');
+  const reason = searchParams?.get('reason') || '';
 
   const getErrorMessage = () => {
     switch (reason) {

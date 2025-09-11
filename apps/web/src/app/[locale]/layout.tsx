@@ -48,8 +48,8 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   }
 
   return (
-    <html lang={params.locale}>
-      <body className={inter.className}>{children}</body>
-    </html>
+    <div lang={params.locale}>
+      {children}
+    </div>
   );
 }

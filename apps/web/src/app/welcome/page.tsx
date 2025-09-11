@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function WelcomePage() {
   const searchParams = useSearchParams();
-  const status = searchParams.get('status');
+  const status = searchParams?.get('status') || '';
 
   const getStatusMessage = () => {
     switch (status) {

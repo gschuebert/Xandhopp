@@ -1,5 +1,5 @@
 import { PortalisLogo } from '../../../components/portalis-logo';
-import LoginForm from '../../../components/auth/LoginForm';
+import SimpleLoginForm from '../../../components/auth/SimpleLoginForm';
 
 interface SigninPageProps {
   params: {
@@ -16,8 +16,7 @@ export default function SigninPage({ params }: SigninPageProps) {
         <div className="text-center">
           <PortalisLogo size="lg" />
         </div>
-        
-        <LoginForm locale={locale} />
+        <SimpleLoginForm locale={locale} />
       </div>
     </div>
   );

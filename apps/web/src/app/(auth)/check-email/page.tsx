@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function CheckEmailPage() {
   const searchParams = useSearchParams();
-  const email = searchParams.get('email');
+  const email = searchParams?.get('email') || '';
 
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">

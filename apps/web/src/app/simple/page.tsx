@@ -1,5 +1,5 @@
 import { PortalisLogo } from "../../components/portalis-logo";
-import { Button } from "@portalis/ui";
+import { Button } from "@xandhopp/ui";
 import Link from "next/link";
 
 export default function SimplePage() {
