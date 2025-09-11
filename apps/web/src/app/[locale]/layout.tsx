@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
+import Header from '../../components/Header';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +29,9 @@ export async function generateMetadata({ params }: { params: { locale: string } 
     description: content.meta.description,
     keywords: content.meta.keywords,
     icons: {
-      icon: '/favicon.svg',
-      shortcut: '/favicon.svg',
-      apple: '/favicon.svg',
+      icon: '/favicon.png',
+      shortcut: '/favicon.png',
+      apple: '/favicon.png',
     },
     openGraph: {
       title: content.meta.title,
@@ -49,7 +50,10 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   return (
     <div lang={params.locale}>
-      {children}
+      <Header />
+      <main>
+        {children}
+      </main>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { SiteHeader } from '../../components/header/SiteHeader';
 import { SiteFooter } from '../../components/footer/SiteFooter';
 import { Hero } from '../../components/sections/Hero';
 import { Problem } from '../../components/sections/Problem';
@@ -28,9 +27,7 @@ export default function HomePage({ params }: HomePageProps) {
   const content = getContent(locale);
 
   return (
-    <div className="min-h-screen bg-portalis-bg">
-      <SiteHeader content={content} locale={locale} />
-      
+    <div className="min-h-screen bg-gray-50">
       <main>
         <Hero content={content} locale={locale} />
         <Problem content={content} />
