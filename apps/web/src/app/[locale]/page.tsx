@@ -1,15 +1,12 @@
-import { SiteFooter } from '../../components/footer/SiteFooter';
-import { Hero } from '../../components/sections/Hero';
-import { Problem } from '../../components/sections/Problem';
-import { Solution } from '../../components/sections/Solution';
-import { Features } from '../../components/sections/Features';
-import { HowItWorks } from '../../components/sections/HowItWorks';
-import { CountriesTeaser } from '../../components/sections/CountriesTeaser';
-import { CompareTeaser } from '../../components/sections/CompareTeaser';
-import { WizardTeaser } from '../../components/sections/WizardTeaser';
-import { Trust } from '../../components/sections/Trust';
-import { Cta } from '../../components/sections/Cta';
-import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
+import Hero from '../../components/sections/Hero';
+import ProblemSection from '../../components/sections/ProblemSection';
+import SolutionSection from '../../components/sections/SolutionSection';
+import FeaturesSection from '../../components/sections/FeaturesSection';
+import HowItWorksSection from '../../components/sections/HowItWorksSection';
+import TestimonialsSection from '../../components/sections/TestimonialsSection';
+import CTASection from '../../components/sections/CTASection';
+import Footer from '../../components/Footer';
+import { isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
 
 interface HomePageProps {
@@ -24,24 +21,17 @@ export default function HomePage({ params }: HomePageProps) {
   }
 
   const locale = params.locale as Locale;
-  const content = getContent(locale);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main>
-        <Hero content={content} locale={locale} />
-        <Problem content={content} />
-        <Solution content={content} />
-        <Features content={content} />
-        <HowItWorks content={content} />
-        <CountriesTeaser content={content} locale={locale} />
-        <CompareTeaser content={content} />
-        <WizardTeaser content={content} />
-        <Trust content={content} />
-        <Cta content={content} />
-      </main>
-      
-      <SiteFooter content={content} locale={locale} />
+    <div className="min-h-screen">
+      <Hero locale={locale} />
+      <ProblemSection />
+      <SolutionSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <TestimonialsSection />
+      <CTASection locale={locale} />
+      <Footer locale={locale} />
     </div>
   );
 }

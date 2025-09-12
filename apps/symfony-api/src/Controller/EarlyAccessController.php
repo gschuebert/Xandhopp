@@ -34,8 +34,26 @@ class EarlyAccessController extends AbstractController
             ], Response::HTTP_BAD_REQUEST);
         }
 
+        // Honeypot check
+        if (isset($data['honeypot']) && !empty($data['honeypot'])) {
+            return new JsonResponse([
+                'success' => false,
+                'message' => 'Bot detected'
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $email = trim($data['email']);
         $locale = $data['locale'] ?? 'en';
+        $ipAddress = $request->getClientIp();
+
+        // Rate limiting check - max 3 registrations per IP per hour
+        $recentRegistrations = $this->repository->findRecentRegistrationsByIp($ipAddress, 1);
+        if (count($recentRegistrations) >= 3) {
+            return new JsonResponse([
+                'success' => false,
+                'message' => 'Too many registration attempts. Please try again later.'
+            ], Response::HTTP_TOO_MANY_REQUESTS);
+        }
 
         // Validate email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -95,6 +113,40 @@ class EarlyAccessController extends AbstractController
                 'success' => false,
                 'message' => 'Failed to register: ' . $e->getMessage()
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    #[Route('/early-access', name: 'early_access_check', methods: ['GET'])]
+    public function check(Request $request): JsonResponse
+    {
+        $email = $request->query->get('email');
+
+        if (!$email) {
+            return new JsonResponse([
+                'success' => false,
+                'message' => 'Email parameter is required'
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $registration = $this->repository->findByEmail($email);
+        
+        if ($registration) {
+            return new JsonResponse([
+                'success' => true,
+                'registered' => true,
+                'message' => 'Email is already registered',
+                'data' => [
+                    'email' => $registration->getEmail(),
+                    'locale' => $registration->getLocale(),
+                    'createdAt' => $registration->getCreatedAt()->format('Y-m-d H:i:s')
+                ]
+            ]);
+        } else {
+            return new JsonResponse([
+                'success' => true,
+                'registered' => false,
+                'message' => 'Email is not registered'
+            ]);
         }
     }
 

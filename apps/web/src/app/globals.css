@@ -68,15 +68,15 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-medium shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-xandhopp-orange focus-visible:ring-offset-2 transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-medium shadow-sm hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 transition-all duration-200;
   }
   
   .btn-primary {
-    @apply bg-xandhopp-blue text-white hover:bg-xandhopp-blue-dark;
+    @apply bg-primary text-white hover:bg-primary-600;
   }
   
   .btn-secondary {
-    @apply bg-white text-xandhopp-blue border-2 border-xandhopp-blue hover:bg-xandhopp-blue hover:text-white;
+    @apply bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white;
   }
   
   .container-default {
@@ -88,6 +88,6 @@
   }
   
   .card {
-    @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-xandhopp-neutral-200;
+    @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200;
   }
 }

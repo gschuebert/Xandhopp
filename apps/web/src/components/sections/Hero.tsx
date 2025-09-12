@@ -2,78 +2,92 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import type { ContentSchema } from '../../../content/schema';
-import type { Locale } from '../../lib/i18n';
+import { ArrowRight, Play } from 'lucide-react';
 
 interface HeroProps {
-  content: ContentSchema;
-  locale: Locale;
+  locale: string;
 }
 
-export function Hero({ content, locale }: HeroProps) {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
+export default function Hero({ locale }: HeroProps) {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-32 pb-20">
-      <div className="container-default text-center">
-        <div className="max-w-4xl mx-auto">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50" />
+      
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <div className="text-center">
           {/* Logo */}
-          <div className="flex justify-center mb-8 animate-fade-in">
-            <div className="relative">
+          <div className="mb-8">
+            <div className="relative w-24 h-24 mx-auto mb-6">
               <Image
                 src="/logo.png"
-                alt="Portalis Logo"
-                width={300}
-                height={100}
-                className="h-24 w-auto"
-                onError={(e) => {
-                  // Fallback to text if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (fallback) fallback.style.display = 'block';
-                }}
+                alt="Portalis"
+                fill
+                className="object-contain"
+                priority
               />
-              <div className="hidden text-center">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-2">
-                  {content.hero.title}
-                </h1>
-                <h2 className="text-2xl md:text-3xl text-blue-600 font-medium">
-                  {content.hero.subtitle}
-                </h2>
-              </div>
             </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Your perfect move
+              <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                worldwide
+              </span>
+            </h1>
           </div>
-          
-          {/* Description */}
-          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-up">
-            {content.hero.description}
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Navigate global relocation with confidence. Expert guidance, real-time data, 
+            and personalized support for your international move.
           </p>
-          
+
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link
               href={`/${locale}/register`}
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-10 rounded-xl text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              className="group bg-gradient-to-r from-primary to-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-warm hover:shadow-elegant transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
             >
-              Get Started
+              <span>Start Your Journey</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            <button
-              onClick={() => scrollToSection('solution')}
-              className="bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-10 rounded-xl text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              Learn More
+            
+            <button className="group flex items-center space-x-3 text-gray-700 hover:text-primary transition-colors duration-300">
+              <div className="w-12 h-12 bg-white rounded-full shadow-soft flex items-center justify-center group-hover:shadow-warm transition-shadow duration-300">
+                <Play className="w-5 h-5 ml-1" />
+              </div>
+              <span className="font-medium">Watch Demo</span>
             </button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <div className="text-gray-600">Countries Covered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary mb-2">10K+</div>
+              <div className="text-gray-600">Successful Relocations</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-gray-600">Expert Support</div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-primary-100 rounded-full opacity-60 animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-16 h-16 bg-secondary-100 rounded-full opacity-60 animate-pulse delay-1000" />
+      <div className="absolute top-1/2 left-5 w-12 h-12 bg-primary-200 rounded-full opacity-40 animate-pulse delay-500" />
     </section>
   );
 }

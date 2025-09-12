@@ -26,6 +26,8 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
     acceptTerms: false
   });
   
+  const [honeypot, setHoneypot] = useState(''); // Honeypot field for bots
+  
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -60,6 +62,13 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    
+    // Honeypot check - if filled, it's likely a bot
+    if (honeypot) {
+      console.log('Bot detected via honeypot');
+      return;
+    }
+    
     setLoading(true);
     setError('');
     setSuccess('');
@@ -89,7 +98,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, honeypot }),
       });
 
       const data: RegistrationResponse = await response.json();
@@ -167,6 +176,22 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6" method="post">
+        {/* Honeypot field - hidden from users but visible to bots */}
+        <input
+          type="text"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          style={{ 
+            position: 'absolute', 
+            left: '-9999px', 
+            opacity: 0, 
+            pointerEvents: 'none' 
+          }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+        
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">

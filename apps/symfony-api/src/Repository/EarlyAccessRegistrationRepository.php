@@ -41,4 +41,18 @@ class EarlyAccessRegistrationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findRecentRegistrationsByIp(string $ipAddress, int $hours = 1): array
+    {
+        $since = new \DateTime("-{$hours} hours");
+        
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.ipAddress = :ip')
+            ->andWhere('e.createdAt >= :since')
+            ->setParameter('ip', $ipAddress)
+            ->setParameter('since', $since)
+            ->orderBy('e.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

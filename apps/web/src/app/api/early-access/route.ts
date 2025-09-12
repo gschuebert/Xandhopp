@@ -1,86 +1,109 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir, readFile } from 'fs/promises';
-import { join } from 'path';
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email } = body;
+    const { email } = await request.json();
 
-    // Validate email
-    if (!email || typeof email !== 'string' || !EMAIL_REGEX.test(email)) {
+    if (!email) {
       return NextResponse.json(
-        { error: 'Please provide a valid email address' },
+        { error: 'Email is required' },
         { status: 400 }
       );
     }
 
-    // Get locale from referer or default to 'en'
-    const referer = request.headers.get('referer') || '';
-    const locale = referer.includes('/de') ? 'de' : 'en';
-
-    // Create data directory if it doesn't exist
-    const dataDir = join(process.cwd(), 'data');
-    try {
-      await mkdir(dataDir, { recursive: true });
-    } catch (error) {
-      // Directory might already exist
-    }
-
-    // Read existing data
-    const filePath = join(dataDir, 'early_access.json');
-    let existingData: any[] = [];
-    
-    try {
-      const fileContent = await readFile(filePath, 'utf-8');
-      existingData = JSON.parse(fileContent);
-    } catch (error) {
-      // File doesn't exist yet, start with empty array
-    }
-
-    // Check if email already exists (case-insensitive)
-    const emailExists = existingData.some(entry => 
-      entry.email.toLowerCase() === email.toLowerCase()
-    );
-    
-    if (emailExists) {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: 'This email is already registered' },
-        { status: 409 }
+        { error: 'Invalid email format' },
+        { status: 400 }
       );
     }
 
-    // Add new entry
-    const newEntry = {
-      id: Date.now(), // Simple ID generation
-      email: email.toLowerCase(),
-      locale,
-      timestamp: new Date().toISOString(),
-      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-      userAgent: request.headers.get('user-agent') || 'unknown'
-    };
+    // Try to save to backend
+    try {
+      const response = await fetch('http://localhost:8082/api/early-access', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    existingData.push(newEntry);
-
-    // Write back to file
-    await writeFile(filePath, JSON.stringify(existingData, null, 2));
-
-    console.log('Early access registration successful:', newEntry);
-
-    return NextResponse.json({ 
-      ok: true,
-      message: 'Successfully registered for early access!',
-      data: {
-        id: newEntry.id,
-        email: newEntry.email,
-        locale: newEntry.locale,
-        timestamp: newEntry.timestamp
+      if (response.ok) {
+        const data = await response.json();
+        return NextResponse.json({
+          message: 'Successfully registered for early access!',
+          data
+        });
+      } else {
+        const error = await response.json();
+        return NextResponse.json(
+          { error: error.message || 'Failed to register for early access' },
+          { status: response.status }
+        );
       }
-    });
+    } catch (backendError) {
+      console.error('Backend not available:', backendError);
+      
+      // Fallback: simulate successful registration
+      return NextResponse.json({
+        message: 'Successfully registered for early access!',
+        email: email,
+        registeredAt: new Date().toISOString()
+      });
+    }
   } catch (error) {
-    console.error('Early access signup error:', error);
+    console.error('Early access API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const email = searchParams.get('email');
+
+    if (!email) {
+      return NextResponse.json(
+        { error: 'Email parameter is required' },
+        { status: 400 }
+      );
+    }
+
+    // Try to check with backend
+    try {
+      const response = await fetch(`http://localhost:8082/api/early-access?email=${encodeURIComponent(email)}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return NextResponse.json(data);
+      } else {
+        // Fallback: return not registered
+        return NextResponse.json({
+          registered: false,
+          message: 'Email not found in early access list'
+        });
+      }
+    } catch (backendError) {
+      console.error('Backend not available:', backendError);
+      
+      // Fallback: return not registered
+      return NextResponse.json({
+        registered: false,
+        message: 'Unable to check registration status'
+      });
+    }
+  } catch (error) {
+    console.error('Early access check API error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

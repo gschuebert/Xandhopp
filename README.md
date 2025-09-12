@@ -1,16 +1,18 @@
-# Xandhopp - Your perfect move worldwide
+# Portalis - Your perfect move worldwide
 
-A production-ready monorepo for managing residency and immigration programs worldwide.
+A production-ready monorepo for managing residency and immigration programs worldwide with full user authentication and profile management.
 
 ## Architecture
 
 This monorepo contains:
 
-- **apps/web**: Next.js 14 frontend with i18n, TanStack Query, and shadcn/ui
+- **apps/web**: Next.js 14 frontend with i18n, user authentication, and profile management
 - **apps/admin**: Next.js 14 admin panel with CRUD operations
-- **apps/symfony-api**: Symfony 7 API with API Platform, Doctrine, and JWT auth
+- **apps/symfony-api**: Symfony 7 API with user authentication, email verification, and profile management
+- **apps/ingestion-worker**: Background worker for data collection and processing
 - **packages/ui**: Shared shadcn-based UI components
 - **packages/shared**: Shared Zod schemas and TypeScript types
+- **packages/connectors**: External API connectors for data collection
 - **packages/config**: Shared ESLint, Prettier, Tailwind, and tsconfig
 
 ## Quick Start
@@ -76,9 +78,10 @@ scripts\setup.bat
 
 5. **Access the applications:**
    - Web app: http://localhost:3000
-   - Admin panel: http://localhost:3001 (login: admin@portalis.com / admin)
-   - API docs: http://localhost:8080/docs
-   - API OpenAPI spec: http://localhost:8080/docs.json
+   - Admin panel: http://localhost:3003 (login: admin@portalis.com / admin)
+   - API: http://localhost:8082
+   - API docs: http://localhost:8082/docs
+   - MailHog (email testing): http://localhost:8025
 
 ## Development
 
@@ -131,25 +134,40 @@ make api-docs      # Generate OpenAPI types
 
 ## Services
 
-When running `make up`, the following services are available:
+When running `docker compose up`, the following services are available:
 
-- **Web (port 3000)**: Main frontend application
-- **Admin (port 3001)**: Administration panel
-- **API (port 8080)**: Symfony API with Caddy server
-- **PostgreSQL (port 5432)**: Main database
-- **Meilisearch (port 7700)**: Search engine (for future use)
-- **Redis (port 6379)**: Cache and sessions (for future use)
-- **MinIO (ports 9000/9001)**: S3-compatible storage (for future use)
+- **Web (port 3000)**: Main frontend application with user authentication
+- **Admin (port 3003)**: Administration panel
+- **API (port 8082)**: Symfony API with user authentication and email verification
+- **PostgreSQL (port 5433)**: Main database with user management
+- **ClickHouse (port 8124)**: Analytics database for data processing
+- **Meilisearch (port 7701)**: Search engine
+- **Redis (port 6380)**: Cache and rate limiting
+- **MinIO (ports 9004/9005)**: S3-compatible storage
+- **MailHog (port 8025)**: Email testing interface
 
-## API Entities
+## Features
 
-The API provides the following main entities:
+### User Authentication & Management
+- **User Registration**: Complete registration with email verification
+- **User Login**: JWT-based authentication
+- **Profile Management**: Full user profile editing and saving
+- **Email Verification**: Automated email verification system
+- **Password Security**: Secure password hashing and validation
 
-- **Country**: Countries with residency information
-- **ResidencyProgram**: Available immigration programs
-- **Provider**: Immigration service providers
-- **ChecklistItem**: Country-specific checklists
-- **User**: Admin users with JWT authentication
+### Data Management
+- **Country Data**: Countries with residency information
+- **Residency Programs**: Available immigration programs
+- **Service Providers**: Immigration service providers
+- **Checklist Items**: Country-specific checklists
+- **User Profiles**: Complete user profile management
+
+### Technical Features
+- **Real-time Data**: Live data from external APIs
+- **Email System**: MailHog integration for development
+- **Rate Limiting**: Redis-based rate limiting
+- **Data Analytics**: ClickHouse integration for analytics
+- **Search**: Meilisearch integration for fast search
 
 ## Demo Data
 
@@ -159,7 +177,15 @@ The seed command creates:
 - 4 residency programs (including digital nomad visas)
 - 3 service providers
 - Sample checklist items
-  - Admin user (admin@xandhopp.com / admin)
+- Admin user (admin@portalis.com / admin)
+
+## User Authentication Flow
+
+1. **Registration**: Users can register with email, password, first name, and last name
+2. **Email Verification**: Users receive a verification email via MailHog
+3. **Login**: Users can log in with their verified credentials
+4. **Profile Management**: Users can edit and save their complete profile
+5. **Data Persistence**: All user data is stored in PostgreSQL database
 
 ## Tech Stack
 
@@ -177,6 +203,9 @@ The seed command creates:
 - Doctrine ORM
 - PostgreSQL
 - JWT Authentication (lexik/jwt-authentication-bundle)
+- Email Verification System
+- User Profile Management
+- Rate Limiting with Redis
 - CORS support (nelmio/cors-bundle)
 
 ### DevOps
@@ -188,15 +217,17 @@ The seed command creates:
 ## Project Structure
 
 ```
-xandhopp/
+portalis/
 ├── apps/
-│   ├── web/                 # Next.js frontend
+│   ├── web/                 # Next.js frontend with authentication
 │   ├── admin/               # Next.js admin panel
-│   └── symfony-api/         # Symfony API
+│   ├── symfony-api/         # Symfony API with user management
+│   └── ingestion-worker/    # Background data processing
 ├── packages/
 │   ├── config/              # Shared configs
 │   ├── shared/              # Shared schemas & types
-│   └── ui/                  # Shared UI components
+│   ├── ui/                  # Shared UI components
+│   └── connectors/          # External API connectors
 ├── docker-compose.yml       # Development services
 ├── Makefile                 # Convenience commands
 └── pnpm-workspace.yaml      # Monorepo configuration
@@ -331,22 +362,23 @@ For hosting the Xandhopp application on a managed server, the following features
 
 ```bash
 # Database
-DATABASE_URL=postgresql://user:password@localhost:5432/xandhopp_prod
+DATABASE_URL=postgresql://user:password@localhost:5432/portalis_prod
 
 # Application
 NODE_ENV=production
-NEXT_PUBLIC_API_URL=https://api.xandhopp.com
-NEXT_PUBLIC_APP_URL=https://xandhopp.com
+NEXT_PUBLIC_API_URL=https://api.portalis.com
+NEXT_PUBLIC_APP_URL=https://portalis.com
 
 # Security
 JWT_SECRET=your-super-secure-jwt-secret
 NEXTAUTH_SECRET=your-nextauth-secret
 
-# Email (if using contact forms)
+# Email (for user verification and notifications)
 SMTP_HOST=smtp.your-provider.com
 SMTP_PORT=587
-SMTP_USER=your-email@xandhopp.com
+SMTP_USER=your-email@portalis.com
 SMTP_PASS=your-email-password
+MAILER_DSN=smtp://user:password@smtp.your-provider.com:587
 ```
 
 ## Contributing

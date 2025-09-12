@@ -59,6 +59,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $backupCodes = null; // JSON array of backup codes
 
+    // Registration tracking
+    #[ORM\Column(type: Types::STRING, length: 45, nullable: true)]
+    private ?string $registrationIpAddress = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $phoneNumber = null;
 
@@ -720,6 +724,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmailVerificationTokenExpiresAt(?\DateTimeImmutable $emailVerificationTokenExpiresAt): self
     {
         $this->emailVerificationTokenExpiresAt = $emailVerificationTokenExpiresAt;
+        return $this;
+    }
+
+    public function getRegistrationIpAddress(): ?string
+    {
+        return $this->registrationIpAddress;
+    }
+
+    public function setRegistrationIpAddress(?string $registrationIpAddress): self
+    {
+        $this->registrationIpAddress = $registrationIpAddress;
         return $this;
     }
 }

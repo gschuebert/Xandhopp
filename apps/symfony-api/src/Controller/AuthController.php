@@ -292,8 +292,20 @@ class AuthController extends AbstractController
             return new JsonResponse(['error' => 'Email and password are required'], 400);
         }
 
+        // Honeypot check
+        if (isset($data['honeypot']) && !empty($data['honeypot'])) {
+            return new JsonResponse(['error' => 'Bot detected'], 403);
+        }
+
         $email = $data['email'];
         $password = $data['password'];
+        $ipAddress = $request->getClientIp();
+
+        // Rate limiting check - max 3 registrations per IP per hour
+        $recentRegistrations = $this->userRepository->findRecentRegistrationsByIp($ipAddress, 1);
+        if (count($recentRegistrations) >= 3) {
+            return new JsonResponse(['error' => 'Too many registration attempts. Please try again later.'], 429);
+        }
 
         // Validate email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -320,6 +332,9 @@ class AuthController extends AbstractController
         $verificationToken = $this->tokenService->generateEmailVerificationToken();
         $user->setEmailVerificationToken($verificationToken);
         $user->setEmailVerificationTokenExpiresAt(new \DateTimeImmutable('+24 hours'));
+
+        // Store registration IP address for rate limiting
+        $user->setRegistrationIpAddress($ipAddress);
 
         // Set profile fields if provided
         if (isset($data['firstName'])) {

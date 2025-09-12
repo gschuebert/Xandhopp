@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
-import Header from '../../components/Header';
+import Navigation from '../../components/Navigation';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,7 +50,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   return (
     <div lang={params.locale}>
-      <Header />
+      <Navigation locale={params.locale} />
       <main>
         {children}
       </main>
