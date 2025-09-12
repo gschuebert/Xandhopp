@@ -62,7 +62,7 @@ export function loadConfig(): Config {
   const config = {
     redis: {
       host: process.env.REDIS_HOST || "localhost",
-      port: Number(process.env.REDIS_PORT || "6379"),
+      port: Number(process.env.REDIS_PORT || "6380"),
       password: process.env.REDIS_PASSWORD,
       db: Number(process.env.REDIS_DB || "0"),
     },

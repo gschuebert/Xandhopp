@@ -45,6 +45,7 @@ security:
         - { path: ^/api/auth/forgot-password, roles: PUBLIC_ACCESS }
         - { path: ^/api/auth/reset-password, roles: PUBLIC_ACCESS }
         - { path: ^/api/auth/stytch/webhook, roles: PUBLIC_ACCESS }
+        - { path: ^/api/auth/profile-simple, roles: PUBLIC_ACCESS }
         - { path: ^/api/test, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 

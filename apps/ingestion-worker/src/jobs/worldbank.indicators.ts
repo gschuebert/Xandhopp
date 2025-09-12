@@ -1,5 +1,5 @@
 import { Job } from "bullmq";
-import { fetchWorldBankIndicators, COMMON_INDICATORS } from "@portalis/connectors/worldbank";
+import { fetchWorldBankIndicators, COMMON_INDICATORS } from "@xandhopp/connectors/worldbank";
 import { ClickHouseService } from "../database.js";
 import { logger } from "../logger.js";
 import { fallbackStorage } from "../fallback-storage.js";

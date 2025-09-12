@@ -92,10 +92,13 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
       }
 
       // Then try to load additional profile data from API
+      const userData = storedUser ? JSON.parse(storedUser) : null;
+      console.log('UserProfileForm: Loading profile for user:', userData);
       const response = await fetch('/api/auth/profile', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
+          'x-user-data': JSON.stringify(userData),
         },
       });
 
@@ -130,11 +133,15 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
     try {
       const token = localStorage.getItem('auth_token');
+      const storedUser = localStorage.getItem('user');
+      const userData = storedUser ? JSON.parse(storedUser) : {};
+      
       const response = await fetch('/api/auth/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
+          'x-user-data': JSON.stringify(userData),
         },
         body: JSON.stringify(profile),
       });
@@ -143,6 +150,15 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       if (response.status === 200) {
         setSuccess('Profile updated successfully!');
+        setProfile(data.user);
+        
+        // Update localStorage with new user data
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+          // Dispatch custom event to notify other components
+          window.dispatchEvent(new CustomEvent('userUpdated'));
+        }
+        
         if (onSuccess) onSuccess(data.user);
       } else {
         setError(data.error || 'Failed to update profile');

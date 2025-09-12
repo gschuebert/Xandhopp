@@ -1,6 +1,6 @@
 import { Job } from "bullmq";
-import { fetchUSTravelAdvisories } from "@portalis/connectors/stateDept";
-import { fetchFCDOMultipleCountries, FCDO_EU_COUNTRIES } from "@portalis/connectors/fcdo";
+import { fetchUSTravelAdvisories } from "@xandhopp/connectors/stateDept";
+import { fetchFCDOMultipleCountries, FCDO_EU_COUNTRIES } from "@xandhopp/connectors/fcdo";
 import { ClickHouseService } from "../database.js";
 import { logger } from "../logger.js";
 

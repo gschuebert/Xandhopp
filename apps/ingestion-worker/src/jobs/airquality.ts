@@ -1,5 +1,5 @@
 import { Job } from "bullmq";
-import { fetchOpenAQMultipleCountries } from "@portalis/connectors/openaq";
+import { fetchOpenAQMultipleCountries } from "@xandhopp/connectors/openaq";
 import { ClickHouseService } from "../database.js";
 import { logger } from "../logger.js";
 import { fallbackStorage } from "../fallback-storage.js";

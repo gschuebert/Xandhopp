@@ -15,6 +15,24 @@ export default function Header() {
     if (userData) {
       setUser(JSON.parse(userData));
     }
+
+    // Listen for storage changes to update user data
+    const handleStorageChange = () => {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        setUser(JSON.parse(userData));
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also listen for custom events when localStorage is updated in the same tab
+    window.addEventListener('userUpdated', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('userUpdated', handleStorageChange);
+    };
   }, []);
 
   const handleLogout = () => {
