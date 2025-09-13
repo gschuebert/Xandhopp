@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { getContent, type Locale } from '../../lib/i18n';
 
 interface SimpleLoginFormProps {
   locale: string;
@@ -11,6 +12,7 @@ interface SimpleLoginFormProps {
 
 export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLoginFormProps) {
   const router = useRouter();
+  const content = getContent(locale as Locale);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -39,7 +41,7 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
       const data = await response.json();
 
       if (response.status === 200) {
-        setSuccess('Login successful!');
+        setSuccess(content.forms.login.success.loginSuccessful);
         localStorage.setItem('auth_token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
         
@@ -50,12 +52,12 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
         // Redirect to profile or dashboard
         router.push(`/${locale}/profile`);
       } else {
-        setError(data.error || 'Login failed');
-        if (onError) onError(data.error || 'Login failed');
+        setError(data.error || content.forms.login.errors.loginFailed);
+        if (onError) onError(data.error || content.forms.login.errors.loginFailed);
       }
     } catch (err) {
-      setError('Network error. Please try again.');
-      if (onError) onError('Network error. Please try again.');
+      setError(content.forms.login.errors.networkError);
+      if (onError) onError(content.forms.login.errors.networkError);
     } finally {
       setLoading(false);
     }
@@ -64,14 +66,14 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
   return (
     <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h2>
-        <p className="text-gray-600">Sign in to your account</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{content.forms.login.title}</h2>
+        <p className="text-gray-600">{content.forms.login.subtitle}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address
+            {content.forms.login.email}
           </label>
           <input
             type="email"
@@ -86,7 +88,7 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-            Password
+            {content.forms.login.password}
           </label>
           <div className="relative">
             <input
@@ -127,13 +129,13 @@ export default function SimpleLoginForm({ locale, onSuccess, onError }: SimpleLo
           disabled={loading}
           className="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {loading ? 'Signing in...' : 'Sign In'}
+          {loading ? content.forms.login.signingIn : content.forms.login.signIn}
         </button>
 
         <div className="text-center">
-          <span className="text-gray-600 text-sm">Don't have an account? </span>
+          <span className="text-gray-600 text-sm">{content.forms.login.dontHaveAccount} </span>
           <a href={`/${locale}/register`} className="text-blue-600 hover:text-blue-500 text-sm font-medium">
-            Create Account
+            {content.forms.login.createAccount}
           </a>
         </div>
       </form>

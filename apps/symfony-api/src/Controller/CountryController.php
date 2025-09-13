@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Country;
 use App\Service\CountryService;
+use App\Service\UsStateService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +19,7 @@ class CountryController extends AbstractController
 {
     public function __construct(
         private CountryService $countryService,
+        private UsStateService $usStateService,
         private SerializerInterface $serializer
     ) {}
 
@@ -28,6 +30,22 @@ class CountryController extends AbstractController
         $search = $request->query->get('search');
         $limit = (int) $request->query->get('limit', 50);
 
+        // Special handling for North America - return US states instead of countries
+        if ($continent === 'North America') {
+            if ($search) {
+                $results = $this->usStateService->searchStatesPublic($search, $limit);
+            } else {
+                $results = $this->usStateService->getAllStatesPublic();
+            }
+            
+            return new JsonResponse([
+                'results' => $results,
+                'total' => count($results),
+                'type' => 'us_states'
+            ]);
+        }
+
+        // Regular country handling
         if ($search) {
             $countries = $this->countryService->searchCountries($search, $limit);
         } elseif ($continent) {
@@ -54,6 +72,19 @@ class CountryController extends AbstractController
             return new JsonResponse(['error' => 'Query parameter "q" is required'], Response::HTTP_BAD_REQUEST);
         }
 
+        // Special handling for North America - search US states
+        if ($continent === 'North America') {
+            $results = $this->usStateService->searchStatesPublic($query, $limit);
+            return new JsonResponse([
+                'query' => $query,
+                'continent' => $continent,
+                'results' => $results,
+                'total' => count($results),
+                'type' => 'us_states'
+            ]);
+        }
+
+        // Regular country search
         $results = $this->countryService->searchCountriesPublic($query, $limit);
 
         // Filter by continent if specified
@@ -82,6 +113,17 @@ class CountryController extends AbstractController
             return new JsonResponse(['results' => []]);
         }
 
+        // Special handling for North America - autocomplete US states
+        if ($continent === 'North America') {
+            $results = $this->usStateService->getAutocompleteStates($query, $limit);
+            return new JsonResponse([
+                'results' => $results,
+                'total' => count($results),
+                'type' => 'us_states'
+            ]);
+        }
+
+        // Regular country autocomplete
         $results = $this->countryService->searchCountriesPublic($query, $limit);
 
         // Filter by continent if specified
@@ -139,10 +181,19 @@ class CountryController extends AbstractController
     #[Route('/{slug}/public', name: 'show_public', methods: ['GET'])]
     public function showPublic(string $slug): JsonResponse
     {
+        // First try to get as US state (2-letter code)
+        if (strlen($slug) === 2) {
+            $stateData = $this->usStateService->getStatePublic(strtoupper($slug));
+            if ($stateData) {
+                return new JsonResponse($stateData);
+            }
+        }
+
+        // Fallback to country
         $countryData = $this->countryService->getPublicCountryData($slug);
         
         if (!$countryData) {
-            return new JsonResponse(['error' => 'Country not found'], Response::HTTP_NOT_FOUND);
+            return new JsonResponse(['error' => 'Country or state not found'], Response::HTTP_NOT_FOUND);
         }
 
         // Enhance response with live data

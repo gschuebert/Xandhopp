@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, User, LogOut } from 'lucide-react';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { type Locale, isValidLocale, getContent } from '../lib/i18n';
 
 interface NavigationProps {
   locale: string;
@@ -12,6 +14,10 @@ interface NavigationProps {
 export default function Navigation({ locale }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
+  
+  // Ensure locale is valid
+  const currentLocale: Locale = isValidLocale(locale) ? locale : 'en';
+  const content = getContent(currentLocale);
 
   useEffect(() => {
     // Load user data from localStorage
@@ -83,14 +89,17 @@ export default function Navigation({ locale }: NavigationProps) {
               href={`/${locale}`} 
               className="text-gray-700 hover:text-primary transition-colors duration-200"
             >
-              Home
+              {content.nav.home}
             </Link>
             <Link 
               href={`/${locale}/countries`} 
               className="text-gray-700 hover:text-primary transition-colors duration-200"
             >
-              Countries
+              {content.nav.countries}
             </Link>
+            
+            {/* Language Switcher */}
+            <LanguageSwitcher currentLocale={currentLocale} />
             
             {user ? (
               <div className="flex items-center space-x-4">
@@ -99,14 +108,14 @@ export default function Navigation({ locale }: NavigationProps) {
                   className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors duration-200"
                 >
                   <User className="w-4 h-4" />
-                  <span>Profile</span>
+                  <span>{content.nav.profile}</span>
                 </Link>
                 <button
                   onClick={handleLogout}
                   className="flex items-center space-x-2 text-gray-700 hover:text-destructive transition-colors duration-200"
                 >
                   <LogOut className="w-4 h-4" />
-                  <span>Sign Out</span>
+                  <span>{content.nav.signOut}</span>
                 </button>
               </div>
             ) : (
@@ -115,13 +124,13 @@ export default function Navigation({ locale }: NavigationProps) {
                   href={`/${locale}/signin`}
                   className="text-gray-700 hover:text-primary transition-colors duration-200"
                 >
-                  Sign In
+                  {content.nav.signin}
                 </Link>
                 <Link 
                   href={`/${locale}/register`}
                   className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors duration-200"
                 >
-                  Get Started
+                  {content.nav.register}
                 </Link>
               </div>
             )}
@@ -145,15 +154,20 @@ export default function Navigation({ locale }: NavigationProps) {
                 className="text-gray-700 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Home
+                {content.nav.home}
               </Link>
               <Link 
                 href={`/${locale}/countries`} 
                 className="text-gray-700 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Countries
+                {content.nav.countries}
               </Link>
+              
+              {/* Language Switcher for Mobile */}
+              <div className="pt-2 border-t border-gray-200">
+                <LanguageSwitcher currentLocale={currentLocale} />
+              </div>
               
               {user ? (
                 <>
@@ -163,7 +177,7 @@ export default function Navigation({ locale }: NavigationProps) {
                     onClick={() => setIsOpen(false)}
                   >
                     <User className="w-4 h-4" />
-                    <span>Profile</span>
+                    <span>{content.nav.profile}</span>
                   </Link>
                   <button
                     onClick={() => {
@@ -173,7 +187,7 @@ export default function Navigation({ locale }: NavigationProps) {
                     className="flex items-center space-x-2 text-gray-700 hover:text-destructive transition-colors duration-200"
                   >
                     <LogOut className="w-4 h-4" />
-                    <span>Sign Out</span>
+                    <span>{content.nav.signOut}</span>
                   </button>
                 </>
               ) : (
@@ -183,14 +197,14 @@ export default function Navigation({ locale }: NavigationProps) {
                     className="text-gray-700 hover:text-primary transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
-                    Sign In
+                    {content.nav.signin}
                   </Link>
                   <Link 
                     href={`/${locale}/register`}
                     className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors duration-200 text-center"
                     onClick={() => setIsOpen(false)}
                   >
-                    Get Started
+                    {content.nav.register}
                   </Link>
                 </>
               )}

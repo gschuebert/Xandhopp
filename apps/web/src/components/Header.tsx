@@ -1,13 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { type Locale, isValidLocale } from '../lib/i18n';
 
 export default function Header() {
   const [user, setUser] = useState<any>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+  
+  // Extract locale from pathname
+  const pathSegments = pathname.split('/');
+  const currentLocale: Locale = isValidLocale(pathSegments[1]) ? pathSegments[1] : 'en';
 
   useEffect(() => {
     // Load user from localStorage
@@ -38,7 +45,7 @@ export default function Header() {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    router.push('/en/signin');
+    router.push(`/${currentLocale}/signin`);
   };
 
   return (
@@ -47,7 +54,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/en" className="flex items-center">
+            <Link href={`/${currentLocale}`} className="flex items-center">
               <img 
                 src="/logo.png" 
                 alt="Portalis Logo" 
@@ -64,14 +71,14 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/en" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href={`/${currentLocale}`} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
               Home
             </Link>
-            <Link href="/en/countries" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+            <Link href={`/${currentLocale}/countries`} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
               Countries
             </Link>
             {user && (
-              <Link href="/en/profile" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+              <Link href={`/${currentLocale}/profile`} className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                 Profile
               </Link>
             )}
@@ -79,6 +86,9 @@ export default function Header() {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher currentLocale={currentLocale} />
+            
             {user ? (
               <div className="relative">
                 <button
@@ -108,7 +118,7 @@ export default function Header() {
                       <p className="text-sm text-gray-500">{user.email}</p>
                     </div>
                     <Link
-                      href="/en/profile"
+                      href={`/${currentLocale}/profile`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -126,13 +136,13 @@ export default function Header() {
             ) : (
               <div className="flex items-center space-x-4">
                 <Link
-                  href="/en/signin"
+                  href={`/${currentLocale}/signin`}
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Sign In
                 </Link>
                 <Link
-                  href="/en/register"
+                  href={`/${currentLocale}/register`}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
                 >
                   Sign Up
@@ -159,14 +169,14 @@ export default function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
               <Link
-                href="/en"
+                href={`/${currentLocale}`}
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
-                href="/en/countries"
+                href={`/${currentLocale}/countries`}
                 className="block px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md text-base font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -174,7 +184,7 @@ export default function Header() {
               </Link>
               {user && (
                 <Link
-                  href="/en/profile"
+                  href={`/${currentLocale}/profile`}
                   className="block px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md text-base font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -184,14 +194,14 @@ export default function Header() {
               {!user && (
                 <>
                   <Link
-                    href="/en/signin"
+                    href={`/${currentLocale}/signin`}
                     className="block px-3 py-2 text-gray-700 hover:text-blue-600 rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
-                    href="/en/register"
+                    href={`/${currentLocale}/register`}
                     className="block px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-base font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >

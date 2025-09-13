@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import { PortalisLogo } from '../../../components/portalis-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 import { CountrySearch } from '../../../components/countries/CountrySearch';
@@ -82,23 +84,7 @@ export default function CountriesPage({ params }: CountriesPageProps) {
   if (selectedCountry) {
     return (
       <div className="min-h-screen bg-white">
-        {/* Header */}
-        <header className="bg-white/90 backdrop-blur-md shadow-sm">
-          <div className="container-default">
-            <div className="flex items-center justify-between h-16">
-              <Link href={`/${params.locale}/countries`} className="flex items-center space-x-3">
-                <PortalisLogo size="sm" />
-                <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
-              </Link>
-              <button
-                onClick={handleBackToSearch}
-                className="btn btn-secondary"
-              >
-                ← Back to Search
-              </button>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         {/* Country Detail */}
         <main className="container-default py-8">
@@ -108,29 +94,15 @@ export default function CountriesPage({ params }: CountriesPageProps) {
             onBack={handleBackToSearch}
           />
         </main>
+        
+        <Footer locale={params.locale} />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white/90 backdrop-blur-md shadow-sm">
-        <div className="container-default">
-          <div className="flex items-center justify-between h-16">
-            <Link href={`/${params.locale}/countries`} className="flex items-center space-x-3">
-              <PortalisLogo size="sm" />
-              <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
-            </Link>
-            <Link
-              href={`/${params.locale}`}
-              className="btn btn-secondary"
-            >
-              {content.placeholders.backToHome}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="container-default py-20">
@@ -161,6 +133,7 @@ export default function CountriesPage({ params }: CountriesPageProps) {
           </div>
         </div>
       </main>
+      <Footer locale={params.locale} />
     </div>
   );
 }

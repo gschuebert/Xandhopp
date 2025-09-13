@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { type Locale } from '../../lib/i18n';
+import { type Locale, getContent } from '../../lib/i18n';
 
 interface Country {
   id: string;
@@ -20,6 +20,7 @@ interface CountrySearchProps {
 }
 
 export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySearchProps) {
+  const content = getContent(locale);
   const [query, setQuery] = useState('');
   const [selectedContinent, setSelectedContinent] = useState('');
   const [suggestions, setSuggestions] = useState<Country[]>([]);
@@ -28,6 +29,20 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
   const [continents, setContinents] = useState<string[]>([]);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Helper function to translate continent names
+  const getTranslatedContinent = (continent: string) => {
+    const continentMap: { [key: string]: string } = {
+      'Asia': content.continents.asia,
+      'Europe': content.continents.europe,
+      'North America': content.continents.northAmerica,
+      'South America': content.continents.southAmerica,
+      'Africa': content.continents.africa,
+      'Oceania': content.continents.oceania,
+      'Antarctica': content.continents.antarctica,
+    };
+    return continentMap[continent] || continent;
+  };
 
   // Load continents on mount
   useEffect(() => {
@@ -120,10 +135,10 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-2xl font-bold text-xandhopp-blue mb-2">
-          Find Your Perfect Destination
+          {content.countries.title}
         </h2>
         <p className="text-xandhopp-blue/70">
-          Search for countries and discover detailed information about living, working, and traveling.
+          {content.countries.subtitle}
         </p>
       </div>
 
@@ -139,10 +154,10 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
             onChange={(e) => setSelectedContinent(e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-portalis-accent focus:border-transparent"
           >
-            <option value="">All Continents</option>
+            <option value="">{content.continents.all}</option>
             {continents.map((continent) => (
               <option key={continent} value={continent}>
-                {continent}
+                {getTranslatedContinent(continent)}
               </option>
             ))}
           </select>
@@ -162,7 +177,7 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
               onChange={handleInputChange}
               onFocus={handleInputFocus}
               onKeyDown={handleKeyDown}
-              placeholder="Start typing a country name..."
+              placeholder={content.countries.searchPlaceholder}
               className="w-full px-4 py-4 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-portalis-accent focus:border-transparent text-lg"
               disabled={isLoading}
             />
@@ -219,7 +234,7 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
                 <svg className="w-8 h-8 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.709M15 6.291A7.962 7.962 0 0012 5c-2.34 0-4.29 1.009-5.824 2.709" />
                 </svg>
-                <p>No countries found for "{query}"</p>
+                <p>{content.countries.noResults}</p>
                 {selectedContinent && (
                   <p className="text-sm mt-1">Try removing the continent filter</p>
                 )}
@@ -231,7 +246,7 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
 
       {/* Quick Access */}
       <div className="pt-6 border-t border-gray-200">
-        <h3 className="text-lg font-medium text-xandhopp-blue mb-4">Popular Destinations</h3>
+        <h3 className="text-lg font-medium text-xandhopp-blue mb-4">Beliebte Ziele</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {['Germany', 'France', 'United States', 'Japan'].map((countryName) => (
             <button

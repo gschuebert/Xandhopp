@@ -2,12 +2,14 @@
 
 import { useState } from 'react';
 import { ArrowRight, CheckCircle, Mail } from 'lucide-react';
+import { getContent, type Locale } from '../../lib/i18n';
 
 interface CTASectionProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default function CTASection({ locale }: CTASectionProps) {
+  const content = getContent(locale);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
@@ -64,12 +66,7 @@ export default function CTASection({ locale }: CTASectionProps) {
     }
   };
 
-  const benefits = [
-    "Free relocation assessment",
-    "Personalized country recommendations",
-    "Exclusive access to expert consultations",
-    "Early access to new features"
-  ];
+  const benefits = content.cta.benefits;
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 relative overflow-hidden">
@@ -83,12 +80,11 @@ export default function CTASection({ locale }: CTASectionProps) {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Ready to start your
-            <span className="block">relocation journey?</span>
+            {content.cta.headline}
+            <span className="block">{content.cta.subtitle}</span>
           </h2>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Join thousands of successful relocators who trust Portalis 
-            to guide them to their perfect destination.
+            {content.cta.description}
           </p>
 
           {/* Email Signup Form */}
@@ -117,7 +113,7 @@ export default function CTASection({ locale }: CTASectionProps) {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder={content.cta.emailPlaceholder}
                     className="w-full pl-12 pr-4 py-4 rounded-xl border-0 text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white/50 focus:outline-none"
                     required
                     autoComplete="email"
@@ -136,7 +132,7 @@ export default function CTASection({ locale }: CTASectionProps) {
                   </>
                 ) : (
                   <>
-                    <span>Get Started</span>
+                    <span>{content.cta.button}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </>
                 )}
@@ -180,14 +176,12 @@ export default function CTASection({ locale }: CTASectionProps) {
           {/* Trust Indicators */}
           <div className="mt-12 pt-8 border-t border-white/20">
             <p className="text-white/70 text-sm mb-4">
-              Trusted by professionals from leading companies
+              {content.cta.trustedBy}
             </p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
-              {/* Company logos would go here */}
-              <div className="text-white/50 font-semibold">Google</div>
-              <div className="text-white/50 font-semibold">Microsoft</div>
-              <div className="text-white/50 font-semibold">Amazon</div>
-              <div className="text-white/50 font-semibold">Meta</div>
+              {content.cta.companies.map((company, index) => (
+                <div key={index} className="text-white/50 font-semibold">{company}</div>
+              ))}
             </div>
           </div>
         </div>

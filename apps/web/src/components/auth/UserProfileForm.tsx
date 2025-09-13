@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Save, User, MapPin, Briefcase, Globe, Settings, AlertTriangle, CheckCircle } from 'lucide-react';
+import { getContent, type Locale } from '../../lib/i18n';
 
 interface UserProfileFormProps {
   locale: string;
@@ -40,6 +41,7 @@ interface UserProfile {
 
 export default function UserProfileForm({ locale, user, onSuccess, onError }: UserProfileFormProps) {
   const router = useRouter();
+  const content = getContent(locale as Locale);
   const [activeTab, setActiveTab] = useState('personal');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -149,7 +151,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
       const data = await response.json();
 
       if (response.status === 200) {
-        setSuccess('Profile updated successfully!');
+        setSuccess(content.forms.profile.success.profileUpdated);
         setProfile(data.user);
         
         // Update localStorage with new user data
@@ -161,12 +163,12 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
         
         if (onSuccess) onSuccess(data.user);
       } else {
-        setError(data.error || 'Failed to update profile');
-        if (onError) onError(data.error || 'Failed to update profile');
+        setError(data.error || content.forms.profile.errors.updateFailed);
+        if (onError) onError(data.error || content.forms.profile.errors.updateFailed);
       }
     } catch (err) {
-      setError('Network error. Please try again.');
-      if (onError) onError('Network error. Please try again.');
+      setError(content.forms.profile.errors.networkError);
+      if (onError) onError(content.forms.profile.errors.networkError);
     } finally {
       setLoading(false);
     }
@@ -177,7 +179,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-            First Name
+            {content.forms.profile.personal.firstName}
           </label>
           <input
             type="text"
@@ -190,7 +192,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
         </div>
         <div>
           <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-            Last Name
+            {content.forms.profile.personal.lastName}
           </label>
           <input
             type="text"
@@ -205,7 +207,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          Email Address
+          {content.forms.profile.personal.email}
         </label>
         <input
           type="email"
@@ -214,12 +216,12 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           disabled
           className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-500"
         />
-        <p className="text-xs text-gray-500 mt-1">Email cannot be changed</p>
+        <p className="text-xs text-gray-500 mt-1">{content.forms.profile.personal.emailCannotBeChanged}</p>
       </div>
 
       <div>
         <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-2">
-          Date of Birth
+          {content.forms.profile.personal.dateOfBirth}
         </label>
         <input
           type="date"
@@ -232,7 +234,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="nationality" className="block text-sm font-medium text-gray-700 mb-2">
-          Nationality
+          {content.forms.profile.personal.nationality}
         </label>
         <select
           id="nationality"
@@ -240,25 +242,25 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           onChange={(e) => setProfile({ ...profile, nationality: e.target.value })}
           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-          <option value="">Select your nationality</option>
-          <option value="DE">Germany</option>
-          <option value="US">United States</option>
-          <option value="GB">United Kingdom</option>
-          <option value="FR">France</option>
-          <option value="IT">Italy</option>
-          <option value="ES">Spain</option>
-          <option value="NL">Netherlands</option>
-          <option value="CH">Switzerland</option>
-          <option value="AT">Austria</option>
-          <option value="CA">Canada</option>
-          <option value="AU">Australia</option>
-          <option value="OTHER">Other</option>
+          <option value="">{content.forms.profile.personal.selectNationality}</option>
+          <option value="DE">{content.forms.countries.germany}</option>
+          <option value="US">{content.forms.countries.unitedStates}</option>
+          <option value="GB">{content.forms.countries.unitedKingdom}</option>
+          <option value="FR">{content.forms.countries.france}</option>
+          <option value="IT">{content.forms.countries.italy}</option>
+          <option value="ES">{content.forms.countries.spain}</option>
+          <option value="NL">{content.forms.countries.netherlands}</option>
+          <option value="CH">{content.forms.countries.switzerland}</option>
+          <option value="AT">{content.forms.countries.austria}</option>
+          <option value="CA">{content.forms.countries.canada}</option>
+          <option value="AU">{content.forms.countries.australia}</option>
+          <option value="OTHER">{content.forms.countries.other}</option>
         </select>
       </div>
 
       <div>
         <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-2">
-          Bio
+          {content.forms.profile.personal.bio}
         </label>
         <textarea
           id="bio"
@@ -266,7 +268,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
           rows={4}
           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Tell us about yourself..."
+          placeholder={content.forms.profile.personal.bioPlaceholder}
         />
       </div>
     </div>
@@ -276,7 +278,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
     <div className="space-y-6">
       <div>
         <label htmlFor="currentCountry" className="block text-sm font-medium text-gray-700 mb-2">
-          Current Country
+          {content.forms.profile.location.currentCountry}
         </label>
         <select
           id="currentCountry"
@@ -284,25 +286,25 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           onChange={(e) => setProfile({ ...profile, currentCountry: e.target.value })}
           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         >
-          <option value="">Select your current country</option>
-          <option value="DE">Germany</option>
-          <option value="US">United States</option>
-          <option value="GB">United Kingdom</option>
-          <option value="FR">France</option>
-          <option value="IT">Italy</option>
-          <option value="ES">Spain</option>
-          <option value="NL">Netherlands</option>
-          <option value="CH">Switzerland</option>
-          <option value="AT">Austria</option>
-          <option value="CA">Canada</option>
-          <option value="AU">Australia</option>
-          <option value="OTHER">Other</option>
+          <option value="">{content.forms.profile.location.selectCurrentCountry}</option>
+          <option value="DE">{content.forms.countries.germany}</option>
+          <option value="US">{content.forms.countries.unitedStates}</option>
+          <option value="GB">{content.forms.countries.unitedKingdom}</option>
+          <option value="FR">{content.forms.countries.france}</option>
+          <option value="IT">{content.forms.countries.italy}</option>
+          <option value="ES">{content.forms.countries.spain}</option>
+          <option value="NL">{content.forms.countries.netherlands}</option>
+          <option value="CH">{content.forms.countries.switzerland}</option>
+          <option value="AT">{content.forms.countries.austria}</option>
+          <option value="CA">{content.forms.countries.canada}</option>
+          <option value="AU">{content.forms.countries.australia}</option>
+          <option value="OTHER">{content.forms.countries.other}</option>
         </select>
       </div>
 
       <div>
         <label htmlFor="currentCity" className="block text-sm font-medium text-gray-700 mb-2">
-          Current City
+          {content.forms.profile.location.currentCity}
         </label>
         <input
           type="text"
@@ -315,11 +317,11 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
       </div>
 
       <div className="border-t pt-6">
-        <h4 className="text-lg font-medium text-gray-900 mb-4">Address Details</h4>
+        <h4 className="text-lg font-medium text-gray-900 mb-4">{content.forms.profile.location.addressDetails}</h4>
         
         <div>
           <label htmlFor="addressLine1" className="block text-sm font-medium text-gray-700 mb-2">
-            Address Line 1
+            {content.forms.profile.location.addressLine1}
           </label>
           <input
             type="text"
@@ -333,7 +335,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
         <div>
           <label htmlFor="addressLine2" className="block text-sm font-medium text-gray-700 mb-2">
-            Address Line 2
+            {content.forms.profile.location.addressLine2}
           </label>
           <input
             type="text"
@@ -348,7 +350,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-              City
+              {content.forms.profile.location.city}
             </label>
             <input
               type="text"
@@ -361,7 +363,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           </div>
           <div>
             <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">
-              State/Province
+              {content.forms.profile.location.state}
             </label>
             <input
               type="text"
@@ -377,7 +379,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="postalCode" className="block text-sm font-medium text-gray-700 mb-2">
-              Postal Code
+              {content.forms.profile.location.postalCode}
             </label>
             <input
               type="text"
@@ -390,7 +392,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
           </div>
           <div>
             <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-              Country
+              {content.forms.profile.location.country}
             </label>
             <select
               id="country"
@@ -398,19 +400,19 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
               onChange={(e) => setProfile({ ...profile, country: e.target.value })}
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
-              <option value="">Select country</option>
-              <option value="DE">Germany</option>
-              <option value="US">United States</option>
-              <option value="GB">United Kingdom</option>
-              <option value="FR">France</option>
-              <option value="IT">Italy</option>
-              <option value="ES">Spain</option>
-              <option value="NL">Netherlands</option>
-              <option value="CH">Switzerland</option>
-              <option value="AT">Austria</option>
-              <option value="CA">Canada</option>
-              <option value="AU">Australia</option>
-              <option value="OTHER">Other</option>
+              <option value="">{content.forms.profile.location.selectCountry}</option>
+              <option value="DE">{content.forms.countries.germany}</option>
+              <option value="US">{content.forms.countries.unitedStates}</option>
+              <option value="GB">{content.forms.countries.unitedKingdom}</option>
+              <option value="FR">{content.forms.countries.france}</option>
+              <option value="IT">{content.forms.countries.italy}</option>
+              <option value="ES">{content.forms.countries.spain}</option>
+              <option value="NL">{content.forms.countries.netherlands}</option>
+              <option value="CH">{content.forms.countries.switzerland}</option>
+              <option value="AT">{content.forms.countries.austria}</option>
+              <option value="CA">{content.forms.countries.canada}</option>
+              <option value="AU">{content.forms.countries.australia}</option>
+              <option value="OTHER">{content.forms.countries.other}</option>
             </select>
           </div>
         </div>
@@ -422,7 +424,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
     <div className="space-y-6">
       <div>
         <label htmlFor="profession" className="block text-sm font-medium text-gray-700 mb-2">
-          Profession
+          {content.forms.profile.professional.profession}
         </label>
         <input
           type="text"
@@ -436,7 +438,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-          Company
+          {content.forms.profile.professional.company}
         </label>
         <input
           type="text"
@@ -450,7 +452,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">
-          Website
+          {content.forms.profile.professional.website}
         </label>
         <input
           type="url"
@@ -464,7 +466,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">
-          LinkedIn Profile
+          {content.forms.profile.professional.linkedin}
         </label>
         <input
           type="url"
@@ -482,7 +484,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
     <div className="space-y-6">
       <div>
         <label htmlFor="preferredLanguage" className="block text-sm font-medium text-gray-700 mb-2">
-          Preferred Language
+          {content.forms.profile.settings.preferredLanguage}
         </label>
         <select
           id="preferredLanguage"
@@ -497,7 +499,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
 
       <div>
         <label htmlFor="timezone" className="block text-sm font-medium text-gray-700 mb-2">
-          Timezone
+          {content.forms.profile.settings.timezone}
         </label>
         <select
           id="timezone"
@@ -515,7 +517,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
       </div>
 
       <div className="space-y-4">
-        <h4 className="text-lg font-medium text-gray-900">Email Preferences</h4>
+        <h4 className="text-lg font-medium text-gray-900">{content.forms.profile.settings.emailPreferences}</h4>
         
         <div className="flex items-center">
           <input
@@ -526,7 +528,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
           <label htmlFor="emailNotifications" className="ml-2 block text-sm text-gray-700">
-            Receive important account notifications
+            {content.forms.profile.settings.receiveNotifications}
           </label>
         </div>
 
@@ -539,7 +541,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
           <label htmlFor="marketingEmails" className="ml-2 block text-sm text-gray-700">
-            Receive marketing emails and updates
+            {content.forms.profile.settings.receiveMarketing}
           </label>
         </div>
 
@@ -552,25 +554,43 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
           <label htmlFor="profilePublic" className="ml-2 block text-sm text-gray-700">
-            Make my profile public
+            {content.forms.profile.settings.makeProfilePublic}
           </label>
         </div>
       </div>
     </div>
   );
 
+  const getCountryName = (code: string) => {
+    const countryMap: { [key: string]: string } = {
+      'DE': content.forms.countries.germany,
+      'US': content.forms.countries.unitedStates,
+      'GB': content.forms.countries.unitedKingdom,
+      'FR': content.forms.countries.france,
+      'IT': content.forms.countries.italy,
+      'ES': content.forms.countries.spain,
+      'NL': content.forms.countries.netherlands,
+      'CH': content.forms.countries.switzerland,
+      'AT': content.forms.countries.austria,
+      'CA': content.forms.countries.canada,
+      'AU': content.forms.countries.australia,
+      'OTHER': content.forms.countries.other,
+    };
+    return countryMap[code] || code;
+  };
+
   const tabs = [
-    { id: 'personal', label: 'Personal', icon: User },
-    { id: 'location', label: 'Location', icon: MapPin },
-    { id: 'professional', label: 'Professional', icon: Briefcase },
-    { id: 'settings', label: 'Settings', icon: Settings },
+    { id: 'personal', label: content.forms.profile.tabs.personal, icon: User },
+    { id: 'location', label: content.forms.profile.tabs.location, icon: MapPin },
+    { id: 'professional', label: content.forms.profile.tabs.professional, icon: Briefcase },
+    { id: 'settings', label: content.forms.profile.tabs.settings, icon: Settings },
   ];
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Profile Settings</h2>
-        <p className="text-gray-600">Manage your account information and preferences</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{content.forms.profile.title}</h2>
+        <p className="text-gray-600">{content.forms.profile.subtitle}</p>
       </div>
 
       {/* Tab Navigation */}
@@ -623,7 +643,7 @@ export default function UserProfileForm({ locale, user, onSuccess, onError }: Us
             className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Save className="w-4 h-4 mr-2" />
-            {loading ? 'Saving...' : 'Save Changes'}
+            {loading ? content.forms.profile.saving : content.forms.profile.saveChanges}
           </button>
         </div>
       </form>

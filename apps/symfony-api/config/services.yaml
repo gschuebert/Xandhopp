@@ -51,3 +51,9 @@ services:
 
     # Health monitoring
     App\Service\LiveDataHealthService: ~
+    
+    # US States service
+    App\Service\UsStateService: ~
+    
+    # Wikipedia content service
+    App\Service\WikipediaContentService: ~

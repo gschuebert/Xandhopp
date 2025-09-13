@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { getContent, type Locale } from '../../lib/i18n';
 
 interface SimpleRegistrationFormProps {
   locale: string;
@@ -17,6 +18,7 @@ interface RegistrationResponse {
 
 export default function SimpleRegistrationForm({ locale, onSuccess, onError }: SimpleRegistrationFormProps) {
   const router = useRouter();
+  const content = getContent(locale as Locale);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -75,19 +77,19 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
 
     // Final validation
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError(content.forms.register.errors.passwordsDoNotMatch);
       setLoading(false);
       return;
     }
 
     if (!passwordValidation.isValid) {
-      setError('Password does not meet requirements');
+      setError(content.forms.register.errors.passwordRequirements);
       setLoading(false);
       return;
     }
 
     if (!formData.acceptTerms) {
-      setError('Please accept the terms and conditions');
+      setError(content.forms.register.errors.acceptTerms);
       setLoading(false);
       return;
     }
@@ -104,7 +106,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
       const data: RegistrationResponse = await response.json();
 
       if (response.status === 201) {
-        setSuccess('Account created successfully!');
+        setSuccess(content.forms.register.success.accountCreated);
         setEmailSent(true);
         
         // Store user data if available
@@ -116,12 +118,12 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
           onSuccess({ id: data.user_id, email: formData.email });
         }
       } else {
-        setError(data.message || 'Registration failed');
-        if (onError) onError(data.message || 'Registration failed');
+        setError(data.message || content.forms.register.errors.registrationFailed);
+        if (onError) onError(data.message || content.forms.register.errors.registrationFailed);
       }
     } catch (err) {
-      setError('Network error. Please try again.');
-      if (onError) onError('Network error. Please try again.');
+      setError(content.forms.register.errors.networkError);
+      if (onError) onError(content.forms.register.errors.networkError);
     } finally {
       setLoading(false);
     }
@@ -148,10 +150,10 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
           <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
             <div className="w-8 h-8 text-green-600 text-2xl">✓</div>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{content.forms.register.checkEmail}</h2>
           <p className="text-gray-600 mb-6">
-            We've sent a verification link to <strong>{formData.email}</strong>. 
-            Please click the link to verify your account.
+            {content.forms.register.emailSent} <strong>{formData.email}</strong>. 
+            {content.forms.register.sent}
           </p>
           
           <div className="space-y-4">
@@ -160,7 +162,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
               href={`/${locale || 'en'}/signin`}
               className="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 transition-colors text-center block"
             >
-              Go to Sign In
+              {content.forms.register.goToSignIn}
             </a>
           </div>
         </div>
@@ -171,8 +173,8 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
   return (
     <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Create Your Account</h2>
-        <p className="text-gray-600">Join Xandhopp and start your relocation journey</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">{content.forms.register.title}</h2>
+        <p className="text-gray-600">{content.forms.register.subtitle}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6" method="post">
@@ -195,7 +197,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-              First Name *
+              {content.forms.register.firstName} *
             </label>
             <input
               type="text"
@@ -209,7 +211,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
           </div>
           <div>
             <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-              Last Name *
+              {content.forms.register.lastName} *
             </label>
             <input
               type="text"
@@ -225,7 +227,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
 
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address *
+            {content.forms.register.email} *
           </label>
           <input
             type="email"
@@ -240,7 +242,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-            Password *
+            {content.forms.register.password} *
           </label>
           <div className="relative">
             <input
@@ -265,23 +267,23 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
             <div className="mt-2 space-y-1">
               <div className={`text-xs flex items-center ${passwordValidation.minLength ? 'text-green-600' : 'text-red-600'}`}>
                 <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.minLength ? 'bg-green-600' : 'bg-red-600'}`} />
-                At least 8 characters
+                {content.forms.register.passwordRequirements.minLength}
               </div>
               <div className={`text-xs flex items-center ${passwordValidation.hasUpperCase ? 'text-green-600' : 'text-red-600'}`}>
                 <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasUpperCase ? 'bg-green-600' : 'bg-red-600'}`} />
-                One uppercase letter
+                {content.forms.register.passwordRequirements.uppercase}
               </div>
               <div className={`text-xs flex items-center ${passwordValidation.hasLowerCase ? 'text-green-600' : 'text-red-600'}`}>
                 <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasLowerCase ? 'bg-green-600' : 'bg-red-600'}`} />
-                One lowercase letter
+                {content.forms.register.passwordRequirements.lowercase}
               </div>
               <div className={`text-xs flex items-center ${passwordValidation.hasNumbers ? 'text-green-600' : 'text-red-600'}`}>
                 <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasNumbers ? 'bg-green-600' : 'bg-red-600'}`} />
-                One number
+                {content.forms.register.passwordRequirements.number}
               </div>
               <div className={`text-xs flex items-center ${passwordValidation.hasSpecialChar ? 'text-green-600' : 'text-red-600'}`}>
                 <div className={`w-2 h-2 rounded-full mr-2 ${passwordValidation.hasSpecialChar ? 'bg-green-600' : 'bg-red-600'}`} />
-                One special character
+                {content.forms.register.passwordRequirements.specialChar}
               </div>
             </div>
           )}
@@ -289,7 +291,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
 
         <div>
           <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-            Confirm Password *
+            {content.forms.register.confirmPassword} *
           </label>
           <div className="relative">
             <input
@@ -312,7 +314,7 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
           
           {formData.confirmPassword && (
             <div className={`text-xs mt-1 ${formData.password === formData.confirmPassword ? 'text-green-600' : 'text-red-600'}`}>
-              {formData.password === formData.confirmPassword ? '✓ Passwords match' : '✗ Passwords do not match'}
+              {formData.password === formData.confirmPassword ? content.forms.register.passwordsMatch : content.forms.register.passwordsDoNotMatch}
             </div>
           )}
         </div>
@@ -326,13 +328,13 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
           />
           <label htmlFor="acceptTerms" className="ml-2 block text-sm text-gray-700">
-            I agree to the{' '}
+            {content.forms.register.acceptTerms}{' '}
             <a href={`/${locale || 'en'}/terms`} className="text-blue-600 hover:text-blue-500">
-              Terms of Service
+              {content.forms.register.termsOfService}
             </a>{' '}
-            and{' '}
+            {content.forms.register.and}{' '}
             <a href={`/${locale || 'en'}/privacy`} className="text-blue-600 hover:text-blue-500">
-              Privacy Policy
+              {content.forms.register.privacyPolicy}
             </a>
           </label>
         </div>
@@ -357,14 +359,14 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
           disabled={loading || !passwordValidation.isValid || formData.password !== formData.confirmPassword || !formData.acceptTerms}
           className="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {loading ? 'Creating Account...' : 'Create Account'}
+          {loading ? content.forms.register.creatingAccount : content.forms.register.createAccount}
         </button>
       </form>
 
       <div className="text-center mt-6">
-        <span className="text-gray-600 text-sm">Already have an account? </span>
+        <span className="text-gray-600 text-sm">{content.forms.register.alreadyHaveAccount} </span>
         <a href={`/${locale || 'en'}/signin`} className="text-blue-600 hover:text-blue-500 text-sm font-medium">
-          Sign In
+          {content.forms.register.signIn}
         </a>
       </div>
     </div>

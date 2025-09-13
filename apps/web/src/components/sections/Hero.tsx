@@ -3,12 +3,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Play } from 'lucide-react';
+import { getContent, type Locale } from '../../lib/i18n';
 
 interface HeroProps {
-  locale: string;
+  locale: Locale;
 }
 
 export default function Hero({ locale }: HeroProps) {
+  const content = getContent(locale);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
@@ -35,17 +37,16 @@ export default function Hero({ locale }: HeroProps) {
               />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Your perfect move
+              {content.hero.title}
               <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                worldwide
+                {content.hero.subtitle}
               </span>
             </h1>
           </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Navigate global relocation with confidence. Expert guidance, real-time data, 
-            and personalized support for your international move.
+            {content.hero.description}
           </p>
 
           {/* CTA Buttons */}
@@ -54,7 +55,7 @@ export default function Hero({ locale }: HeroProps) {
               href={`/${locale}/register`}
               className="group bg-gradient-to-r from-primary to-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-warm hover:shadow-elegant transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
             >
-              <span>Start Your Journey</span>
+              <span>{content.hero.ctaPrimary}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             
@@ -62,23 +63,23 @@ export default function Hero({ locale }: HeroProps) {
               <div className="w-12 h-12 bg-white rounded-full shadow-soft flex items-center justify-center group-hover:shadow-warm transition-shadow duration-300">
                 <Play className="w-5 h-5 ml-1" />
               </div>
-              <span className="font-medium">Watch Demo</span>
+              <span className="font-medium">{content.hero.ctaSecondary}</span>
             </button>
           </div>
 
           {/* Trust Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
-              <div className="text-gray-600">Countries Covered</div>
+              <div className="text-3xl font-bold text-primary mb-2">{content.hero.stats.countries}</div>
+              <div className="text-gray-600">{content.hero.stats.countriesLabel}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">10K+</div>
-              <div className="text-gray-600">Successful Relocations</div>
+              <div className="text-3xl font-bold text-primary mb-2">{content.hero.stats.relocations}</div>
+              <div className="text-gray-600">{content.hero.stats.relocationsLabel}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-              <div className="text-gray-600">Expert Support</div>
+              <div className="text-3xl font-bold text-primary mb-2">{content.hero.stats.support}</div>
+              <div className="text-gray-600">{content.hero.stats.supportLabel}</div>
             </div>
           </div>
         </div>

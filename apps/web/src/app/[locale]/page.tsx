@@ -25,11 +25,11 @@ export default function HomePage({ params }: HomePageProps) {
   return (
     <div className="min-h-screen">
       <Hero locale={locale} />
-      <ProblemSection />
-      <SolutionSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <TestimonialsSection />
+      <ProblemSection locale={locale} />
+      <SolutionSection locale={locale} />
+      <FeaturesSection locale={locale} />
+      <HowItWorksSection locale={locale} />
+      <TestimonialsSection locale={locale} />
       <CTASection locale={locale} />
       <Footer locale={locale} />
     </div>
