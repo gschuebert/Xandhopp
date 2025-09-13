@@ -47,6 +47,7 @@ security:
         - { path: ^/api/auth/stytch/webhook, roles: PUBLIC_ACCESS }
         - { path: ^/api/auth/profile-simple, roles: PUBLIC_ACCESS }
         - { path: ^/api/test, roles: PUBLIC_ACCESS }
+        - { path: ^/api/countries, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 
 when@test:

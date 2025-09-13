@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
@@ -16,6 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CountryRepository::class)]
+#[ORM\Table(name: 'country')]
+#[ORM\HasLifecycleCallbacks]
 #[ApiResource(
     operations: [
         new GetCollection(),
@@ -31,73 +35,86 @@ class Country
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: Types::INTEGER)]
     #[Groups(['country:read'])]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::STRING, length: 2, unique: true)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $name = null;
+    private string $iso2;
 
-    #[ORM\Column(length: 255, unique: true)]
+    #[ORM\Column(type: Types::STRING, length: 3, unique: true)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $slug = null;
+    private string $iso3;
 
-    #[ORM\Column(length: 2)]
+    #[ORM\Column(type: Types::TEXT)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $iso2 = null;
+    private string $nameEn;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $nameLocal = null;
+
+    #[ORM\Column(type: Types::TEXT, unique: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private string $slug;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Groups(['country:read', 'country:write'])]
     private ?string $continent = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $summary = null;
+    private ?string $capital = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[ORM\Column(type: Types::BIGINT, nullable: true)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $costOfLivingIndex = null;
+    private ?int $population = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 15, scale: 2, nullable: true)]
     #[Groups(['country:read', 'country:write'])]
-    private ?string $taxRate = null;
+    private ?string $areaKm2 = null;
 
-    #[ORM\Column]
-    #[Groups(['country:read'])]
-    private ?\DateTimeImmutable $createdAt = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $lat = null;
 
-    #[ORM\Column]
-    #[Groups(['country:read'])]
-    private ?\DateTimeImmutable $updatedAt = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $lon = null;
 
-    /**
-     * @var Collection<int, ResidencyProgram>
-     */
-    #[ORM\OneToMany(targetEntity: ResidencyProgram::class, mappedBy: 'country')]
-    #[Groups(['country:read'])]
-    private Collection $residencyPrograms;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $callingCode = null;
 
-    /**
-     * @var Collection<int, Provider>
-     */
-    #[ORM\OneToMany(targetEntity: Provider::class, mappedBy: 'country')]
-    #[Groups(['country:read'])]
-    private Collection $providers;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $currencyCode = null;
 
-    /**
-     * @var Collection<int, ChecklistItem>
-     */
-    #[ORM\OneToMany(targetEntity: ChecklistItem::class, mappedBy: 'country')]
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?array $languages = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['country:read', 'country:write'])]
+    private ?string $flagSvgUrl = null;
+
+    #[ORM\Column(type: Types::DATETIMETZ_IMMUTABLE)]
     #[Groups(['country:read'])]
-    private Collection $checklistItems;
+    private \DateTimeImmutable $updatedAt;
+
+    #[ORM\OneToMany(mappedBy: 'country', targetEntity: CountryText::class, cascade: ['persist', 'remove'])]
+    #[Groups(['country:read'])]
+    private Collection $countryTexts;
+
+    #[ORM\OneToMany(mappedBy: 'country', targetEntity: CountryMetric::class, cascade: ['persist', 'remove'])]
+    #[Groups(['country:read'])]
+    private Collection $countryMetrics;
 
     public function __construct()
     {
-        $this->residencyPrograms = new ArrayCollection();
-        $this->providers = new ArrayCollection();
-        $this->checklistItems = new ArrayCollection();
-        $this->createdAt = new \DateTimeImmutable();
+        $this->countryTexts = new ArrayCollection();
+        $this->countryMetrics = new ArrayCollection();
         $this->updatedAt = new \DateTimeImmutable();
     }
 
@@ -106,36 +123,58 @@ class Country
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
-        return $this;
-    }
-
-    public function getIso2(): ?string
+    public function getIso2(): string
     {
         return $this->iso2;
     }
 
-    public function setIso2(string $iso2): static
+    public function setIso2(string $iso2): self
     {
         $this->iso2 = $iso2;
+        return $this;
+    }
+
+    public function getIso3(): string
+    {
+        return $this->iso3;
+    }
+
+    public function setIso3(string $iso3): self
+    {
+        $this->iso3 = $iso3;
+        return $this;
+    }
+
+    public function getNameEn(): string
+    {
+        return $this->nameEn;
+    }
+
+    public function setNameEn(string $nameEn): self
+    {
+        $this->nameEn = $nameEn;
+        return $this;
+    }
+
+    public function getNameLocal(): ?string
+    {
+        return $this->nameLocal;
+    }
+
+    public function setNameLocal(?string $nameLocal): self
+    {
+        $this->nameLocal = $nameLocal;
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
         return $this;
     }
 
@@ -144,156 +183,179 @@ class Country
         return $this->continent;
     }
 
-    public function setContinent(string $continent): static
+    public function setContinent(?string $continent): self
     {
         $this->continent = $continent;
         return $this;
     }
 
-    public function getSummary(): ?string
+    public function getCapital(): ?string
     {
-        return $this->summary;
+        return $this->capital;
     }
 
-    public function setSummary(?string $summary): static
+    public function setCapital(?string $capital): self
     {
-        $this->summary = $summary;
+        $this->capital = $capital;
         return $this;
     }
 
-    public function getCostOfLivingIndex(): ?string
+    public function getPopulation(): ?int
     {
-        return $this->costOfLivingIndex;
+        return $this->population;
     }
 
-    public function setCostOfLivingIndex(string $costOfLivingIndex): static
+    public function setPopulation(?int $population): self
     {
-        $this->costOfLivingIndex = $costOfLivingIndex;
+        $this->population = $population;
         return $this;
     }
 
-    public function getTaxRate(): ?string
+    public function getAreaKm2(): ?string
     {
-        return $this->taxRate;
+        return $this->areaKm2;
     }
 
-    public function setTaxRate(string $taxRate): static
+    public function setAreaKm2(?string $areaKm2): self
     {
-        $this->taxRate = $taxRate;
+        $this->areaKm2 = $areaKm2;
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getLat(): ?string
     {
-        return $this->createdAt;
+        return $this->lat;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    public function setLat(?string $lat): self
     {
-        $this->createdAt = $createdAt;
+        $this->lat = $lat;
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getLon(): ?string
+    {
+        return $this->lon;
+    }
+
+    public function setLon(?string $lon): self
+    {
+        $this->lon = $lon;
+        return $this;
+    }
+
+    public function getCallingCode(): ?string
+    {
+        return $this->callingCode;
+    }
+
+    public function setCallingCode(?string $callingCode): self
+    {
+        $this->callingCode = $callingCode;
+        return $this;
+    }
+
+    public function getCurrencyCode(): ?string
+    {
+        return $this->currencyCode;
+    }
+
+    public function setCurrencyCode(?string $currencyCode): self
+    {
+        $this->currencyCode = $currencyCode;
+        return $this;
+    }
+
+    public function getLanguages(): ?array
+    {
+        return $this->languages;
+    }
+
+    public function setLanguages(?array $languages): self
+    {
+        $this->languages = $languages;
+        return $this;
+    }
+
+    public function getFlagSvgUrl(): ?string
+    {
+        return $this->flagSvgUrl;
+    }
+
+    public function setFlagSvgUrl(?string $flagSvgUrl): self
+    {
+        $this->flagSvgUrl = $flagSvgUrl;
+        return $this;
+    }
+
+    public function getUpdatedAt(): \DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
         return $this;
     }
 
     /**
-     * @return Collection<int, ResidencyProgram>
+     * @return Collection<int, CountryText>
      */
-    public function getResidencyPrograms(): Collection
+    public function getCountryTexts(): Collection
     {
-        return $this->residencyPrograms;
+        return $this->countryTexts;
     }
 
-    public function addResidencyProgram(ResidencyProgram $residencyProgram): static
+    public function addCountryText(CountryText $countryText): self
     {
-        if (!$this->residencyPrograms->contains($residencyProgram)) {
-            $this->residencyPrograms->add($residencyProgram);
-            $residencyProgram->setCountry($this);
+        if (!$this->countryTexts->contains($countryText)) {
+            $this->countryTexts->add($countryText);
+            $countryText->setCountry($this);
         }
-
         return $this;
     }
 
-    public function removeResidencyProgram(ResidencyProgram $residencyProgram): static
+    public function removeCountryText(CountryText $countryText): self
     {
-        if ($this->residencyPrograms->removeElement($residencyProgram)) {
-            if ($residencyProgram->getCountry() === $this) {
-                $residencyProgram->setCountry(null);
+        if ($this->countryTexts->removeElement($countryText)) {
+            if ($countryText->getCountry() === $this) {
+                $countryText->setCountry($this);
             }
         }
-
         return $this;
     }
 
     /**
-     * @return Collection<int, Provider>
+     * @return Collection<int, CountryMetric>
      */
-    public function getProviders(): Collection
+    public function getCountryMetrics(): Collection
     {
-        return $this->providers;
+        return $this->countryMetrics;
     }
 
-    public function addProvider(Provider $provider): static
+    public function addCountryMetric(CountryMetric $countryMetric): self
     {
-        if (!$this->providers->contains($provider)) {
-            $this->providers->add($provider);
-            $provider->setCountry($this);
+        if (!$this->countryMetrics->contains($countryMetric)) {
+            $this->countryMetrics->add($countryMetric);
+            $countryMetric->setCountry($this);
         }
-
         return $this;
     }
 
-    public function removeProvider(Provider $provider): static
+    public function removeCountryMetric(CountryMetric $countryMetric): self
     {
-        if ($this->providers->removeElement($provider)) {
-            if ($provider->getCountry() === $this) {
-                $provider->setCountry(null);
+        if ($this->countryMetrics->removeElement($countryMetric)) {
+            if ($countryMetric->getCountry() === $this) {
+                $countryMetric->setCountry($this);
             }
         }
-
         return $this;
     }
 
-    /**
-     * @return Collection<int, ChecklistItem>
-     */
-    public function getChecklistItems(): Collection
-    {
-        return $this->checklistItems;
-    }
-
-    public function addChecklistItem(ChecklistItem $checklistItem): static
-    {
-        if (!$this->checklistItems->contains($checklistItem)) {
-            $this->checklistItems->add($checklistItem);
-            $checklistItem->setCountry($this);
-        }
-
-        return $this;
-    }
-
-    public function removeChecklistItem(ChecklistItem $checklistItem): static
-    {
-        if ($this->checklistItems->removeElement($checklistItem)) {
-            if ($checklistItem->getCountry() === $this) {
-                $checklistItem->setCountry(null);
-            }
-        }
-
-        return $this;
-    }
-
+    #[ORM\PrePersist]
     #[ORM\PreUpdate]
-    public function preUpdate(): void
+    public function updateTimestamps(): void
     {
         $this->updatedAt = new \DateTimeImmutable();
     }

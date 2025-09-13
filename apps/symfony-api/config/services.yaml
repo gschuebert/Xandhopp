@@ -35,3 +35,19 @@ services:
     App\Service\TokenService: ~
     
     App\Service\FreemiumService: ~
+    
+    # Live data providers
+    App\Infrastructure\Provider\Fx\ExchangeRateHostProvider: ~
+    App\Infrastructure\Provider\Fx\FrankfurterProvider: ~
+    App\Infrastructure\Provider\Safety\TravelAdvisoryInfoProvider: ~
+    App\Infrastructure\Provider\Enrichment\RestCountriesProvider: ~
+
+    App\Application\LiveSyncService:
+        arguments:
+            $fxPrimary: '@App\Infrastructure\Provider\Fx\FrankfurterProvider'
+            $fxFallback: '@App\Infrastructure\Provider\Fx\ExchangeRateHostProvider'
+            $advisory: '@App\Infrastructure\Provider\Safety\TravelAdvisoryInfoProvider'
+            $enrichment: '@App\Infrastructure\Provider\Enrichment\RestCountriesProvider'
+
+    # Health monitoring
+    App\Service\LiveDataHealthService: ~

@@ -1,0 +1,14 @@
+# Xandhopp Live Data Sync Cron Configuration
+# Add this to your crontab with: crontab -e
+
+# Sync live data every 6 hours (4 times per day)
+0 */6 * * * /var/www/Portalis/apps/symfony-api/scripts/sync-live-data.sh
+
+# Alternative: Sync every 4 hours (6 times per day)
+# 0 */4 * * * /var/www/Portalis/apps/symfony-api/scripts/sync-live-data.sh
+
+# Alternative: Sync every 2 hours during business hours (9 AM - 5 PM)
+# 0 9-17/2 * * * /var/www/Portalis/apps/symfony-api/scripts/sync-live-data.sh
+
+# Test: Run every minute (for testing only - remove in production)
+# * * * * * /var/www/Portalis/apps/symfony-api/scripts/sync-live-data.sh
