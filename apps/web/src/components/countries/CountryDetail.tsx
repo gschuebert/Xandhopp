@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { type Locale } from '../../lib/i18n';
+import { useTranslations } from 'next-intl';
 
 interface CountryDetailData {
   slug: string;
@@ -43,13 +44,7 @@ interface CountryDetailProps {
 
 type ContentSection = 'overview' | 'culture' | 'demography' | 'economy' | 'history';
 
-const sectionLabels: Record<ContentSection, string> = {
-  overview: 'Overview',
-  culture: 'Culture',
-  demography: 'Demographics',
-  economy: 'Economy',
-  history: 'History'
-};
+// Section labels will be translated using the t() function
 
 const sectionIcons: Record<ContentSection, string> = {
   overview: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
@@ -61,6 +56,7 @@ const sectionIcons: Record<ContentSection, string> = {
 
 export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
   const [activeSection, setActiveSection] = useState<ContentSection>('overview');
+  const t = useTranslations('countries');
 
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat(locale).format(num);
@@ -131,7 +127,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
             onClick={onBack}
             className="btn btn-primary px-6 py-3 font-medium shadow-lg"
           >
-            ← Back to Search
+            {t('backToSearch')}
           </button>
         </div>
       </div>
@@ -204,7 +200,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sectionIcons[section]} />
                 </svg>
-                <span>{sectionLabels[section]}</span>
+                <span>{t(section)}</span>
               </button>
             ))}
           </div>
@@ -214,7 +210,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
             <div className="prose prose-lg max-w-none">
               <div className="bg-gray-50 rounded-lg p-6">
                 <h3 className="text-2xl font-bold text-xandhopp-blue mb-4">
-                  {sectionLabels[activeSection]}
+                  {t(activeSection)}
                 </h3>
                 <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
                   {currentContent}
@@ -364,7 +360,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
           onClick={onBack}
           className="btn btn-primary px-8 py-3 text-lg shadow-lg"
         >
-          ← Back to Country Search
+          {t('backToCountrySearch')}
         </button>
       </div>
     </div>

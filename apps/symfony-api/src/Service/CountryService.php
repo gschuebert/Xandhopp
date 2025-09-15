@@ -219,4 +219,19 @@ class CountryService
         
         return array_column($result->fetchAllAssociative(), 'continent');
     }
+
+    /**
+     * Get country data in specific language with automatic fallback
+     */
+    public function getCountryDataByLanguage(string $slug, string $targetLang = 'en'): ?array
+    {
+        $sql = 'SELECT * FROM get_country_data_by_lang(:slug, :lang)';
+        $stmt = $this->entityManager->getConnection()->prepare($sql);
+        $result = $stmt->executeQuery([
+            'slug' => $slug,
+            'lang' => $targetLang
+        ]);
+        
+        return $result->fetchAssociative() ?: null;
+    }
 }

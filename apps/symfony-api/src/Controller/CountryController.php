@@ -179,7 +179,7 @@ class CountryController extends AbstractController
     }
 
     #[Route('/{slug}/public', name: 'show_public', methods: ['GET'])]
-    public function showPublic(string $slug): JsonResponse
+    public function showPublic(string $slug, Request $request): JsonResponse
     {
         // First try to get as US state (2-letter code)
         if (strlen($slug) === 2) {
@@ -189,8 +189,12 @@ class CountryController extends AbstractController
             }
         }
 
-        // Fallback to country
-        $countryData = $this->countryService->getPublicCountryData($slug);
+        // Get language from Accept-Language header or default to 'en'
+        $acceptLanguage = $request->headers->get('Accept-Language', 'en');
+        $lang = $this->extractLanguageFromHeader($acceptLanguage);
+        
+        // Use the new multilingual function for countries
+        $countryData = $this->countryService->getCountryDataByLanguage($slug, $lang);
         
         if (!$countryData) {
             return new JsonResponse(['error' => 'Country or state not found'], Response::HTTP_NOT_FOUND);
@@ -215,12 +219,12 @@ class CountryController extends AbstractController
             'languages' => $countryData['languages'],
             'flag_svg_url' => $countryData['flag_svg_url'],
             
-            // Text content
-            'overview_en' => $countryData['overview_en'],
-            'culture_en' => $countryData['culture_en'],
-            'demography_en' => $countryData['demography_en'],
-            'economy_en' => $countryData['economy_en'],
-            'history_en' => $countryData['history_en'],
+            // Text content (language-specific with fallback)
+            'overview' => $countryData['overview'],
+            'culture' => $countryData['culture'],
+            'demography' => $countryData['demography'],
+            'economy' => $countryData['economy'],
+            'history' => $countryData['history'],
             
             // Live data
             'advisory' => [
@@ -232,7 +236,8 @@ class CountryController extends AbstractController
                 'USD_to_local' => $countryData['fx_usd_to_local'],
             ],
             
-            'refreshed_at' => $countryData['refreshed_at']
+            'refreshed_at' => $countryData['refreshed_at'],
+            'language' => $lang
         ];
 
         return new JsonResponse($enhancedData);
@@ -327,5 +332,51 @@ class CountryController extends AbstractController
         $this->countryService->refreshCountryViews();
         
         return new JsonResponse(['message' => 'Country views refreshed successfully']);
+    }
+
+    /**
+     * Extract language code from Accept-Language header
+     */
+    private function extractLanguageFromHeader(string $acceptLanguage): string
+    {
+        // Parse Accept-Language header (e.g., "de-DE,de;q=0.9,en;q=0.8")
+        $languages = [];
+        $parts = explode(',', $acceptLanguage);
+        
+        foreach ($parts as $part) {
+            $part = trim($part);
+            if (str_contains($part, ';')) {
+                [$lang, $q] = explode(';', $part, 2);
+                $q = (float) str_replace('q=', '', $q);
+            } else {
+                $lang = $part;
+                $q = 1.0;
+            }
+            
+            $lang = strtolower(trim($lang));
+            $languages[$lang] = $q;
+        }
+        
+        // Sort by quality value
+        arsort($languages);
+        
+        // Return the highest quality language, defaulting to 'en'
+        $preferredLang = array_key_first($languages);
+        
+        // Map common language codes to our supported languages
+        $langMap = [
+            'de' => 'de', 'de-de' => 'de', 'de-at' => 'de', 'de-ch' => 'de',
+            'en' => 'en', 'en-us' => 'en', 'en-gb' => 'en', 'en-ca' => 'en',
+            'fr' => 'fr', 'fr-fr' => 'fr', 'fr-ca' => 'fr', 'fr-ch' => 'fr',
+            'es' => 'es', 'es-es' => 'es', 'es-mx' => 'es', 'es-ar' => 'es',
+            'it' => 'it', 'it-it' => 'it', 'it-ch' => 'it',
+            'pt' => 'pt', 'pt-pt' => 'pt', 'pt-br' => 'pt',
+            'nl' => 'nl', 'nl-nl' => 'nl', 'nl-be' => 'nl',
+        ];
+        
+        // Extract base language (e.g., 'de' from 'de-DE')
+        $baseLang = explode('-', $preferredLang)[0];
+        
+        return $langMap[$preferredLang] ?? $langMap[$baseLang] ?? 'en';
     }
 }

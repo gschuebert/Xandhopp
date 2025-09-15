@@ -98,9 +98,6 @@ export default function Navigation({ locale }: NavigationProps) {
               {content.nav.countries}
             </Link>
             
-            {/* Language Switcher */}
-            <LanguageSwitcher currentLocale={currentLocale} />
-            
             {user ? (
               <div className="flex items-center space-x-4">
                 <Link 
@@ -134,6 +131,9 @@ export default function Navigation({ locale }: NavigationProps) {
                 </Link>
               </div>
             )}
+            
+            {/* Language Switcher - moved to far right */}
+            <LanguageSwitcher currentLocale={currentLocale} />
           </div>
 
           {/* Mobile menu button */}

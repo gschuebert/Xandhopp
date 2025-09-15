@@ -26,4 +26,4 @@ export function getAlternateLocale(currentLocale: Locale): Locale {
 }
 
 // Available locales for the language switcher
-export const availableLocales: Locale[] = ['en', 'de'];
+export const availableLocales: Locale[] = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pt', 'pl', 'ru', 'ja', 'ko', 'zh', 'ar', 'hi', 'tr'];
