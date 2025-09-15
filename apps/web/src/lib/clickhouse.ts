@@ -6,7 +6,7 @@ export function getClickHouseClient(): ClickHouseClient {
   if (!clickhouseClient) {
     clickhouseClient = createClient({
       url: process.env.CLICKHOUSE_HTTP || "http://localhost:8123",
-      database: process.env.CLICKHOUSE_DATABASE || "portalis",
+      database: process.env.CLICKHOUSE_DATABASE || "xandhopp",
       username: process.env.CLICKHOUSE_USERNAME,
       password: process.env.CLICKHOUSE_PASSWORD,
       request_timeout: 30000,
@@ -61,7 +61,7 @@ export async function getCountrySnapshot(iso2: string): Promise<CountrySnapshot 
           headline,
           url,
           published_at
-        FROM portalis.advisories 
+        FROM xandhopp.advisories 
         WHERE country_iso2 = {country:FixedString(2)}
         ORDER BY published_at DESC
         LIMIT 1
@@ -82,7 +82,7 @@ export async function getCountrySnapshot(iso2: string): Promise<CountrySnapshot 
           argMax(value, period) as latest_value,
           argMax(period, period) as latest_period,
           argMax(meta, period) as latest_meta
-        FROM portalis.indicators 
+        FROM xandhopp.indicators 
         WHERE country_iso2 = {country:FixedString(2)}
         GROUP BY indicator_code, source
         ORDER BY indicator_code, source
@@ -102,7 +102,7 @@ export async function getCountrySnapshot(iso2: string): Promise<CountrySnapshot 
           argMax(value, ts) as latest_value,
           argMax(unit, ts) as unit,
           argMax(ts, ts) as latest_ts
-        FROM portalis.air_quality 
+        FROM xandhopp.air_quality 
         WHERE country_iso2 = {country:FixedString(2)}
         GROUP BY parameter, city
         ORDER BY parameter, city
@@ -156,7 +156,7 @@ export async function getCountryIndicators(
           period,
           value,
           meta
-        FROM portalis.indicators 
+        FROM xandhopp.indicators 
         ${whereClause}
         ORDER BY indicator_code, source, period DESC
       `,
@@ -209,7 +209,7 @@ export async function getCountryAirQuality(
           ts,
           value,
           unit
-        FROM portalis.air_quality 
+        FROM xandhopp.air_quality 
         ${whereClause}
         ORDER BY parameter, city, ts DESC
       `,
@@ -233,11 +233,11 @@ export async function getCountriesWithData(): Promise<string[]> {
       query: `
         SELECT DISTINCT country_iso2
         FROM (
-          SELECT DISTINCT country_iso2 FROM portalis.indicators
+          SELECT DISTINCT country_iso2 FROM xandhopp.indicators
           UNION ALL
-          SELECT DISTINCT country_iso2 FROM portalis.advisories
+          SELECT DISTINCT country_iso2 FROM xandhopp.advisories
           UNION ALL
-          SELECT DISTINCT country_iso2 FROM portalis.air_quality
+          SELECT DISTINCT country_iso2 FROM xandhopp.air_quality
         )
         ORDER BY country_iso2
       `,

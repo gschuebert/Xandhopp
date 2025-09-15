@@ -59,7 +59,7 @@ class SeedDemoCommand extends Command
     private function createAdminUser(SymfonyStyle $io): void
     {
         $existingUser = $this->entityManager->getRepository(User::class)
-            ->findOneBy(['email' => 'admin@portalis.com']);
+            ->findOneBy(['email' => 'admin@xandhopp.com']);
 
         if ($existingUser) {
             $io->note('Admin user already exists, skipping...');
@@ -67,12 +67,12 @@ class SeedDemoCommand extends Command
         }
 
         $user = new User();
-        $user->setEmail('admin@portalis.com');
+        $user->setEmail('admin@xandhopp.com');
         $user->setRoles(['ROLE_ADMIN']);
         $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
 
         $this->entityManager->persist($user);
-        $io->text('Created admin user: admin@portalis.com / admin');
+        $io->text('Created admin user: admin@xandhopp.com / admin');
     }
 
     private function createCountries(SymfonyStyle $io): array

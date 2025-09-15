@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@portalis/ui";
+import { cn } from "@xandhopp/ui";
 
 const navigation = [
   { name: "Dashboard", href: "/" },

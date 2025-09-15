@@ -31,7 +31,7 @@ docker-compose -f docker-compose.simple.yml exec -T api php bin/console app:seed
 # Generate API types
 Write-Host "Generating API types..." -ForegroundColor Yellow
 Start-Sleep -Seconds 5
-pnpm --filter @portalis/shared run generate:openapi
+pnpm --filter @xandhopp/shared run generate:openapi
 
 Write-Host "Setup complete!" -ForegroundColor Green
 Write-Host ""
@@ -45,4 +45,4 @@ Write-Host "- pnpm dev (starts both web and admin)" -ForegroundColor White
 Write-Host ""
 Write-Host "Access URLs after running 'pnpm dev':" -ForegroundColor Cyan
 Write-Host "- Web App: http://localhost:3000" -ForegroundColor White
-Write-Host "- Admin Panel: http://localhost:3001 (admin@portalis.com / admin)" -ForegroundColor White
+Write-Host "- Admin Panel: http://localhost:3001 (admin@xandhopp.com / admin)" -ForegroundColor White

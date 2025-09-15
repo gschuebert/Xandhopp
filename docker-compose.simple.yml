@@ -8,8 +8,8 @@ services:
       - "8080:8080"
     environment:
       - APP_ENV=dev
-      - DATABASE_URL=postgresql://portalis:portalis@postgres:5432/portalis?serverVersion=15&charset=utf8
-      - JWT_PASSPHRASE=portalis
+      - DATABASE_URL=postgresql://xandhopp:xandhopp@postgres:5432/xandhopp?serverVersion=15&charset=utf8
+      - JWT_PASSPHRASE=xandhopp
     depends_on:
       postgres:
         condition: service_healthy
@@ -22,13 +22,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=portalis
-      - POSTGRES_USER=portalis
-      - POSTGRES_PASSWORD=portalis
+      - POSTGRES_DB=xandhopp
+      - POSTGRES_USER=xandhopp
+      - POSTGRES_PASSWORD=xandhopp
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U portalis -d portalis"]
+      test: ["CMD-SHELL", "pg_isready -U xandhopp -d xandhopp"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -40,7 +40,7 @@ services:
       - "7700:7700"
     environment:
       - MEILI_ENV=development
-      - MEILI_MASTER_KEY=portalis-search-key
+      - MEILI_MASTER_KEY=xandhopp-search-key
     volumes:
       - meilisearch_data:/meili_data
 
@@ -59,8 +59,8 @@ services:
       - "9000:9000"
       - "9001:9001"
     environment:
-      - MINIO_ROOT_USER=portalis
-      - MINIO_ROOT_PASSWORD=portalis123
+      - MINIO_ROOT_USER=xandhopp
+      - MINIO_ROOT_PASSWORD=xandhopp123
     volumes:
       - minio_data:/data
     command: server /data --console-address ":9001"

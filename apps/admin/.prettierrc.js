@@ -1,1 +1,1 @@
-module.exports = require("@portalis/config/prettier");
+module.exports = require("@xandhopp/config/prettier");

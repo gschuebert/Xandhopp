@@ -18,4 +18,4 @@ Write-Host ""
 
 # Start the ingestion worker
 Write-Host "Starting ingestion worker..." -ForegroundColor Cyan
-pnpm --filter @portalis/ingestion-worker dev
+pnpm --filter @xandhopp/ingestion-worker dev

@@ -39,8 +39,8 @@ COPY . .
 
 # Generate JWT keys
 RUN mkdir -p config/jwt
-RUN openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096 -pass pass:portalis
-RUN openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout -passin pass:portalis
+RUN openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096 -pass pass:xandhopp
+RUN openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout -passin pass:xandhopp
 
 # Set permissions
 RUN chown -R www-data:www-data /app

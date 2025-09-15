@@ -45,16 +45,16 @@ docker-compose up -d
 sleep 30
 
 # Schema anwenden
-docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql
+docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql
 ```
 
 ### 4. Services starten
 ```bash
 # Web App
-pnpm --filter @portalis/web dev &
+pnpm --filter @xandhopp/web dev &
 
 # Admin App  
-pnpm --filter @portalis/admin dev &
+pnpm --filter @xandhopp/admin dev &
 
 # Ingestion Worker
 pnpm run ingestion:dev &
@@ -67,7 +67,7 @@ curl http://localhost:3000/en
 curl http://localhost:3000/api/health
 
 # ClickHouse testen
-docker exec portalis-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM portalis"
+docker exec xandhopp-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM xandhopp"
 ```
 
 ## 🎊 Vorteile nach Migration:

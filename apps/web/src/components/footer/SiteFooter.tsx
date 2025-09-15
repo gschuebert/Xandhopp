@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { PortalisLogo } from '../portalis-logo';
+import { PortalisLogo } from '../xandhopp-logo';
 import { getAlternateLocale, type Locale } from '../../lib/i18n';
 import type { ContentSchema } from '../../../content/schema';
 

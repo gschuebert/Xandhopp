@@ -26,7 +26,7 @@ try {
 # Step 4: Build packages
 Write-Host ""
 Write-Host "4. Building packages..." -ForegroundColor Cyan
-pnpm --filter @portalis/connectors build
+pnpm --filter @xandhopp/connectors build
 
 # Step 5: Start ClickHouse schema in background
 Write-Host ""

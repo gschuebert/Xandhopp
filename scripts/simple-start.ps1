@@ -7,7 +7,7 @@ Write-Host "2. Waiting for services..." -ForegroundColor Cyan
 Start-Sleep -Seconds 15
 
 Write-Host "3. Building connectors..." -ForegroundColor Cyan
-pnpm --filter @portalis/connectors build
+pnpm --filter @xandhopp/connectors build
 
 Write-Host "4. Starting web applications..." -ForegroundColor Cyan
 

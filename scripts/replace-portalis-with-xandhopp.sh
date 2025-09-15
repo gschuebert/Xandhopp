@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to replace all occurrences of "Portalis" with "Xandhopp" throughout the codebase
-# This includes case variations: Portalis, portalis, PORTALIS
+# This includes case variations: Portalis, xandhopp, PORTALIS
 
 set -e
 
@@ -80,33 +80,33 @@ replace_in_directory() {
 print_status "Step 1: Replacing in Docker files..."
 
 # Docker files
-replace_in_file "docker-compose.yml" "portalis" "xandhopp"
-replace_in_file "docker-compose.simple.yml" "portalis" "xandhopp"
-replace_in_file "apps/symfony-api/Dockerfile" "portalis" "xandhopp"
+replace_in_file "docker-compose.yml" "xandhopp" "xandhopp"
+replace_in_file "docker-compose.simple.yml" "xandhopp" "xandhopp"
+replace_in_file "apps/symfony-api/Dockerfile" "xandhopp" "xandhopp"
 
 print_status "Step 2: Replacing in configuration files..."
 
 # Configuration files
-replace_in_file "Makefile" "portalis" "xandhopp"
-replace_in_file "apps/web/next.config.js" "portalis" "xandhopp"
-replace_in_file "apps/admin/next.config.js" "portalis" "xandhopp"
-replace_in_file "apps/symfony-api/config/packages/api_platform.yaml" "portalis" "xandhopp"
+replace_in_file "Makefile" "xandhopp" "xandhopp"
+replace_in_file "apps/web/next.config.js" "xandhopp" "xandhopp"
+replace_in_file "apps/admin/next.config.js" "xandhopp" "xandhopp"
+replace_in_file "apps/symfony-api/config/packages/api_platform.yaml" "xandhopp" "xandhopp"
 
 print_status "Step 3: Replacing in database files..."
 
 # Database files
-replace_in_file "packages/db-clickhouse/schema.sql" "portalis" "xandhopp"
+replace_in_file "packages/db-clickhouse/schema.sql" "xandhopp" "xandhopp"
 
 print_status "Step 4: Replacing in source code files..."
 
 # Replace in all TypeScript/JavaScript files
-replace_in_directory "apps/web/src" "portalis" "xandhopp"
-replace_in_directory "apps/admin/src" "portalis" "xandhopp"
-replace_in_directory "apps/ingestion-worker/src" "portalis" "xandhopp"
-replace_in_directory "packages" "portalis" "xandhopp"
+replace_in_directory "apps/web/src" "xandhopp" "xandhopp"
+replace_in_directory "apps/admin/src" "xandhopp" "xandhopp"
+replace_in_directory "apps/ingestion-worker/src" "xandhopp" "xandhopp"
+replace_in_directory "packages" "xandhopp" "xandhopp"
 
 # Replace in PHP files
-replace_in_directory "apps/symfony-api/src" "portalis" "xandhopp"
+replace_in_directory "apps/symfony-api/src" "xandhopp" "xandhopp"
 
 print_status "Step 5: Replacing in content and message files..."
 
@@ -132,28 +132,28 @@ replace_in_file "SSL_CERTIFICATE_FIXES.md" "Portalis" "Xandhopp"
 print_status "Step 7: Replacing in script files..."
 
 # Script files
-replace_in_directory "scripts" "portalis" "xandhopp"
+replace_in_directory "scripts" "xandhopp" "xandhopp"
 
 print_status "Step 8: Special case replacements..."
 
 # Special cases where we need to be more specific
-replace_in_file "apps/web/src/components/portalis-logo.tsx" "portalis-logo" "xandhopp-logo"
+replace_in_file "apps/web/src/components/xandhopp-logo.tsx" "xandhopp-logo" "xandhopp-logo"
 
 # Rename the logo file
-if [ -f "apps/web/src/components/portalis-logo.tsx" ]; then
-    mv "apps/web/src/components/portalis-logo.tsx" "apps/web/src/components/xandhopp-logo.tsx"
-    print_success "Renamed portalis-logo.tsx to xandhopp-logo.tsx"
+if [ -f "apps/web/src/components/xandhopp-logo.tsx" ]; then
+    mv "apps/web/src/components/xandhopp-logo.tsx" "apps/web/src/components/xandhopp-logo.tsx"
+    print_success "Renamed xandhopp-logo.tsx to xandhopp-logo.tsx"
 fi
 
 print_status "Step 9: Updating package.json files..."
 
 # Update package.json files
-find . -name "package.json" -exec sed -i "s/portalis/xandhopp/g" {} \;
+find . -name "package.json" -exec sed -i "s/xandhopp/xandhopp/g" {} \;
 
 print_status "Step 10: Final cleanup..."
 
 # Remove any remaining references in comments or strings
-find . -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" -o -name "*.php" \) -exec sed -i "s/portalis/xandhopp/g" {} \;
+find . -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" -o -name "*.php" \) -exec sed -i "s/xandhopp/xandhopp/g" {} \;
 
 print_success "Replacement completed!"
 

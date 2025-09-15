@@ -40,7 +40,7 @@ export async function httpGetJson<T>(
 
       try {
         const requestHeaders: Record<string, string> = {
-          "User-Agent": "Portalis/1.0 (https://portalis.dev)",
+          "User-Agent": "Portalis/1.0 (https://xandhopp.dev)",
           "Accept": "application/json",
           ...headers,
         };
@@ -140,7 +140,7 @@ export async function httpGetText(
       try {
         const response = await fetch(url, {
           headers: {
-            "User-Agent": "Portalis/1.0 (https://portalis.dev)",
+            "User-Agent": "Portalis/1.0 (https://xandhopp.dev)",
             ...headers,
           },
           signal: controller.signal,

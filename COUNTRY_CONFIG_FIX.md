@@ -56,7 +56,7 @@ $env:MONITOR_COUNTRIES = "DE,FR,IT,ES,US,GB,NL,BE"
 
 Nach dem Neustart sollte der Worker zeigen:
 ```
-Starting Portalis Ingestion Worker
+Starting Xandhopp Ingestion Worker
 Countries: 30 (oder custom Anzahl)
 ✓ Processing data for: DE, ES, PT, US, GB, FR, IT, NL, BE, AT, ...
 ```

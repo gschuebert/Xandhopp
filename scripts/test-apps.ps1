@@ -20,7 +20,7 @@ try {
     $adminResponse = Invoke-WebRequest -Uri "http://localhost:3001" -UseBasicParsing -TimeoutSec 5
     if ($adminResponse.StatusCode -eq 200) {
         Write-Host "✅ Admin App is running on http://localhost:3001" -ForegroundColor Green
-        Write-Host "   Login: admin@portalis.com / admin" -ForegroundColor White
+        Write-Host "   Login: admin@xandhopp.com / admin" -ForegroundColor White
     }
 } catch {
     Write-Host "❌ Admin App is not responding on port 3001" -ForegroundColor Red

@@ -12,7 +12,7 @@ Da die i18n-Konfiguration Probleme verursacht, hier die **einfachste funktionier
 ### **Option 1: Admin App verwenden (funktioniert)**
 ```
 http://localhost:3001
-Login: admin@portalis.com / admin
+Login: admin@xandhopp.com / admin
 ```
 
 ### **Option 2: Web App reparieren**

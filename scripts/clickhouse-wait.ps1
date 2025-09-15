@@ -7,18 +7,18 @@ $elapsed = 0
 
 while ($elapsed -lt $maxWait) {
     try {
-        $result = docker exec portalis-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
+        $result = docker exec xandhopp-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
         if ($result -eq "1") {
             Write-Host "✓ ClickHouse is ready!" -ForegroundColor Green
             
             # Apply schema
             Write-Host "Applying schema..." -ForegroundColor Yellow
-            Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery
+            Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery
             Write-Host "✓ Schema applied successfully!" -ForegroundColor Green
             
             # Test schema
             Write-Host "Testing schema..." -ForegroundColor Yellow
-            $tables = docker exec portalis-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM portalis"
+            $tables = docker exec xandhopp-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM xandhopp"
             Write-Host "Tables created: $tables" -ForegroundColor Cyan
             
             exit 0
@@ -34,6 +34,6 @@ while ($elapsed -lt $maxWait) {
 
 Write-Host "⚠️ ClickHouse did not respond within $maxWait seconds" -ForegroundColor Red
 Write-Host "You can try manually:" -ForegroundColor Yellow
-Write-Host "  docker exec portalis-clickhouse-1 clickhouse-client --query 'SELECT 1'" -ForegroundColor White
-Write-Host "  Get-Content 'packages\db-clickhouse\schema.sql' | docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery" -ForegroundColor White
+Write-Host "  docker exec xandhopp-clickhouse-1 clickhouse-client --query 'SELECT 1'" -ForegroundColor White
+Write-Host "  Get-Content 'packages\db-clickhouse\schema.sql' | docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery" -ForegroundColor White
 exit 1

@@ -1,4 +1,4 @@
-import { PortalisLogo } from "../../components/portalis-logo";
+import { PortalisLogo } from "../../components/xandhopp-logo";
 import { Button } from "@xandhopp/ui";
 import Link from "next/link";
 

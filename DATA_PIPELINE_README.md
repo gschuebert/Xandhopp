@@ -1,8 +1,8 @@
-# Portalis Data Pipeline
+# Xandhopp Data Pipeline
 
 ## 🌍 Übersicht
 
-Das Portalis Data Pipeline System ist eine professionelle, skalierbare Architektur für die Sammlung, Normalisierung und Bereitstellung von Länderinformationen aus verschiedenen öffentlichen und kommerziellen APIs.
+Das Xandhopp Data Pipeline System ist eine professionelle, skalierbare Architektur für die Sammlung, Normalisierung und Bereitstellung von Länderinformationen aus verschiedenen öffentlichen und kommerziellen APIs.
 
 ## 🏗️ Architektur
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { PortalisLogo } from '../portalis-logo';
+import { PortalisLogo } from '../xandhopp-logo';
 import { MobileNav } from './MobileNav';
 import { SearchForm } from './SearchForm';
 import { useScrollSpy } from '../../lib/useScrollSpy';

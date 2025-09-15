@@ -38,7 +38,7 @@ db-seed: ## Seed database with demo data
 
 # API commands
 api-docs: ## Generate OpenAPI documentation
-	pnpm --filter @portalis/shared run generate:openapi
+	pnpm --filter @xandhopp/shared run generate:openapi
 
 # Full setup
 setup: install up db-create db-migrate db-seed api-docs ## Complete setup for development

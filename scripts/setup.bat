@@ -31,14 +31,14 @@ call docker-compose exec -T api php bin/console app:seed:demo
 REM Generate API types
 echo 🔧 Generating API types...
 timeout /t 5 /nobreak >nul
-call pnpm --filter @portalis/shared run generate:openapi
+call pnpm --filter @xandhopp/shared run generate:openapi
 
 echo.
 echo 🎉 Setup complete!
 echo.
 echo Access your applications:
 echo • Web App: http://localhost:3000
-echo • Admin Panel: http://localhost:3001 (admin@portalis.com / admin)
+echo • Admin Panel: http://localhost:3001 (admin@xandhopp.com / admin)
 echo • API Docs: http://localhost:8080/docs
 echo.
 echo Useful commands:

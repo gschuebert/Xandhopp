@@ -7,7 +7,7 @@ api_platform:
     openapi:
         contact:
             name: 'Portalis Team'
-            email: 'api@portalis.com'
+            email: 'api@xandhopp.com'
         license:
             name: 'Proprietary'
     

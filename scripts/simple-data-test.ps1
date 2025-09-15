@@ -2,7 +2,7 @@
 Write-Host "Testing ClickHouse connection..." -ForegroundColor Green
 
 try {
-    $result = docker exec portalis-clickhouse-1 clickhouse-client --host 127.0.0.1 --port 9000 --query "SELECT 1"
+    $result = docker exec xandhopp-clickhouse-1 clickhouse-client --host 127.0.0.1 --port 9000 --query "SELECT 1"
     Write-Host "ClickHouse response: $result" -ForegroundColor White
     
     if ($result -eq "1") {
@@ -10,7 +10,7 @@ try {
         
         # Apply schema
         Write-Host "Applying schema..." -ForegroundColor Cyan
-        Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i portalis-clickhouse-1 clickhouse-client --host 127.0.0.1 --port 9000 --multiquery
+        Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i xandhopp-clickhouse-1 clickhouse-client --host 127.0.0.1 --port 9000 --multiquery
         
         Write-Host "Schema applied successfully!" -ForegroundColor Green
     }

@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@portalis/ui";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@portalis/ui";
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@xandhopp/ui";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@xandhopp/ui";
 import { useAuth, AuthProvider } from "../../lib/auth";
 import { LoginForm } from "../../components/login-form";
 import { Sidebar } from "../../components/sidebar";
 import { Providers } from "../providers";
 import { apiClient } from "../../lib/api";
-import { ResidencyProgram } from "@portalis/shared";
+import { ResidencyProgram } from "@xandhopp/shared";
 
 function ProgramsManagement() {
   const [isCreating, setIsCreating] = useState(false);

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PortalisLogo } from '../../../components/portalis-logo';
+import { PortalisLogo } from '../../../components/xandhopp-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 
 interface PrivacyPageProps {
@@ -12,7 +12,7 @@ export default function PrivacyPage({ params }: PrivacyPageProps) {
   const content = getContent(params.locale);
 
   return (
-    <div className="min-h-screen bg-portalis-bg">
+    <div className="min-h-screen bg-xandhopp-bg">
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-md shadow-sm">
         <div className="container-default">

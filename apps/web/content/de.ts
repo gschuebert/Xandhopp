@@ -255,7 +255,7 @@ export const de: ContentSchema = {
   cta: {
     headline: "Bereit, Ihre",
     subtitle: "Umzugsreise zu starten?",
-    description: "Treten Sie Tausenden erfolgreichen Umziehern bei, die Portalis vertrauen, um sie zu ihrem perfekten Ziel zu führen.",
+    description: "Treten Sie Tausenden erfolgreichen Umziehern bei, die Xandhopp vertrauen, um sie zu ihrem perfekten Ziel zu führen.",
     emailPlaceholder: "E-Mail-Adresse eingeben",
     button: "Loslegen",
     benefits: [
@@ -273,7 +273,7 @@ export const de: ContentSchema = {
   footer: {
     description: "Ihr vertrauenswürdiger Partner für nahtlose internationale Umzüge. Globale Umzüge einfach, transparent und stressfrei machen.",
     contact: {
-      email: "hello@portalis.com",
+      email: "hello@xandhopp.com",
       phone: "+1 (555) 123-4567",
       location: "San Francisco, CA"
     },
@@ -315,7 +315,7 @@ export const de: ContentSchema = {
         }
       }
     },
-    copyright: "© 2025 Portalis. Alle Rechte vorbehalten."
+    copyright: "© 2025 Xandhopp. Alle Rechte vorbehalten."
   },
 
   placeholders: {

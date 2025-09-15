@@ -1,4 +1,4 @@
-# 🔧 Import Path Fix für Portalis Logo
+# 🔧 Import Path Fix für Xandhopp Logo
 
 ## Problem
 ```
@@ -10,14 +10,14 @@ Module not found: Can't resolve '@/components/portalis-logo'
 ### 1. Import-Pfade korrigiert
 **Root Page:** `apps/web/src/app/page.tsx`
 ```typescript
-// Vorher: import { PortalisLogo } from "@/components/portalis-logo";
+// Vorher: import { XandhoppLogo } from "@/components/portalis-logo";
 // Nachher: 
-import { PortalisLogo } from "../components/portalis-logo";
+import { XandhoppLogo } from "../components/portalis-logo";
 ```
 
 **Simple Page:** `apps/web/src/app/simple/page.tsx`
 ```typescript
-import { PortalisLogo } from "../../components/portalis-logo";
+import { XandhoppLogo } from "../../components/portalis-logo";
 ```
 
 ### 2. Datei-Struktur bestätigt

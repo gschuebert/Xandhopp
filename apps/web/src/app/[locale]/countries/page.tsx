@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import { PortalisLogo } from '../../../components/portalis-logo';
+import { PortalisLogo } from '../../../components/xandhopp-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 import { CountrySearch } from '../../../components/countries/CountrySearch';
 import { CountryDetail } from '../../../components/countries/CountryDetail';
@@ -108,7 +108,7 @@ export default function CountriesPage({ params }: CountriesPageProps) {
       <main className="container-default py-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="w-24 h-24 bg-gradient-to-br from-portalis-accent to-portalis-accent-light rounded-full flex items-center justify-center mx-auto mb-8">
+            <div className="w-24 h-24 bg-gradient-to-br from-xandhopp-accent to-xandhopp-accent-light rounded-full flex items-center justify-center mx-auto mb-8">
               <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
               </svg>

@@ -29,18 +29,18 @@ sleep 30
 
 # Apply ClickHouse schema
 echo "📊 Applying ClickHouse schema..."
-docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql
+docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery < packages/db-clickhouse/schema.sql
 
 # Test ClickHouse
 echo "🔍 Testing ClickHouse..."
-docker exec portalis-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM portalis"
+docker exec xandhopp-clickhouse-1 clickhouse-client --query "SHOW TABLES FROM xandhopp"
 
 echo ""
 echo "✅ Setup completed!"
 echo ""
 echo "🌍 Start the services:"
-echo "  pnpm --filter @portalis/web dev"
-echo "  pnpm --filter @portalis/admin dev" 
+echo "  pnpm --filter @xandhopp/web dev"
+echo "  pnpm --filter @xandhopp/admin dev" 
 echo "  pnpm run ingestion:dev"
 echo ""
 echo "🎯 Then visit: http://localhost:3000/en"

@@ -50,7 +50,7 @@ export class ClickHouseService {
 
     try {
       await this.client.insert({
-        table: "portalis.indicators",
+        table: "xandhopp.indicators",
         values: data,
         format: "JSONEachRow",
       });
@@ -73,7 +73,7 @@ export class ClickHouseService {
 
     try {
       await this.client.insert({
-        table: "portalis.advisories",
+        table: "xandhopp.advisories",
         values: data,
         format: "JSONEachRow",
       });
@@ -98,7 +98,7 @@ export class ClickHouseService {
 
     try {
       await this.client.insert({
-        table: "portalis.air_quality",
+        table: "xandhopp.air_quality",
         values: data,
         format: "JSONEachRow",
       });
@@ -121,7 +121,7 @@ export class ClickHouseService {
 
     try {
       await this.client.insert({
-        table: "portalis.cost_of_living",
+        table: "xandhopp.cost_of_living",
         values: data,
         format: "JSONEachRow",
       });
@@ -139,7 +139,7 @@ export class ClickHouseService {
         : `WHERE source = {source:String}`;
       
       const result = await this.client.query({
-        query: `SELECT max(ingested_at) as last_ingestion FROM portalis.${table} ${whereClause}`,
+        query: `SELECT max(ingested_at) as last_ingestion FROM xandhopp.${table} ${whereClause}`,
         query_params: {
           source,
           ...(country && { country: country.toUpperCase() }),
@@ -170,7 +170,7 @@ export class ClickHouseService {
             argMax(value, period) as latest_value,
             argMax(period, period) as latest_period,
             argMax(meta, period) as latest_meta
-          FROM portalis.indicators 
+          FROM xandhopp.indicators 
           WHERE country_iso2 = {country:FixedString(2)}
           GROUP BY indicator_code, source
           ORDER BY indicator_code, source
@@ -191,7 +191,7 @@ export class ClickHouseService {
       const result = await this.client.query({
         query: `
           SELECT *
-          FROM portalis.advisories 
+          FROM xandhopp.advisories 
           WHERE country_iso2 = {country:FixedString(2)}
           ORDER BY published_at DESC
           LIMIT 1

@@ -1,4 +1,4 @@
-import { PortalisLogo } from '../../../components/portalis-logo';
+import { PortalisLogo } from '../../../components/xandhopp-logo';
 import SignupForm from '../../../components/auth/SignupForm';
 
 interface SignupPageProps {

@@ -32,7 +32,7 @@ const connection = new Redis({
 const clickhouse = new ClickHouseService(config.clickhouse);
 
 // Queue setup
-const queueName = "portalis-ingestion";
+const queueName = "xandhopp-ingestion";
 const queue = new Queue(queueName, { connection });
 
 // Job worker

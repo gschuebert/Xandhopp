@@ -1,4 +1,4 @@
-// Main exports for @portalis/connectors package
+// Main exports for @xandhopp/connectors package
 
 // HTTP utilities
 export * from "./http.js";

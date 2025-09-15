@@ -255,7 +255,7 @@ export const en: ContentSchema = {
   cta: {
     headline: "Ready to start your",
     subtitle: "relocation journey?",
-    description: "Join thousands of successful relocators who trust Portalis to guide them to their perfect destination.",
+    description: "Join thousands of successful relocators who trust Xandhopp to guide them to their perfect destination.",
     emailPlaceholder: "Enter your email address",
     button: "Get Started",
     benefits: [
@@ -273,7 +273,7 @@ export const en: ContentSchema = {
   footer: {
     description: "Your trusted partner for seamless international relocation. Making global moves simple, transparent, and stress-free.",
     contact: {
-      email: "hello@portalis.com",
+      email: "hello@xandhopp.com",
       phone: "+1 (555) 123-4567",
       location: "San Francisco, CA"
     },
@@ -315,7 +315,7 @@ export const en: ContentSchema = {
         }
       }
     },
-    copyright: "© 2025 Portalis. All rights reserved."
+    copyright: "© 2025 Xandhopp. All rights reserved."
   },
 
   placeholders: {

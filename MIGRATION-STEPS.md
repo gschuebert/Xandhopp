@@ -1,4 +1,4 @@
-# 🚀 Portalis Migration zu WSL Ubuntu
+# 🚀 Xandhopp Migration zu WSL Ubuntu
 
 ## Schritt-für-Schritt Anleitung:
 
@@ -10,14 +10,14 @@
 ### 2. Projekt kopieren (Windows Explorer)
 1. **Öffne Windows Explorer**
 2. **Navigiere zu**: `\\wsl.localhost\Ububtu\var\www`
-3. **Erstelle Ordner**: `Portalis`
-4. **Kopiere alle Dateien** von `D:\dev\Portalis` nach `\\wsl.localhost\Ububtu\var\www\Portalis`
+3. **Erstelle Ordner**: `Xandhopp`
+4. **Kopiere alle Dateien** von `D:\dev\Xandhopp` nach `\\wsl.localhost\Ububtu\var\www\Xandhopp`
    - **AUSSCHLIESSEN**: `node_modules`, `.next`, `dist`, `.git` Ordner
 
 ### 3. WSL Ubuntu Terminal öffnen
 ```bash
 # Öffne Ubuntu Terminal und navigiere zum Projekt:
-cd /var/www/Portalis
+cd /var/www/Xandhopp
 ```
 
 ### 4. Setup ausführen

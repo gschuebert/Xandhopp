@@ -12,7 +12,7 @@ class EmailService
 {
     public function __construct(
         private MailerInterface $mailer,
-        private string $fromEmail = 'noreply@portalis.com',
+        private string $fromEmail = 'noreply@xandhopp.com',
         private string $fromName = 'Portalis'
     ) {}
 

@@ -67,7 +67,7 @@ if ($attempt -gt $maxAttempts) {
 Write-Host "Generating API types..." -ForegroundColor Yellow
 Start-Sleep -Seconds 3
 try {
-    pnpm --filter @portalis/shared run generate:openapi
+    pnpm --filter @xandhopp/shared run generate:openapi
     Write-Host "API types generated successfully!" -ForegroundColor Green
 }
 catch {

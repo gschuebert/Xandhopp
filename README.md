@@ -1,4 +1,4 @@
-# Portalis - Your perfect move worldwide
+# Xandhopp - Your perfect move worldwide
 
 A production-ready monorepo for managing residency and immigration programs worldwide with full user authentication and profile management.
 

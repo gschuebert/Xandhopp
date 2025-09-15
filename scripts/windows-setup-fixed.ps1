@@ -16,7 +16,7 @@ do {
     Write-Host "Attempt $attempt/$maxAttempts..." -ForegroundColor Cyan
     
     try {
-        $result = docker exec portalis-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
+        $result = docker exec xandhopp-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
         if ($result -eq "1") {
             $ready = $true
             Write-Host "ClickHouse is ready!" -ForegroundColor Green
@@ -38,16 +38,16 @@ if (-not $ready) {
 # Apply schema
 Write-Host "Applying ClickHouse schema..." -ForegroundColor Yellow
 try {
-    Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery
+    Get-Content "packages\db-clickhouse\schema.sql" | docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery
     Write-Host "Schema applied successfully!" -ForegroundColor Green
 } catch {
     Write-Host "Schema application failed. ClickHouse might need more time." -ForegroundColor Red
-    Write-Host "You can retry later with: Get-Content 'packages\db-clickhouse\schema.sql' | docker exec -i portalis-clickhouse-1 clickhouse-client --multiquery" -ForegroundColor Yellow
+    Write-Host "You can retry later with: Get-Content 'packages\db-clickhouse\schema.sql' | docker exec -i xandhopp-clickhouse-1 clickhouse-client --multiquery" -ForegroundColor Yellow
 }
 
 Write-Host ""
 Write-Host "ClickHouse setup completed!" -ForegroundColor Green
 Write-Host "You can now:" -ForegroundColor Cyan
-Write-Host "- Test connection: docker exec portalis-clickhouse-1 clickhouse-client --query 'SELECT 1'" -ForegroundColor White
+Write-Host "- Test connection: docker exec xandhopp-clickhouse-1 clickhouse-client --query 'SELECT 1'" -ForegroundColor White
 Write-Host "- Start ingestion worker: pnpm run ingestion:dev" -ForegroundColor White
 Write-Host "- Start web app: pnpm run dev" -ForegroundColor White

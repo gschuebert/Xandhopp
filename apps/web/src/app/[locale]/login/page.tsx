@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PortalisLogo } from '../../../components/portalis-logo';
+import { PortalisLogo } from '../../../components/xandhopp-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 
 interface LoginPageProps {
@@ -12,7 +12,7 @@ export default function LoginPage({ params }: LoginPageProps) {
   const content = getContent(params.locale);
 
   return (
-    <div className="min-h-screen bg-portalis-bg">
+    <div className="min-h-screen bg-xandhopp-bg">
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-md shadow-sm">
         <div className="container-default">
@@ -35,7 +35,7 @@ export default function LoginPage({ params }: LoginPageProps) {
       <main className="container-default py-20">
         <div className="max-w-md mx-auto">
           <div className="card p-12 text-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-portalis-accent to-portalis-accent-light rounded-full flex items-center justify-center mx-auto mb-8">
+            <div className="w-20 h-20 bg-gradient-to-br from-xandhopp-accent to-xandhopp-accent-light rounded-full flex items-center justify-center mx-auto mb-8">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>

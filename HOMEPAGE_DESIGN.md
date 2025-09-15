@@ -1,4 +1,4 @@
-# 🎨 Portalis Homepage Design
+# 🎨 Xandhopp Homepage Design
 
 ## ✅ Implementiert
 

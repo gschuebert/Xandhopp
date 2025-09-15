@@ -34,7 +34,7 @@ pnpm install
 
 # Build packages
 Write-Host "Building packages..." -ForegroundColor Yellow
-pnpm --filter @portalis/connectors build
+pnpm --filter @xandhopp/connectors build
 
 # Start infrastructure services
 Write-Host "Starting infrastructure services..." -ForegroundColor Yellow

@@ -20,4 +20,4 @@ Write-Host ""
 
 # Start ingestion worker
 Write-Host "Starting Portalis Ingestion Worker..." -ForegroundColor Green
-pnpm --filter @portalis/ingestion-worker dev
+pnpm --filter @xandhopp/ingestion-worker dev

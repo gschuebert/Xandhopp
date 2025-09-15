@@ -26,7 +26,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     try {
       // Mock admin login - replace with actual authentication
-      if (email === "admin@portalis.com" && password === "admin") {
+      if (email === "admin@xandhopp.com" && password === "admin") {
         setUser({ id: "1", email, name: "Admin User", role: "admin" });
       } else {
         throw new Error("Invalid credentials");

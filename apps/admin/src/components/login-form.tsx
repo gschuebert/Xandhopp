@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@portalis/ui";
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@xandhopp/ui";
 import { useAuth } from "../lib/auth";
 
 const loginSchema = z.object({
@@ -60,7 +60,7 @@ export function LoginForm() {
                 {...register("email")}
                 type="email"
                 className="w-full p-2 border rounded-md"
-                placeholder="admin@portalis.com"
+                placeholder="admin@xandhopp.com"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>
@@ -89,7 +89,7 @@ export function LoginForm() {
 
           <div className="mt-4 p-3 text-sm bg-muted rounded-md">
             <p className="font-medium">Demo Credentials:</p>
-            <p>Email: admin@portalis.com</p>
+            <p>Email: admin@xandhopp.com</p>
             <p>Password: admin</p>
           </div>
         </CardContent>

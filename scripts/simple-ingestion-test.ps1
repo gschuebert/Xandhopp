@@ -4,7 +4,7 @@ Write-Host "Testing Portalis Ingestion System..." -ForegroundColor Green
 # Check if ClickHouse is running
 Write-Host "1. Checking ClickHouse status..." -ForegroundColor Cyan
 try {
-    $result = docker exec portalis-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
+    $result = docker exec xandhopp-clickhouse-1 clickhouse-client --query "SELECT 1" 2>$null
     if ($result -eq "1") {
         Write-Host "✓ ClickHouse is running" -ForegroundColor Green
     } else {
@@ -17,7 +17,7 @@ try {
 # Check Redis
 Write-Host "2. Checking Redis status..." -ForegroundColor Cyan
 try {
-    docker exec portalis-redis-1 redis-cli ping | Out-Null
+    docker exec xandhopp-redis-1 redis-cli ping | Out-Null
     Write-Host "✓ Redis is running" -ForegroundColor Green
 } catch {
     Write-Host "✗ Redis not available" -ForegroundColor Red

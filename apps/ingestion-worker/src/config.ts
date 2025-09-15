@@ -12,7 +12,7 @@ const ConfigSchema = z.object({
   // ClickHouse configuration
   clickhouse: z.object({
     host: z.string().default("http://localhost:8123"),
-    database: z.string().default("portalis"),
+    database: z.string().default("xandhopp"),
     username: z.string().optional(),
     password: z.string().optional(),
   }),
@@ -68,7 +68,7 @@ export function loadConfig(): Config {
     },
     clickhouse: {
       host: process.env.CLICKHOUSE_HTTP || "http://localhost:8123",
-      database: process.env.CLICKHOUSE_DATABASE || "portalis",
+      database: process.env.CLICKHOUSE_DATABASE || "xandhopp",
       username: process.env.CLICKHOUSE_USERNAME,
       password: process.env.CLICKHOUSE_PASSWORD,
     },

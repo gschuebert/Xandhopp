@@ -93,7 +93,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
   return (
     <div className="space-y-8">
       {/* Country Header */}
-      <div className="bg-gradient-to-r from-portalis-accent to-portalis-accent-light rounded-2xl p-8 text-white">
+      <div className="bg-gradient-to-r from-xandhopp-accent to-xandhopp-accent-light rounded-2xl p-8 text-white">
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-6">
             {country.flag_svg_url && (
@@ -193,7 +193,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
                 onClick={() => setActiveSection(section)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
                   activeSection === section
-                    ? 'bg-portalis-accent text-white'
+                    ? 'bg-xandhopp-accent text-white'
                     : 'bg-gray-100 text-xandhopp-blue hover:bg-gray-200'
                 }`}
               >
@@ -340,7 +340,7 @@ export function CountryDetail({ country, locale, onBack }: CountryDetailProps) {
                   href={`https://www.google.com/maps?q=${country.lat},${country.lon}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-portalis-accent hover:text-portalis-accent-light transition-colors"
+                  className="inline-flex items-center space-x-2 text-xandhopp-accent hover:text-xandhopp-accent-light transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
