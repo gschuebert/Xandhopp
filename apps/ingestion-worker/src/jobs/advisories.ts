@@ -113,7 +113,7 @@ export async function processAdvisories(
       logger.error("Failed to process FCDO advisories:", {
         error: error instanceof Error ? error.message : String(error),
         jobId: job.id,
-        countries: countriesToFetch?.slice(0, 3), // Log first 3 countries for context
+        countries: countries?.slice(0, 3), // Log first 3 countries for context
       });
       // Continue processing other sources even if FCDO fails
     }

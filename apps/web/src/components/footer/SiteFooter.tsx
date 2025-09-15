@@ -34,17 +34,17 @@ export function SiteFooter({ content, locale }: SiteFooterProps) {
             <ul className="space-y-2 text-white/80">
               <li>
                 <Link href={`/${locale}/privacy`} className="hover:text-white transition-colors">
-                  {content.footer.links.privacy}
+                  {content.footer.sections.legal.links.privacy}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/terms`} className="hover:text-white transition-colors">
-                  {content.footer.links.terms}
+                  {content.footer.sections.legal.links.terms}
                 </Link>
               </li>
               <li>
                 <a href="mailto:contact@xandhopp.com" className="hover:text-white transition-colors">
-                  {content.footer.links.contact}
+                  {content.footer.sections.support.links.contact}
                 </a>
               </li>
             </ul>

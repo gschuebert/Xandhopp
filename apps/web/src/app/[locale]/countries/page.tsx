@@ -65,13 +65,46 @@ export default function CountriesPage({ params }: CountriesPageProps) {
   const handleCountrySelect = useCallback(async (country: Country) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/api/countries/${country.slug}/public`);
+      // Use the working autocomplete endpoint as a workaround
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8082'}/api/countries/autocomplete?q=${encodeURIComponent(country.name)}&limit=1`);
       if (response.ok) {
         const data = await response.json();
-        setSelectedCountry(data);
+        if (data.results && data.results.length > 0) {
+          const countryData = data.results[0];
+          // Transform the data to match the expected format
+          const transformedData: CountryDetailData = {
+            slug: countryData.slug,
+            iso2: countryData.id, // Using id as iso2 for now
+            iso3: countryData.id, // Using id as iso3 for now
+            name_en: countryData.name,
+            name_local: countryData.nameLocal,
+            continent: countryData.continent,
+            capital: countryData.capital,
+            flag_svg_url: countryData.flag,
+            refreshed_at: new Date().toISOString(),
+            // Add placeholder values for missing fields
+            population: 0,
+            area_km2: '0',
+            lat: '0',
+            lon: '0',
+            calling_code: '',
+            currency_code: '',
+            languages: [],
+            overview_en: 'Country information is being loaded...',
+            culture_en: '',
+            demography_en: '',
+            economy_en: '',
+            history_en: '',
+            advisory: { level: 0 },
+            fx: { EUR_to_local: '', USD_to_local: '' }
+          };
+          setSelectedCountry(transformedData);
+        }
       }
     } catch (error) {
       console.error('Error fetching country details:', error);
+      // Show a fallback message or redirect to search
+      alert('Unable to load country details. Please try again.');
     } finally {
       setIsLoading(false);
     }

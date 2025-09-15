@@ -1,6 +1,4 @@
-// Temporarily disable next-intl to use simple homepage
-// const createNextIntlPlugin = require('next-intl/plugin');
-// const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+// Using custom i18n system instead of next-intl
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

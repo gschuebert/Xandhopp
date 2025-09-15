@@ -13,6 +13,7 @@ export interface ContentSchema {
     compare: string;
     wizard: string;
     signin: string;
+    login: string;
     register: string;
     profile: string;
     signOut: string;

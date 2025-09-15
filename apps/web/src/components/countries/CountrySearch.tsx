@@ -48,7 +48,7 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
   useEffect(() => {
     const loadContinents = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/countries/continents');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8082'}/api/countries/continents`);
         if (response.ok) {
           const data = await response.json();
           setContinents(data.continents);
@@ -80,7 +80,7 @@ export function CountrySearch({ onCountrySelect, locale, isLoading }: CountrySea
           params.append('continent', selectedContinent);
         }
 
-        const response = await fetch(`http://localhost:8080/api/countries/autocomplete?${params}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8082'}/api/countries/autocomplete?${params}`);
         if (response.ok) {
           const data = await response.json();
           setSuggestions(data.results);

@@ -40,8 +40,10 @@ export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
   const currentLanguage = languages.find(lang => lang.code === currentLocale);
 
   const handleLanguageChange = (newLocale: Locale) => {
-    const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
-    router.push(newPath);
+    if (pathname) {
+      const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+      router.push(newPath);
+    }
     setIsOpen(false);
   };
 

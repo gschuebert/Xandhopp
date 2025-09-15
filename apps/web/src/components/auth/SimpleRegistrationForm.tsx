@@ -110,8 +110,8 @@ export default function SimpleRegistrationForm({ locale, onSuccess, onError }: S
         setEmailSent(true);
         
         // Store user data if available
-        if (data.user) {
-          localStorage.setItem('user', JSON.stringify(data.user));
+        if (data.user_id) {
+          localStorage.setItem('user', JSON.stringify({ id: data.user_id, email: formData.email }));
         }
         
         if (onSuccess) {

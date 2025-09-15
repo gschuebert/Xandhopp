@@ -17,7 +17,7 @@ export class FallbackStorage {
     try {
       await mkdir(this.baseDir, { recursive: true });
     } catch (error) {
-      logger.warn("Could not create fallback directory:", error);
+      logger.warn(error, "Could not create fallback directory:");
     }
   }
 
@@ -30,7 +30,7 @@ export class FallbackStorage {
       await writeFile(filepath, JSON.stringify(data, null, 2));
       logger.info(`Stored ${data.length} indicators for ${country} in fallback storage: ${filename}`);
     } catch (error) {
-      logger.error("Failed to store indicators in fallback storage:", error);
+      logger.error(error, "Failed to store indicators in fallback storage:");
     }
   }
 
@@ -43,7 +43,7 @@ export class FallbackStorage {
       await writeFile(filepath, JSON.stringify(data, null, 2));
       logger.info(`Stored ${data.length} air quality measurements (${parameter}) in fallback storage: ${filename}`);
     } catch (error) {
-      logger.error("Failed to store air quality data in fallback storage:", error);
+      logger.error(error, "Failed to store air quality data in fallback storage:");
     }
   }
 
@@ -56,7 +56,7 @@ export class FallbackStorage {
       await writeFile(filepath, JSON.stringify(data, null, 2));
       logger.info(`Stored ${data.length} advisories in fallback storage: ${filename}`);
     } catch (error) {
-      logger.error("Failed to store advisories in fallback storage:", error);
+      logger.error(error, "Failed to store advisories in fallback storage:");
     }
   }
 }

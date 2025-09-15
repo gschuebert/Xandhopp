@@ -31,7 +31,7 @@ export class ClickHouseService {
       const data = await result.json();
       return Array.isArray(data) && data.length > 0;
     } catch (error) {
-      logger.error("ClickHouse ping failed:", error);
+      logger.error(error, "ClickHouse ping failed:");
       return false;
     }
   }
@@ -56,11 +56,11 @@ export class ClickHouseService {
       });
       logger.info(`Inserted ${data.length} indicators into ClickHouse`);
     } catch (error) {
-      logger.error("Failed to insert indicators:", {
+      logger.error({
         error: error instanceof Error ? error.message : String(error),
         dataCount: data.length,
         sampleData: data.slice(0, 2), // Log first 2 records for debugging
-      });
+      }, "Failed to insert indicators:");
       throw error;
     }
   }
@@ -104,11 +104,11 @@ export class ClickHouseService {
       });
       logger.info(`Inserted ${data.length} air quality measurements into ClickHouse`);
     } catch (error) {
-      logger.error("Failed to insert air quality data:", {
+      logger.error({
         error: error instanceof Error ? error.message : String(error),
         dataCount: data.length,
         sampleData: data.slice(0, 2), // Log first 2 records for debugging
-      });
+      }, "Failed to insert air quality data:");
       throw error;
     }
   }

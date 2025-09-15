@@ -225,7 +225,7 @@ class CountryService
      */
     public function getCountryDataByLanguage(string $slug, string $targetLang = 'en'): ?array
     {
-        $sql = 'SELECT * FROM get_country_data_by_lang(:slug, :lang)';
+        $sql = 'SELECT * FROM get_country_data_by_lang(:slug::text, :lang::text)';
         $stmt = $this->entityManager->getConnection()->prepare($sql);
         $result = $stmt->executeQuery([
             'slug' => $slug,

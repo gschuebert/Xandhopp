@@ -12,4 +12,4 @@ export const logger = pino({
       },
     },
   }),
-});
+}) as any; // Temporary fix for TypeScript issues

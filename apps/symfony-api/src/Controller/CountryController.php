@@ -220,11 +220,11 @@ class CountryController extends AbstractController
             'flag_svg_url' => $countryData['flag_svg_url'],
             
             // Text content (language-specific with fallback)
-            'overview' => $countryData['overview'],
-            'culture' => $countryData['culture'],
-            'demography' => $countryData['demography'],
-            'economy' => $countryData['economy'],
-            'history' => $countryData['history'],
+            'overview_en' => $countryData['overview'],
+            'culture_en' => $countryData['culture'],
+            'demography_en' => $countryData['demography'],
+            'economy_en' => $countryData['economy'],
+            'history_en' => $countryData['history'],
             
             // Live data
             'advisory' => [

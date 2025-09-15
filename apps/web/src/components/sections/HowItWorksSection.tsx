@@ -6,6 +6,7 @@ import {
   CheckCircle, 
   Plane 
 } from 'lucide-react';
+import { type Locale } from '../../lib/i18n';
 
 const steps = [
   {
@@ -42,7 +43,11 @@ const steps = [
   }
 ];
 
-export default function HowItWorksSection() {
+interface HowItWorksSectionProps {
+  locale: Locale;
+}
+
+export default function HowItWorksSection({ locale }: HowItWorksSectionProps) {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

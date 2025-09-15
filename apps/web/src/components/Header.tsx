@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
   
   // Extract locale from pathname
-  const pathSegments = pathname.split('/');
+  const pathSegments = pathname?.split('/') || [];
   const currentLocale: Locale = isValidLocale(pathSegments[1]) ? pathSegments[1] : 'en';
 
   useEffect(() => {
@@ -62,7 +62,10 @@ export default function Header() {
                 onError={(e) => {
                   // Fallback to text if image fails to load
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'block';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) {
+                    nextElement.style.display = 'block';
+                  }
                 }}
               />
               <span className="text-2xl font-bold text-blue-600 hidden">Portalis</span>

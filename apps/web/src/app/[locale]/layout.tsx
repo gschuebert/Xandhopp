@@ -4,6 +4,7 @@ import "../globals.css";
 import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
 import Navigation from '../../components/Navigation';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,11 +50,13 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
   }
 
   return (
-    <div lang={params.locale}>
-      <Navigation locale={params.locale} />
-      <main>
-        {children}
-      </main>
-    </div>
+    <Providers>
+      <div lang={params.locale}>
+        <Navigation locale={params.locale} />
+        <main>
+          {children}
+        </main>
+      </div>
+    </Providers>
   );
 }

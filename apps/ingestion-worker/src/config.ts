@@ -67,7 +67,7 @@ export function loadConfig(): Config {
       db: Number(process.env.REDIS_DB || "0"),
     },
     clickhouse: {
-      host: process.env.CLICKHOUSE_HTTP || "http://localhost:8123",
+      host: process.env.CLICKHOUSE_HTTP || "http://localhost:8124",
       database: process.env.CLICKHOUSE_DATABASE || "xandhopp",
       username: process.env.CLICKHOUSE_USERNAME,
       password: process.env.CLICKHOUSE_PASSWORD,

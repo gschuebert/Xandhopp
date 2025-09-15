@@ -5,6 +5,9 @@
         <![CDATA[<html><head><title>ClickHouse Server</title></head><body>ClickHouse server is running.</body></html>]]>
     </http_server_default_response>
     
+    <!-- Skip check for incorrect settings to allow user-level settings in config -->
+    <skip_check_for_incorrect_settings>1</skip_check_for_incorrect_settings>
+    
     <!-- Memory and performance settings for development -->
     <max_memory_usage>4000000000</max_memory_usage>
     <max_concurrent_queries>100</max_concurrent_queries>

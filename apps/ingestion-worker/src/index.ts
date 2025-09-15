@@ -23,7 +23,6 @@ const connection = new Redis({
   port: config.redis.port,
   password: config.redis.password,
   db: config.redis.db,
-  retryDelayOnFailover: 100,
   enableReadyCheck: false,
   maxRetriesPerRequest: null,
 });
@@ -39,7 +38,7 @@ const queue = new Queue(queueName, { connection });
 const worker = new Worker(
   queueName,
   async (job) => {
-    logger.info(`Processing job: ${job.name}`, { jobId: job.id });
+    logger.info({ jobId: job.id }, `Processing job: ${job.name}`);
     
     try {
       switch (job.name) {
@@ -72,8 +71,8 @@ const worker = new Worker(
   {
     connection,
     concurrency: 1, // Reduce concurrency to prevent lock conflicts
-    removeOnComplete: 10, // Keep fewer completed jobs
-    removeOnFail: 20, // Keep fewer failed jobs
+    removeOnComplete: { count: 10 }, // Keep fewer completed jobs
+    removeOnFail: { count: 20 }, // Keep fewer failed jobs
     stalledInterval: 30 * 1000, // Check for stalled jobs every 30 seconds
     maxStalledCount: 1, // Max times a job can be stalled before failed
   }
@@ -81,18 +80,18 @@ const worker = new Worker(
 
 // Error handling
 worker.on("failed", (job, err) => {
-  logger.error(`Job failed: ${job?.name}`, {
+  logger.error({
     jobId: job?.id,
     error: err.message,
     stack: err.stack,
-  });
+  }, `Job failed: ${job?.name}`);
 });
 
 worker.on("completed", (job) => {
-  logger.info(`Job completed: ${job.name}`, {
+  logger.info({
     jobId: job.id,
     duration: job.finishedOn ? job.finishedOn - job.processedOn! : 0,
-  });
+  }, `Job completed: ${job.name}`);
 });
 
 worker.on("stalled", (jobId) => {

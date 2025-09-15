@@ -1,6 +1,7 @@
 'use client';
 
 import { Star, MapPin } from 'lucide-react';
+import { type Locale } from '../../lib/i18n';
 
 const testimonials = [
   {
@@ -32,7 +33,11 @@ const testimonials = [
   }
 ];
 
-export default function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  locale: Locale;
+}
+
+export default function TestimonialsSection({ locale }: TestimonialsSectionProps) {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

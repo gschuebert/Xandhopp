@@ -16,7 +16,7 @@ export function Problem({ content }: ProblemProps) {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {content.problem.bullets.map((bullet, index) => (
+            {content.problem.problems.map((bullet, index) => (
               <div key={index} className="card p-8 text-left">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
@@ -24,9 +24,14 @@ export function Problem({ content }: ProblemProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <p className="text-xandhopp-blue text-lg leading-relaxed">
-                    {bullet}
-                  </p>
+                  <div>
+                    <h3 className="text-xandhopp-blue text-lg font-semibold mb-2">
+                      {bullet.title}
+                    </h3>
+                    <p className="text-xandhopp-blue text-base leading-relaxed">
+                      {bullet.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

@@ -13,6 +13,7 @@ export const en: ContentSchema = {
     compare: "Compare",
     wizard: "Wizard",
     signin: "Sign In",
+    login: "Login",
     register: "Get Started",
     profile: "Profile",
     signOut: "Sign Out",
