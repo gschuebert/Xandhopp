@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 
     // Try to save to backend
     try {
-      const response = await fetch('http://localhost:8082/api/early-access', {
+      const response = await fetch('http://api:8080/api/early-access', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export async function GET(request: NextRequest) {
 
     // Try to check with backend
     try {
-      const response = await fetch(`http://localhost:8082/api/early-access?email=${encodeURIComponent(email)}`, {
+      const response = await fetch(`http://api:8080/api/early-access?email=${encodeURIComponent(email)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

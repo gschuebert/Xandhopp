@@ -28,6 +28,7 @@ class CountryController extends AbstractController
     {
         $continent = $request->query->get('continent');
         $search = $request->query->get('search');
+        $lang = $request->query->get('lang', 'en');
         $limit = (int) $request->query->get('limit', 50);
 
         // Special handling for North America - return US states instead of countries
@@ -45,20 +46,38 @@ class CountryController extends AbstractController
             ]);
         }
 
-        // Regular country handling
-        if ($search) {
-            $countries = $this->countryService->searchCountries($search, $limit);
-        } elseif ($continent) {
-            $countries = $this->countryService->getCountriesByContinent($continent);
-        } else {
-            $countries = $this->countryService->getAllCountries();
+        // New database structure - get countries from new tables
+        try {
+            if ($search) {
+                $countries = $this->countryService->searchCountriesNew($search, $lang, $limit);
+            } elseif ($continent) {
+                $countries = $this->countryService->getCountriesByContinentNew($continent, $lang);
+            } else {
+                $countries = $this->countryService->getAllCountriesNew($lang);
+            }
+
+            return new JsonResponse([
+                'countries' => $countries,
+                'total' => count($countries),
+                'continent' => $continent,
+                'language' => $lang
+            ]);
+        } catch (\Exception $e) {
+            // Fallback to old structure if new one fails
+            if ($search) {
+                $countries = $this->countryService->searchCountries($search, $limit);
+            } elseif ($continent) {
+                $countries = $this->countryService->getCountriesByContinent($continent);
+            } else {
+                $countries = $this->countryService->getAllCountries();
+            }
+
+            $data = $this->serializer->serialize($countries, 'json', [
+                'groups' => ['country:read']
+            ]);
+
+            return new JsonResponse($data, Response::HTTP_OK, [], true);
         }
-
-        $data = $this->serializer->serialize($countries, 'json', [
-            'groups' => ['country:read']
-        ]);
-
-        return new JsonResponse($data, Response::HTTP_OK, [], true);
     }
 
     #[Route('/search', name: 'search', methods: ['GET'])]
@@ -163,8 +182,24 @@ class CountryController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'show', methods: ['GET'])]
-    public function show(string $slug): JsonResponse
+    public function show(string $slug, Request $request): JsonResponse
     {
+        $lang = $request->query->get('lang', 'en');
+        
+        try {
+            // Try new database structure first
+            $country = $this->countryService->getCountryBySlugNew($slug, $lang);
+            
+            if ($country) {
+                return new JsonResponse([
+                    'country' => $country
+                ]);
+            }
+        } catch (\Exception $e) {
+            // Fallback to old structure
+        }
+        
+        // Fallback to old structure
         $country = $this->countryService->getCountryBySlug($slug);
         
         if (!$country) {
@@ -324,6 +359,38 @@ class CountryController extends AbstractController
         ]);
 
         return new JsonResponse($data, Response::HTTP_OK, [], true);
+    }
+
+    #[Route('/{slug}/content', name: 'content', methods: ['GET'])]
+    public function content(string $slug, Request $request): JsonResponse
+    {
+        $lang = $request->query->get('lang', 'en');
+        
+        try {
+            $contents = $this->countryService->getCountryContentNew($slug, $lang);
+            
+            return new JsonResponse([
+                'contents' => $contents
+            ]);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Content not found'], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    #[Route('/{slug}/facts', name: 'facts', methods: ['GET'])]
+    public function facts(string $slug, Request $request): JsonResponse
+    {
+        $lang = $request->query->get('lang', 'en');
+        
+        try {
+            $facts = $this->countryService->getCountryFactsNew($slug, $lang);
+            
+            return new JsonResponse([
+                'facts' => $facts
+            ]);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Facts not found'], Response::HTTP_NOT_FOUND);
+        }
     }
 
     #[Route('/refresh-views', name: 'refresh_views', methods: ['POST'])]

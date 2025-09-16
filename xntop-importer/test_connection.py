@@ -57,17 +57,18 @@ def test_wikipedia_api():
     logger.info("Teste Wikipedia API...")
     
     try:
-        api = WikipediaAPIClient()
+        api = WikipediaAPIClient("https://en.wikipedia.org/api/rest_v1")
         
         # Teste mit Deutschland
         data = api.get_country_data("Germany", "en")
         
         if data:
             logger.info(f"✅ Wikipedia API erfolgreich")
-            logger.info(f"Titel: {data['title']}")
-            logger.info(f"Extract-Länge: {len(data['extract'])} Zeichen")
+            logger.info(f"Titel: {data.get('title', 'N/A')}")
+            logger.info(f"Extract-Länge: {len(data.get('extract', ''))} Zeichen")
             if data.get('thumbnail'):
                 logger.info(f"Thumbnail: {data['thumbnail']}")
+            logger.info(f"Verfügbare Felder: {list(data.keys())}")
         else:
             logger.warning("⚠️  Wikipedia API antwortet, aber keine Daten erhalten")
         

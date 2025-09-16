@@ -12,9 +12,6 @@ COPY ../../packages ./packages
 # Copy app package.json
 COPY package.json ./apps/admin/
 
-# Install dependencies from workspace root
-RUN pnpm install
-
 # Copy app source code
 COPY . ./apps/admin/
 

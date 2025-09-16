@@ -27,3 +27,13 @@ export function getAlternateLocale(currentLocale: Locale): Locale {
 
 // Available locales for the language switcher
 export const availableLocales: Locale[] = ['en', 'de'];
+
+// Mapping für API-Sprachen
+export function mapLocaleToAPILanguage(locale: Locale): 'en' | 'de' | 'es' | 'zh' | 'hi' {
+  const mapping: Record<Locale, 'en' | 'de' | 'es' | 'zh' | 'hi'> = {
+    en: 'en',
+    de: 'de',
+    // Fallback für zukünftige Sprachen
+  };
+  return mapping[locale] || 'en';
+}

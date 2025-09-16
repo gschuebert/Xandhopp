@@ -76,6 +76,7 @@ export default function Navigation({ locale }: NavigationProps) {
                 src="/logo.png"
                 alt="Portalis"
                 fill
+                sizes="40px"
                 className="object-contain"
                 priority
               />
@@ -92,7 +93,7 @@ export default function Navigation({ locale }: NavigationProps) {
               {content.nav.home}
             </Link>
             <Link 
-              href={`/${locale}/countries`} 
+              href={`/${locale}/countrys`} 
               className="text-gray-700 hover:text-primary transition-colors duration-200"
             >
               {content.nav.countries}
@@ -157,7 +158,7 @@ export default function Navigation({ locale }: NavigationProps) {
                 {content.nav.home}
               </Link>
               <Link 
-                href={`/${locale}/countries`} 
+                href={`/${locale}/countrys`} 
                 className="text-gray-700 hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >

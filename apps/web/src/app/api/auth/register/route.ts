@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
     // Try to forward the request to the Symfony API
     try {
-      const response = await fetch('http://localhost:8082/api/auth/register', {
+      const response = await fetch('http://api:8080/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

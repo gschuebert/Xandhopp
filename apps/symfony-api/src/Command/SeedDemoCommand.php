@@ -68,8 +68,8 @@ class SeedDemoCommand extends Command
 
         $user = new User();
         $user->setEmail('admin@xandhopp.com');
-        $user->setRoles(['ROLE_ADMIN']);
-        $user->setPassword($this->passwordHasher->hashPassword($user, 'admin'));
+        $user->setRole('admin');
+        $user->setPasswordHash($this->passwordHasher->hashPassword($user, 'admin'));
 
         $this->entityManager->persist($user);
         $io->text('Created admin user: admin@xandhopp.com / admin');

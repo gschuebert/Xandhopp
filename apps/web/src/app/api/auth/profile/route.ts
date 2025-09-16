@@ -20,7 +20,7 @@ export async function PUT(request: NextRequest) {
     try {
       console.log('Frontend API: Trying to update profile for email:', user.email);
       console.log('Frontend API: Update data:', body);
-      const response = await fetch('http://localhost:8082/api/auth/profile-simple', {
+      const response = await fetch('http://api:8080/api/auth/profile-simple', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
     // Try to get profile data from backend
     try {
       console.log('Frontend API: Trying to fetch profile for email:', user.email);
-      const response = await fetch(`http://localhost:8082/api/auth/profile-simple?email=${encodeURIComponent(user.email)}`, {
+      const response = await fetch(`http://api:8080/api/auth/profile-simple?email=${encodeURIComponent(user.email)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 nelmio_cors:
     defaults:
-        origin_regex: false
-        allow_origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002']
+        origin_regex: true
+        allow_origin: ['^https?://(localhost|xandhopp\.local|admin\.xandhopp\.local|api\.xandhopp\.local)(:[0-9]+)?$']
         allow_headers: ['X-Custom-Auth', 'Content-Type', 'Authorization']
         allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
         expose_headers: ['Link']
@@ -10,7 +10,8 @@ nelmio_cors:
         forced_allow_origin_value: ~
     paths:
         '^/api/':
-            allow_origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002']
+            origin_regex: true
+            allow_origin: ['^https?://(localhost|xandhopp\.local|admin\.xandhopp\.local|api\.xandhopp\.local)(:[0-9]+)?$']
             allow_headers: ['X-Custom-Auth', 'Content-Type', 'Authorization']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
             max_age: 3600

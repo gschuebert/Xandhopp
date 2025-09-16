@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     // Try to get data from backend
-    const response = await fetch('http://localhost:8082/api/countries', {
+    const response = await fetch('http://api:8080/api/countries', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

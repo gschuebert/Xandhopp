@@ -1,0 +1,145 @@
+services:
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
+      - admin
+      - api
+      - meilisearch
+      - mailhog
+      - minio
+
+  # Web Frontend (Next.js)
+  web:
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile.dev
+    volumes:
+      - ./apps/web:/app/apps/web
+      - web_node_modules:/app/node_modules
+      - web_app_node_modules:/app/apps/web/node_modules
+      - /app/apps/web/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_BASE=http://api.xandhopp.local
+    depends_on:
+      - api
+    command: sh -c "pnpm install && pnpm dev"
+
+  # Admin Frontend (Next.js)
+  admin:
+    build:
+      context: .
+      dockerfile: ./apps/admin/Dockerfile.dev
+    volumes:
+      - ./apps/admin:/app/apps/admin
+      - admin_node_modules:/app/node_modules
+      - admin_app_node_modules:/app/apps/admin/node_modules
+      - /app/apps/admin/.next
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_BASE=http://api.xandhopp.local
+    depends_on:
+      - api
+    command: sh -c "pnpm install && pnpm dev"
+
+  # API Backend (Symfony)
+  api:
+    build:
+      context: ./apps/symfony-api
+      dockerfile: Dockerfile.simple
+    environment:
+      - APP_ENV=dev
+      - APP_SECRET=xandhopp-secret-key-for-development
+      - DATABASE_URL=postgresql://xandhopp:xandhopp@postgres:5432/xandhopp?serverVersion=15&charset=utf8
+      - JWT_PASSPHRASE=xandhopp
+      - REDIS_URL=redis://redis:6379
+      - CLICKHOUSE_URL=http://clickhouse:8123
+      - MEILISEARCH_URL=http://meilisearch:7700
+      - MAILER_DSN=smtp://mailhog:1025
+      - MEILISEARCH_API_KEY=91RkaSPLkqMRqx9zv7IkI46fp3OWZR5O5aJuYulPMqjfyLulJI8twoPfXVDRqBT7kmr5qomSqvG6BFO19o3gtBIFcxQYP9irQKd7SzgiJyFKRk1br
+      - CORS_ALLOW_ORIGIN=^https?://(xandhopp\.local|admin\.xandhopp\.local|api\.xandhopp\.local)(:[0-9]+)?$
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./apps/symfony-api:/app
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=xandhopp
+      - POSTGRES_USER=xandhopp
+      - POSTGRES_PASSWORD=xandhopp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U xandhopp -d xandhopp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Meilisearch (Search Engine)
+  meilisearch:
+    image: getmeili/meilisearch:v1.5
+    environment:
+      - MEILI_ENV=development
+      - MEILI_MASTER_KEY=91RkaSPLkqMRqx9zv7IkI46fp3OWZR5O5aJuYulPMqjfyLulJI8twoPfXVDRqBT7kmr5qomSqvG6BFO19o3gtBIFcxQYP9irQKd7SzgiJyFKRk1br
+    volumes:
+      - meilisearch_data:/meili_data
+
+  # Redis (Cache & Sessions)
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+
+  # MinIO (S3-compatible storage)
+  minio:
+    image: minio/minio:latest
+    environment:
+      - MINIO_ROOT_USER=xandhopp
+      - MINIO_ROOT_PASSWORD=xandhopp123
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+  # MailHog (Email Testing)
+  mailhog:
+    image: mailhog/mailhog:latest
+    environment:
+      - MH_STORAGE=maildir
+      - MH_MAILDIR_PATH=/tmp/mailhog
+
+  # ClickHouse (Analytical Database)
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    environment:
+      - CLICKHOUSE_DB=xandhopp
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./infra/clickhouse/config:/etc/clickhouse-server/config.d
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+volumes:
+  postgres_data:
+  meilisearch_data:
+  redis_data:
+  minio_data:
+  clickhouse_data:
+  web_node_modules:
+  web_app_node_modules:
+  admin_node_modules:
+  admin_app_node_modules:
