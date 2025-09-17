@@ -1,0 +1,1682 @@
+[
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2024-01-01",
+    "value": 22479.2027111103,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2023-01-01",
+    "value": 22311.3052246654,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2022-01-01",
+    "value": 22042.8682074432,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2021-01-01",
+    "value": 20747.6991633543,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2020-01-01",
+    "value": 19778.7138519007,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2019-01-01",
+    "value": 21569.1874639961,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2018-01-01",
+    "value": 20997.7744918249,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2017-01-01",
+    "value": 20364.1963666527,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2016-01-01",
+    "value": 19662.8231226536,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2015-01-01",
+    "value": 19215.7813014347,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2024-01-01",
+    "value": 1.92844406043977,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2023-01-01",
+    "value": 2.61312854351023,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2022-01-01",
+    "value": 6.9858417811997,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2021-01-01",
+    "value": 5.55875771556673,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2020-01-01",
+    "value": -8.20463201239903,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2019-01-01",
+    "value": 2.74568479564236,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2018-01-01",
+    "value": 2.946282440074,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2017-01-01",
+    "value": 3.31472056420827,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2016-01-01",
+    "value": 2.00414128646489,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2015-01-01",
+    "value": 1.58979802880627,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2024-01-01",
+    "value": 2.41613187791884,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2023-01-01",
+    "value": 4.31128191898672,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2022-01-01",
+    "value": 7.83269124233323,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2021-01-01",
+    "value": 1.26565719069044,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2020-01-01",
+    "value": -0.0124383299575305,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2019-01-01",
+    "value": 0.338178410046034,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2018-01-01",
+    "value": 0.993715683468326,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2017-01-01",
+    "value": 1.36861411643472,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2016-01-01",
+    "value": 0.607397074641719,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2015-01-01",
+    "value": 0.48793862390472,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2024-01-01",
+    "value": 6.384,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2023-01-01",
+    "value": 6.509,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2022-01-01",
+    "value": 6.011,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2021-01-01",
+    "value": 6.577,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2020-01-01",
+    "value": 6.801,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2019-01-01",
+    "value": 6.464,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2018-01-01",
+    "value": 6.994,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2017-01-01",
+    "value": 8.869,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2016-01-01",
+    "value": 11.068,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2015-01-01",
+    "value": 12.447,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2023-01-01",
+    "value": 82.2804878048781,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2022-01-01",
+    "value": 81.6317073170732,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2021-01-01",
+    "value": 81.3780487804878,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2020-01-01",
+    "value": 81.3292682926829,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2019-01-01",
+    "value": 81.6756097560976,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2018-01-01",
+    "value": 81.3243902439024,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2017-01-01",
+    "value": 81.4243902439025,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2016-01-01",
+    "value": 81.1243902439025,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2015-01-01",
+    "value": 81.1243902439025,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2024-01-01",
+    "value": 10701636,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2023-01-01",
+    "value": 10578174,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2022-01-01",
+    "value": 10434332,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2021-01-01",
+    "value": 10361831,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2020-01-01",
+    "value": 10297081,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2019-01-01",
+    "value": 10286263,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2018-01-01",
+    "value": 10283822,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2017-01-01",
+    "value": 10300300,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2016-01-01",
+    "value": 10325452,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2015-01-01",
+    "value": 10358076,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2024-01-01",
+    "value": 68.423,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2023-01-01",
+    "value": 67.906,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2022-01-01",
+    "value": 67.381,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2021-01-01",
+    "value": 66.849,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2020-01-01",
+    "value": 66.31,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2019-01-01",
+    "value": 65.764,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2018-01-01",
+    "value": 65.211,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2017-01-01",
+    "value": 64.652,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2016-01-01",
+    "value": 64.086,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2015-01-01",
+    "value": 63.514,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2021-01-01",
+    "value": 96.7799987792969,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2020-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2019-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2018-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2017-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2016-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2015-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2022-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2021-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2020-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2019-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2018-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2017-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2016-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2015-01-01",
+    "value": 36.154994891142,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Portugal",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2021-01-01",
+    "value": 32.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2020-01-01",
+    "value": 31.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2019-01-01",
+    "value": 28.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2018-01-01",
+    "value": 27.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2017-01-01",
+    "value": 24.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2016-01-01",
+    "value": 29,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2015-01-01",
+    "value": 27.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Portugal",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2023-01-01",
+    "value": 85.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2022-01-01",
+    "value": 84.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2021-01-01",
+    "value": 82.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2020-01-01",
+    "value": 78.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2019-01-01",
+    "value": 75.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2018-01-01",
+    "value": 74.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2017-01-01",
+    "value": 73.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2016-01-01",
+    "value": 70.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2015-01-01",
+    "value": 68.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2023-01-01",
+    "value": 123.002,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2022-01-01",
+    "value": 122.801,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2021-01-01",
+    "value": 119.769,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2020-01-01",
+    "value": 114.276,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2019-01-01",
+    "value": 115.146,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2018-01-01",
+    "value": 114.859,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2017-01-01",
+    "value": 113.874,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2016-01-01",
+    "value": 111.847,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "PT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2015-01-01",
+    "value": 112.964,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Portugal",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  }
+]

@@ -186,10 +186,40 @@ export function processWikipediaContent(content: string): string {
   if (!content) return '';
   
   if (isHTMLContent(content)) {
-    return structureWikipediaText(extractPlainText(content));
+    return intelligentParagraphBreaker(extractPlainText(content));
   }
   
-  return structureWikipediaText(content);
+  return intelligentParagraphBreaker(content);
+}
+
+/**
+ * Intelligent paragraph breaker specifically for long Wikipedia texts
+ */
+export function intelligentParagraphBreaker(text: string): string {
+  if (!text) return '';
+
+  // Clean the text first
+  let processed = cleanupWikipediaText(text);
+
+  // Ultra-aggressive sentence-by-sentence breaking
+  processed = processed
+    // Break at EVERY sentence ending followed by a capital letter
+    .replace(/([.!?])\s+([A-ZÄÖÜ])/g, '$1\n\n$2')
+    // Break at semicolons followed by capital letters (often used in German)
+    .replace(/([;:])\s+([A-ZÄÖÜ][a-zäöüß]{2,})/g, '$1\n\n$2')
+    // Break at year references
+    .replace(/(\d{4})\s+([A-ZÄÖÜ][a-zäöüß]{3,})/g, '$1\n\n$2')
+    // Clean up excessive breaks
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
+  // Split and ensure each paragraph is meaningful
+  const paragraphs = processed.split('\n\n')
+    .map(p => p.trim())
+    .filter(p => p.length > 5) // Very permissive
+    .filter(p => p.match(/[a-zäöüßA-ZÄÖÜ]/)); // Must contain letters
+
+  return paragraphs.join('\n\n');
 }
 
 /**
@@ -203,32 +233,33 @@ export function structureWikipediaText(text: string): string {
   // First, clean up the basic text
   structured = cleanupWikipediaText(structured);
 
-  // Advanced paragraph structuring for German content
+  // Very aggressive paragraph structuring - break at every sentence ending
   structured = structured
-    // Break at common German transition words
-    .replace(/(Außerdem|Darüber hinaus|Ferner|Weiterhin|Zudem|Zusätzlich|Allerdings|Jedoch|Dennoch|Trotzdem|Andererseits|Hingegen|Dagegen)\s+/g, '\n\n$1 ')
+    // Primary rule: Break at every sentence ending with capital letter following
+    .replace(/([.!?])\s+([A-ZÄÖÜ])/g, '$1\n\n$2')
+    // Secondary rule: Break at specific patterns even within sentences
+    .replace(/([a-zäöüß])\.\s+(Sein|Seine|Ihr|Ihre|Es|Sie|Er|Das|Die|Der|Ein|Eine)\s+([A-ZÄÖÜ])/g, '$1.\n\n$2 $3')
+    // Break at coordinating conjunctions that start new thoughts
+    .replace(/([.!?])\s+(Außerdem|Darüber hinaus|Ferner|Weiterhin|Zudem|Zusätzlich|Allerdings|Jedoch|Dennoch|Trotzdem|Andererseits|Hingegen|Dagegen|Deshalb|Daher|Folglich|Somit|Infolgedessen|Bedeutend|Wichtig)\s+/g, '$1\n\n$2 ')
     // Break at temporal markers
-    .replace(/(Seit \d{4}|Im Jahr \d{4}|Ab \d{4}|Bis \d{4}|Zwischen \d{4} und \d{4}|In den \d{4}er Jahren)\s+/g, '\n\n$1 ')
+    .replace(/([.!?])\s+(Seit \d{4}|Im Jahr \d{4}|Ab \d{4}|Bis \d{4}|Zwischen \d{4} und \d{4}|In den \d{4}er Jahren|Heute|Heutzutage|Mittlerweile|Inzwischen|Während|Nach|Vor|Bis|Ab)\s+/g, '$1\n\n$2 ')
     // Break at geographical references
-    .replace(/(In [A-ZÄÖÜ][a-zäöüß]+|Im [A-ZÄÖÜ][a-zäöüß]+|Auf [A-ZÄÖÜ][a-zäöüß]+)\s+/g, '\n\n$1 ')
-    // Break before statistical information
-    .replace(/(\d+[%,]\s+|Etwa \d+|Rund \d+|Über \d+|Unter \d+|Mehr als \d+|Weniger als \d+)\s+/g, '\n\n$1 ')
-    // Break at enumerations
-    .replace(/(Erstens|Zweitens|Drittens|Viertens|Zum einen|Zum anderen|Einerseits|Andererseits)\s+/g, '\n\n$1 ')
-    // Break at topic changes (common Wikipedia patterns)
-    .replace(/(Die [A-ZÄÖÜ][a-zäöüß]+ [a-zäöüß]+ |Das [A-ZÄÖÜ][a-zäöüß]+ [a-zäöüß]+ |Der [A-ZÄÖÜ][a-zäöüß]+ [a-zäöüß]+ )/g, '\n\n$1')
-    // Clean up multiple line breaks again
+    .replace(/([.!?])\s+(In [A-ZÄÖÜ][a-zäöüß]+|Im [A-ZÄÖÜ][a-zäöüß]+|Auf [A-ZÄÖÜ][a-zäöüß]+|Bei [A-ZÄÖÜ][a-zäöüß]+|Durch [A-ZÄÖÜ][a-zäöüß]+|Aus [A-ZÄÖÜ][a-zäöüß]+|Metropolitan-[A-ZÄÖÜ])\s+/g, '$1\n\n$2 ')
+    // Break at institutional/organizational references
+    .replace(/([.!?])\s+(Die [A-ZÄÖÜ][a-zäöüß]+e [A-ZÄÖÜ][a-zäöüß]+|Das [A-ZÄÖÜ][a-zäöüß]+e [A-ZÄÖÜ][a-zäöüß]+|Der [A-ZÄÖÜ][a-zäöüß]+e [A-ZÄÖÜ][a-zäöüß]+)\s+/g, '$1\n\n$2 ')
+    // Clean up multiple line breaks
     .replace(/\n{3,}/g, '\n\n')
     .replace(/^\s*\n/gm, '')
     .trim();
 
-  // Split into logical paragraphs and rejoin with proper spacing
-  const paragraphs = structured.split('\n\n').filter(p => p.trim().length > 0);
-  
-  return paragraphs
-    .map(paragraph => paragraph.trim())
-    .filter(paragraph => paragraph.length > 10) // Remove very short fragments
-    .join('\n\n');
+  // Split into paragraphs - be more lenient with length
+  const paragraphs = structured.split('\n\n')
+    .map(p => p.trim())
+    .filter(p => p.length > 10) // Allow shorter paragraphs
+    .filter(p => !p.match(/^[.!?]\s*$/)); // Remove standalone punctuation
+
+  // Don't merge paragraphs - keep them separate for better readability
+  return paragraphs.join('\n\n');
 }
 
 /**
@@ -274,12 +305,21 @@ export function processWikipediaHTML(htmlContent: string): string {
       }
     });
 
-    // Convert paragraphs
+    // Convert paragraphs - ensure each p tag becomes a separate paragraph
     const paragraphs = tempDiv.querySelectorAll('p');
     paragraphs.forEach(p => {
       const text = p.textContent?.trim() || '';
       if (text) {
         p.outerHTML = `${text}\n\n`;
+      }
+    });
+
+    // Also handle div elements that might contain paragraph content
+    const divs = tempDiv.querySelectorAll('div');
+    divs.forEach(div => {
+      const text = div.textContent?.trim() || '';
+      if (text && !div.querySelector('p, div, ul, ol, h1, h2, h3, h4, h5, h6')) {
+        div.outerHTML = `${text}\n\n`;
       }
     });
 

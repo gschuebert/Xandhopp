@@ -1,0 +1,1682 @@
+[
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2024-01-01",
+    "value": 51471.0496318407,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2023-01-01",
+    "value": 51305.6282773372,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2022-01-01",
+    "value": 51777.5431588864,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2021-01-01",
+    "value": 49780.8440526836,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2020-01-01",
+    "value": 47086.5804192702,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2019-01-01",
+    "value": 49254.0158854264,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2018-01-01",
+    "value": 48463.0299739951,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2017-01-01",
+    "value": 47670.1057253297,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2016-01-01",
+    "value": 46655.0363382039,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2015-01-01",
+    "value": 45793.8135434697,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2024-01-01",
+    "value": 0.979674921515965,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2023-01-01",
+    "value": 0.0745608349011775,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2022-01-01",
+    "value": 5.00723455159611,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2021-01-01",
+    "value": 6.2768306708326,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2020-01-01",
+    "value": -3.86795333823223,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2019-01-01",
+    "value": 2.30009157916757,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2018-01-01",
+    "value": 2.2587403735731,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2017-01-01",
+    "value": 2.78154619309936,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2016-01-01",
+    "value": 2.42428572955482,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2015-01-01",
+    "value": 2.12060523860846,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2024-01-01",
+    "value": 3.34754304219953,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2023-01-01",
+    "value": 3.83839354342808,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2022-01-01",
+    "value": 10.0012078753473,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2021-01-01",
+    "value": 2.67572008805385,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2020-01-01",
+    "value": 1.27246037789161,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2019-01-01",
+    "value": 2.63369910249601,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2018-01-01",
+    "value": 1.7034979474447,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2017-01-01",
+    "value": 1.38145871407206,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2016-01-01",
+    "value": 0.316666666666743,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2015-01-01",
+    "value": 0.600248147278776,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2024-01-01",
+    "value": 3.599,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2023-01-01",
+    "value": 3.537,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2022-01-01",
+    "value": 3.526,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2021-01-01",
+    "value": 4.209,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2020-01-01",
+    "value": 3.82,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2019-01-01",
+    "value": 3.379,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2018-01-01",
+    "value": 3.832,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2017-01-01",
+    "value": 4.837,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2016-01-01",
+    "value": 6.007,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2015-01-01",
+    "value": 6.872,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2023-01-01",
+    "value": 81.9146341463415,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2022-01-01",
+    "value": 81.6146341463415,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2021-01-01",
+    "value": 81.309756097561,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2020-01-01",
+    "value": 81.3585365853659,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2019-01-01",
+    "value": 82.1121951219512,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2018-01-01",
+    "value": 81.8121951219512,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2017-01-01",
+    "value": 81.7609756097561,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2016-01-01",
+    "value": 81.5609756097561,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2015-01-01",
+    "value": 81.509756097561,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2024-01-01",
+    "value": 17994237,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2023-01-01",
+    "value": 17877117,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2022-01-01",
+    "value": 17700982,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2021-01-01",
+    "value": 17533044,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2020-01-01",
+    "value": 17441500,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2019-01-01",
+    "value": 17344874,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2018-01-01",
+    "value": 17231624,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2017-01-01",
+    "value": 17131296,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2016-01-01",
+    "value": 17030314,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2015-01-01",
+    "value": 16939923,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2024-01-01",
+    "value": 93.453,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2023-01-01",
+    "value": 93.179,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2022-01-01",
+    "value": 92.886,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2021-01-01",
+    "value": 92.572,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2020-01-01",
+    "value": 92.236,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2019-01-01",
+    "value": 91.876,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2018-01-01",
+    "value": 91.49,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2017-01-01",
+    "value": 91.077,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2016-01-01",
+    "value": 90.635,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2015-01-01",
+    "value": 90.173,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2021-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2020-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2019-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2018-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2017-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2016-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2015-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2022-01-01",
+    "value": 11.0296673596674,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2021-01-01",
+    "value": 11.001980991981,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2020-01-01",
+    "value": 10.974160974161,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2019-01-01",
+    "value": 10.9465399465399,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2018-01-01",
+    "value": 10.9186219186219,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2017-01-01",
+    "value": 10.8910008910009,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2016-01-01",
+    "value": 10.8630828630829,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2015-01-01",
+    "value": 10.8354618354618,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Netherlands",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2021-01-01",
+    "value": 12.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2020-01-01",
+    "value": 10.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2019-01-01",
+    "value": 8.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2018-01-01",
+    "value": 7.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2017-01-01",
+    "value": 6.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2016-01-01",
+    "value": 5.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2015-01-01",
+    "value": 5.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Netherlands",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2023-01-01",
+    "value": 97,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2022-01-01",
+    "value": 92.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2021-01-01",
+    "value": 92.1,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2020-01-01",
+    "value": 91.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2019-01-01",
+    "value": 93.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2018-01-01",
+    "value": 91.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2017-01-01",
+    "value": 93.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2016-01-01",
+    "value": 90.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2015-01-01",
+    "value": 91.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2023-01-01",
+    "value": 117.352,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2022-01-01",
+    "value": 115.821,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2021-01-01",
+    "value": 123.448,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2020-01-01",
+    "value": 121.423,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2019-01-01",
+    "value": 124.088,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2018-01-01",
+    "value": 121.162,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2017-01-01",
+    "value": 118.577,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2016-01-01",
+    "value": 121.42,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "NL",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2015-01-01",
+    "value": 121.638,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Netherlands",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  }
+]

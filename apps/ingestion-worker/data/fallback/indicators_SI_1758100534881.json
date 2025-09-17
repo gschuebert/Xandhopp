@@ -1,0 +1,1682 @@
+[
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2024-01-01",
+    "value": 26045.885218566,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2023-01-01",
+    "value": 25708.8692594475,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2022-01-01",
+    "value": 25276.9359105789,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2021-01-01",
+    "value": 24659.2499382582,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2020-01-01",
+    "value": 22811.8050540778,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2019-01-01",
+    "value": 23943.1800949889,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2018-01-01",
+    "value": 23293.966665323,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2017-01-01",
+    "value": 22397.7634988337,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2016-01-01",
+    "value": 21309.7122138949,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2015-01-01",
+    "value": 20697.2748530619,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2024-01-01",
+    "value": 1.59101479921402,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2023-01-01",
+    "value": 2.11259098460627,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2022-01-01",
+    "value": 2.69923874523828,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2021-01-01",
+    "value": 8.38965158187224,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2020-01-01",
+    "value": -4.08500094942896,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2019-01-01",
+    "value": 3.50525332381912,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2018-01-01",
+    "value": 4.37908347331195,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2017-01-01",
+    "value": 5.17440215579958,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2016-01-01",
+    "value": 3.03441486663654,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2015-01-01",
+    "value": 2.39330621338168,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2024-01-01",
+    "value": 1.96562656432512,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2023-01-01",
+    "value": 7.44687717385838,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2022-01-01",
+    "value": 8.83369886749452,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2021-01-01",
+    "value": 1.91706506089259,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2020-01-01",
+    "value": -0.05485681576061,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2019-01-01",
+    "value": 1.63052260754344,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2018-01-01",
+    "value": 1.7386086198818,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2017-01-01",
+    "value": 1.42910743319306,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2016-01-01",
+    "value": -0.054999541670474,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2015-01-01",
+    "value": -0.525552285820877,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2024-01-01",
+    "value": 3.357,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2023-01-01",
+    "value": 3.652,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2022-01-01",
+    "value": 4.011,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2021-01-01",
+    "value": 4.744,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2020-01-01",
+    "value": 4.971,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2019-01-01",
+    "value": 4.446,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2018-01-01",
+    "value": 5.108,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2017-01-01",
+    "value": 6.564,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2016-01-01",
+    "value": 8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2015-01-01",
+    "value": 8.962,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2023-01-01",
+    "value": 81.9780487804878,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2022-01-01",
+    "value": 81.2829268292683,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2021-01-01",
+    "value": 80.6756097560976,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2020-01-01",
+    "value": 80.5317073170732,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2019-01-01",
+    "value": 81.5292682926829,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2018-01-01",
+    "value": 81.3780487804878,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2017-01-01",
+    "value": 81.0292682926829,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2016-01-01",
+    "value": 81.1756097560976,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2015-01-01",
+    "value": 80.7756097560976,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2024-01-01",
+    "value": 2126324,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2023-01-01",
+    "value": 2120461,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2022-01-01",
+    "value": 2112076,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2021-01-01",
+    "value": 2108079,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2020-01-01",
+    "value": 2102419,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2019-01-01",
+    "value": 2088385,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2018-01-01",
+    "value": 2073894,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2017-01-01",
+    "value": 2066388,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2016-01-01",
+    "value": 2065042,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2015-01-01",
+    "value": 2063531,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2024-01-01",
+    "value": 56.438,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2023-01-01",
+    "value": 56.088,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2022-01-01",
+    "value": 55.751,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2021-01-01",
+    "value": 55.427,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2020-01-01",
+    "value": 55.118,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2019-01-01",
+    "value": 54.822,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2018-01-01",
+    "value": 54.541,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2017-01-01",
+    "value": 54.273,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2016-01-01",
+    "value": 54.02,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2015-01-01",
+    "value": 53.781,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2021-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2020-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2019-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2018-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2017-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2016-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2015-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2022-01-01",
+    "value": 61.2701922885918,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2021-01-01",
+    "value": 61.3711140025029,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2020-01-01",
+    "value": 61.4722591923085,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2019-01-01",
+    "value": 61.5730716513379,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2018-01-01",
+    "value": 61.674380723466,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2017-01-01",
+    "value": 61.7699782998396,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2016-01-01",
+    "value": 61.8592989772614,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2015-01-01",
+    "value": 61.9582377647374,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Slovenia",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2021-01-01",
+    "value": 23.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2020-01-01",
+    "value": 22.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2019-01-01",
+    "value": 20.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2018-01-01",
+    "value": 20.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2017-01-01",
+    "value": 19.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2016-01-01",
+    "value": 21,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2015-01-01",
+    "value": 21.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Slovenia",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2023-01-01",
+    "value": 90.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2022-01-01",
+    "value": 88.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2021-01-01",
+    "value": 89,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2020-01-01",
+    "value": 86.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2019-01-01",
+    "value": 83.1,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2018-01-01",
+    "value": 79.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2017-01-01",
+    "value": 78.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2016-01-01",
+    "value": 75.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2015-01-01",
+    "value": 73.1,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2023-01-01",
+    "value": 129.228,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2022-01-01",
+    "value": 126.459,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2021-01-01",
+    "value": 123.363,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2020-01-01",
+    "value": 121.331,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2019-01-01",
+    "value": 120.569,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2018-01-01",
+    "value": 119.153,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2017-01-01",
+    "value": 118.462,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2016-01-01",
+    "value": 115.736,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "SI",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2015-01-01",
+    "value": 114.271,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Slovenia",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  }
+]

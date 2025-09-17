@@ -1,0 +1,1682 @@
+[
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2024-01-01",
+    "value": 32998.671875,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2023-01-01",
+    "value": 32340.841796875,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2022-01-01",
+    "value": 31967.541015625,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2021-01-01",
+    "value": 30228.03515625,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2020-01-01",
+    "value": 27391.591796875,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2019-01-01",
+    "value": 28625.779296875,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2018-01-01",
+    "value": 27406.4765625,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2017-01-01",
+    "value": 26105.5859375,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2016-01-01",
+    "value": 24916.6328125,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2015-01-01",
+    "value": 23487.228515625,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2024-01-01",
+    "value": 3.4480617042135,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2023-01-01",
+    "value": 2.76390975419605,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2022-01-01",
+    "value": 7.20486780743879,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2021-01-01",
+    "value": 11.3881892684305,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2020-01-01",
+    "value": -3.22063018637567,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2019-01-01",
+    "value": 5.87559583386607,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2018-01-01",
+    "value": 6.27166360056404,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2017-01-01",
+    "value": 5.75083236554525,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2016-01-01",
+    "value": 6.57359080924678,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2015-01-01",
+    "value": 3.41892038889013,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2024-01-01",
+    "value": 1.80023018624815,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2023-01-01",
+    "value": 3.54134188751663,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2022-01-01",
+    "value": 8.39548297993334,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2021-01-01",
+    "value": 2.44608867175474,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2020-01-01",
+    "value": -0.638422797978959,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2019-01-01",
+    "value": 0.250370996758493,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2018-01-01",
+    "value": 1.43549119531759,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2017-01-01",
+    "value": 0.531766496174467,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2016-01-01",
+    "value": -1.42916666666665,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2015-01-01",
+    "value": -2.0969976905311,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2024-01-01",
+    "value": 5.602,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2023-01-01",
+    "value": 6.098,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2022-01-01",
+    "value": 6.806,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2021-01-01",
+    "value": 7.513,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2020-01-01",
+    "value": 7.755,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2019-01-01",
+    "value": 7.155,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2018-01-01",
+    "value": 8.504,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2017-01-01",
+    "value": 11.155,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2016-01-01",
+    "value": 13.006,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2015-01-01",
+    "value": 15.026,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2023-01-01",
+    "value": 81.648,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2022-01-01",
+    "value": 80.434,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2021-01-01",
+    "value": 80.573,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2020-01-01",
+    "value": 81.23,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2019-01-01",
+    "value": 81.454,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2018-01-01",
+    "value": 81.556,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2017-01-01",
+    "value": 81.543,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2016-01-01",
+    "value": 81.534,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2015-01-01",
+    "value": 81.464,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2024-01-01",
+    "value": 1358282,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2023-01-01",
+    "value": 1344976,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2022-01-01",
+    "value": 1331370,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2021-01-01",
+    "value": 1317309,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2020-01-01",
+    "value": 1302247,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2019-01-01",
+    "value": 1286671,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2018-01-01",
+    "value": 1270737,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2017-01-01",
+    "value": 1254275,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2016-01-01",
+    "value": 1237112,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2015-01-01",
+    "value": 1219502,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2024-01-01",
+    "value": 67.082,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2023-01-01",
+    "value": 66.987,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2022-01-01",
+    "value": 66.911,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2021-01-01",
+    "value": 66.856,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2020-01-01",
+    "value": 66.821,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2019-01-01",
+    "value": 66.805,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2018-01-01",
+    "value": 66.81,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2017-01-01",
+    "value": 66.836,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2016-01-01",
+    "value": 66.881,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2015-01-01",
+    "value": 66.946,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2021-01-01",
+    "value": 99.3600006103516,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2020-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2019-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2018-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2017-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2016-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2015-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2022-01-01",
+    "value": 18.6677489177489,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2021-01-01",
+    "value": 18.6699134199134,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2020-01-01",
+    "value": 18.6720779220779,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2019-01-01",
+    "value": 18.6742424242424,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2018-01-01",
+    "value": 18.6764069264069,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2017-01-01",
+    "value": 18.6785714285714,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2016-01-01",
+    "value": 18.6807359307359,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2015-01-01",
+    "value": 18.6915584415584,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Cyprus",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2021-01-01",
+    "value": 15.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2020-01-01",
+    "value": 15,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2019-01-01",
+    "value": 12,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2018-01-01",
+    "value": 12,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2017-01-01",
+    "value": 10.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2016-01-01",
+    "value": 10.3,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2015-01-01",
+    "value": 10.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Cyprus",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2023-01-01",
+    "value": 91.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2022-01-01",
+    "value": 89.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2021-01-01",
+    "value": 90.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2020-01-01",
+    "value": 90.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2019-01-01",
+    "value": 86.1,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2018-01-01",
+    "value": 84.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2017-01-01",
+    "value": 80.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2016-01-01",
+    "value": 75.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2015-01-01",
+    "value": 71.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2023-01-01",
+    "value": 155.696,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2022-01-01",
+    "value": 151.241,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2021-01-01",
+    "value": 145.992,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2020-01-01",
+    "value": 138.388,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2019-01-01",
+    "value": 139.994,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2018-01-01",
+    "value": 137.045,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2017-01-01",
+    "value": 136.172,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2016-01-01",
+    "value": 132.637,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "CY",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2015-01-01",
+    "value": 130.982,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Cyprus",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  }
+]

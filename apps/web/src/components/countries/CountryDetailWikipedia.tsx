@@ -5,7 +5,7 @@ import { type Locale } from '../../lib/i18n';
 import { getContent } from '../../lib/i18n';
 import { countriesAPI, type CountryDetailResponse, type SupportedLanguage, getContentByType, getFactByKey, formatCountryName } from '../../lib/countries-api';
 import { CountryMap } from './CountryMap';
-import { processWikipediaContent, processWikipediaHTML, structureWikipediaText, isHTMLContent } from '../../lib/html-utils';
+import { processWikipediaContent, processWikipediaHTML, intelligentParagraphBreaker, isHTMLContent } from '../../lib/html-utils';
 
 interface CountryDetailWikipediaProps {
   slug: string;
@@ -138,22 +138,17 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
   return (
     <div className="max-w-7xl mx-auto bg-white">
       {/* Wikipedia-style Header */}
-      <div className="border-b border-gray-200 pb-4 mb-6">
-        <div className="flex items-start justify-between">
+      <div className="mb-4">
+        <div className="flex items-start justify-between mb-2">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-normal text-black mb-1 font-serif leading-tight">
               {countryName}
-              {country.name_local && country.name_local !== country.name_en && (
-                <span className="text-2xl font-normal ml-3 text-gray-600">
-                  ({country.name_local})
-                </span>
-              )}
             </h1>
-            <div className="flex items-center space-x-4 text-sm text-gray-600">
-              <span>{country.continent}</span>
+            <div className="text-sm text-gray-600 mb-3">
+              {country.continent}
               {capital && (
                 <>
-                  <span>•</span>
+                  <span className="mx-1">•</span>
                   <span>Hauptstadt: {capital.value}</span>
                 </>
               )}
@@ -162,12 +157,13 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
           {onBack && (
             <button
               onClick={onBack}
-              className="ml-4 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="ml-4 px-3 py-1 text-xs text-blue-600 border border-blue-600 rounded hover:bg-blue-50"
             >
-              Zurück zur Übersicht
+              ← Zurück
             </button>
           )}
         </div>
+        <hr className="border-t border-gray-300 mb-4" />
       </div>
 
       {/* Wikipedia 3-Column Layout */}
@@ -175,51 +171,53 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
         {/* Left Sidebar - Navigation */}
         <aside className="col-span-12 lg:col-span-2">
           <nav className="sticky top-6">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-                Inhaltsverzeichnis
-              </h3>
-              <ul className="space-y-1">
-                {(['allgemein', 'geographie', 'bevoelkerung', 'geschichte', 'politik', 'wirtschaft', 'verkehr', 'kultur', 'siehe-auch'] as WikipediaSection[]).map((key) => (
-                  <li key={key}>
-                    <button
-                      onClick={() => setActiveSection(key)}
-                      className={`w-full text-left px-2 py-1 text-sm rounded transition-colors ${
-                        activeSection === key
-                          ? 'bg-blue-100 text-blue-700 font-medium'
-                          : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                      }`}
-                    >
-                      {sectionLabels[key]}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+            <div className="border border-gray-300 bg-gray-50">
+              <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
+                <h3 className="text-sm font-bold text-black">
+                  Inhaltsverzeichnis
+                </h3>
+              </div>
+              <div className="p-3">
+                <ul className="space-y-0">
+                  {(['allgemein', 'geographie', 'bevoelkerung', 'geschichte', 'politik', 'wirtschaft', 'verkehr', 'kultur', 'siehe-auch'] as WikipediaSection[]).map((key, index) => (
+                    <li key={key} className="leading-tight">
+                      <button
+                        onClick={() => setActiveSection(key)}
+                        className={`w-full text-left py-1 text-sm hover:underline transition-colors ${
+                          activeSection === key
+                            ? 'text-black font-bold'
+                            : 'text-blue-600 hover:text-blue-800'
+                        }`}
+                      >
+                        {index + 1} {sectionLabels[key]}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </nav>
         </aside>
 
         {/* Main Content Area */}
         <main className="col-span-12 lg:col-span-7">
-          <div className="prose prose-lg max-w-none">
-            <DynamicContentSection 
-              section={activeSection}
-              sectionLabel={sectionLabels[activeSection]}
-              content={getContentForSection(activeSection)}
-              facts={facts}
-              countryName={countryName}
-              formatNumber={formatNumber}
-            />
-          </div>
+          <DynamicContentSection 
+            section={activeSection}
+            sectionLabel={sectionLabels[activeSection]}
+            content={getContentForSection(activeSection)}
+            facts={facts}
+            countryName={countryName}
+            formatNumber={formatNumber}
+          />
         </main>
 
         {/* Right Sidebar - Infobox */}
         <aside className="col-span-12 lg:col-span-3">
           <div className="sticky top-6 space-y-4">
             {/* Wikipedia-style Infobox */}
-            <div className="border border-gray-300 rounded-lg overflow-hidden">
-              <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
-                <h3 className="font-semibold text-gray-900">{countryName}</h3>
+            <div className="border border-gray-300 bg-gray-50 text-sm">
+              <div className="bg-gray-100 px-3 py-2 border-b border-gray-300 text-center">
+                <h3 className="font-bold text-black text-base">{countryName}</h3>
               </div>
               <div className="p-3">
                 {/* Flag */}
@@ -228,76 +226,84 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
                     <img
                       src={country.flag_url}
                       alt={`${countryName} Flagge`}
-                      className="w-32 h-20 object-cover mx-auto border border-gray-300"
+                      className="w-full max-w-48 h-auto object-cover mx-auto border border-gray-400"
                     />
                   </div>
                 )}
 
-                {/* Basic Info */}
-                <dl className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <dt className="font-medium text-gray-600">Hauptstadt:</dt>
-                    <dd className="text-gray-900">{capital?.value || 'N/A'}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="font-medium text-gray-600">Kontinent:</dt>
-                    <dd className="text-gray-900">{country.continent}</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="font-medium text-gray-600">ISO-Code:</dt>
-                    <dd className="text-gray-900 font-mono">{country.iso_code}</dd>
-                  </div>
-                  {population && (
-                    <div className="flex justify-between">
-                      <dt className="font-medium text-gray-600">Bevölkerung:</dt>
-                      <dd className="text-gray-900">{formatNumber(population.value)} {population.unit}</dd>
-                    </div>
-                  )}
-                  {area && (
-                    <div className="flex justify-between">
-                      <dt className="font-medium text-gray-600">Fläche:</dt>
-                      <dd className="text-gray-900">{formatNumber(area.value)} {area.unit}</dd>
-                    </div>
-                  )}
-                  {currency && (
-                    <div className="flex justify-between">
-                      <dt className="font-medium text-gray-600">Währung:</dt>
-                      <dd className="text-gray-900">{currency.value}</dd>
-                    </div>
-                  )}
-                  {language && (
-                    <div className="flex justify-between">
-                      <dt className="font-medium text-gray-600">Sprache:</dt>
-                      <dd className="text-gray-900">{language.value}</dd>
-                    </div>
-                  )}
-                </dl>
+                {/* Basic Info Table */}
+                <table className="w-full text-xs">
+                  <tbody>
+                    {capital && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">Hauptstadt:</td>
+                        <td className="py-1 text-black">{capital.value}</td>
+                      </tr>
+                    )}
+                    <tr className="border-b border-gray-200">
+                      <td className="py-1 pr-2 text-gray-700 font-medium">Kontinent:</td>
+                      <td className="py-1 text-black">{country.continent}</td>
+                    </tr>
+                    <tr className="border-b border-gray-200">
+                      <td className="py-1 pr-2 text-gray-700 font-medium">ISO-Code:</td>
+                      <td className="py-1 text-black font-mono">{country.iso_code}</td>
+                    </tr>
+                    {population && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">Bevölkerung:</td>
+                        <td className="py-1 text-black">{formatNumber(population.value)} {population.unit}</td>
+                      </tr>
+                    )}
+                    {area && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">Fläche:</td>
+                        <td className="py-1 text-black">{formatNumber(area.value)} {area.unit}</td>
+                      </tr>
+                    )}
+                    {currency && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">Währung:</td>
+                        <td className="py-1 text-black">{currency.value}</td>
+                      </tr>
+                    )}
+                    {language && (
+                      <tr>
+                        <td className="py-1 pr-2 text-gray-700 font-medium">Sprache:</td>
+                        <td className="py-1 text-black">{language.value}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
 
             {/* Geodaten Box */}
-            <div className="border border-gray-300 rounded-lg overflow-hidden">
+            <div className="border border-gray-300 bg-gray-50 text-sm">
               <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
-                <h3 className="font-semibold text-gray-900">Geodaten</h3>
+                <h3 className="font-bold text-black">Geodaten</h3>
               </div>
               <div className="p-3">
                 {latitude && longitude ? (
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-gray-600">Koordinaten:</span>
-                      <span className="font-mono text-gray-900">
-                        {parseFloat(latitude.value).toFixed(2)}° N, {parseFloat(longitude.value).toFixed(2)}° O
-                      </span>
-                    </div>
+                  <div className="space-y-3">
+                    <table className="w-full text-xs">
+                      <tbody>
+                        <tr>
+                          <td className="py-1 pr-2 text-gray-700 font-medium">Koordinaten:</td>
+                          <td className="py-1 text-black font-mono text-xs">
+                            {parseFloat(latitude.value).toFixed(2)}° N, {parseFloat(longitude.value).toFixed(2)}° O
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                     <CountryMap 
                       countryName={countryName}
                       latitude={parseFloat(latitude.value)}
                       longitude={parseFloat(longitude.value)}
-                      className="mt-3"
+                      className="mt-2"
                     />
                   </div>
                 ) : (
-                  <div className="text-sm text-gray-600">
+                  <div className="text-xs text-gray-600">
                     Geodaten nicht verfügbar
                   </div>
                 )}
@@ -337,37 +343,35 @@ function DynamicContentSection({
   const currency = facts.find(f => f.key === 'currency');
 
   return (
-    <section>
-      <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+    <section className="mb-8">
+      <h2 className="text-2xl font-normal text-black mb-3 font-serif border-b border-gray-300 pb-1">
         {sectionLabel}
       </h2>
       
       {/* Content from localized_contents table */}
       {content ? (
-        <div className="text-gray-700 mb-6">
-          {/* Check if content is HTML and process accordingly */}
-          <div className="prose prose-gray max-w-none">
-            {isHTMLContent(content.content) ? (
-              <div className="whitespace-pre-line text-justify leading-7 text-base">
-                {processWikipediaContent(content.content)}
-              </div>
-            ) : (
-              <div className="whitespace-pre-line text-justify leading-7 text-base">
-                {structureWikipediaText(content.content)}
-              </div>
-            )}
+        <div className="text-black text-sm leading-relaxed">
+          {/* Process content with intelligent paragraph breaking */}
+          <div className="space-y-4">
+            {processWikipediaContent(content.content).split('\n\n').map((paragraph, index) => {
+              const trimmedParagraph = paragraph.trim();
+              if (trimmedParagraph.length === 0) return null;
+              
+              return (
+                <p key={index} className="text-justify leading-6 mb-4 text-black">
+                  {trimmedParagraph}
+                </p>
+              );
+            })}
           </div>
           {content.source_url && (
-            <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="mt-6 pt-3 border-t border-gray-300 text-xs text-gray-600">
               <a
                 href={content.source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-blue-600 hover:text-blue-800 flex items-center"
+                className="text-blue-600 hover:text-blue-800 hover:underline"
               >
-                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
                 Quelle: {content.source_url.includes('wikipedia') ? 'Wikipedia' : 'Externe Quelle'}
               </a>
             </div>
@@ -459,21 +463,23 @@ function AdditionalFactsBox({ facts }: AdditionalFactsBoxProps) {
   if (additionalFacts.length === 0) return null;
 
   return (
-    <div className="border border-gray-300 rounded-lg overflow-hidden">
+    <div className="border border-gray-300 bg-gray-50 text-sm">
       <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
-        <h3 className="font-semibold text-gray-900">Weitere Informationen</h3>
+        <h3 className="font-bold text-black">Weitere Informationen</h3>
       </div>
       <div className="p-3">
-        <dl className="space-y-2 text-sm">
-          {additionalFacts.map((fact) => (
-            <div key={fact.id} className="flex justify-between">
-              <dt className="font-medium text-gray-600 capitalize">{fact.key}:</dt>
-              <dd className="text-gray-900">
-                {fact.value} {fact.unit && <span className="text-gray-500">{fact.unit}</span>}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <table className="w-full text-xs">
+          <tbody>
+            {additionalFacts.map((fact, index) => (
+              <tr key={fact.id} className={index < additionalFacts.length - 1 ? "border-b border-gray-200" : ""}>
+                <td className="py-1 pr-2 text-gray-700 font-medium capitalize">{fact.key}:</td>
+                <td className="py-1 text-black">
+                  {fact.value} {fact.unit && <span className="text-gray-500">{fact.unit}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

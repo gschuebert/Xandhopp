@@ -1,0 +1,1682 @@
+[
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2024-01-01",
+    "value": 19094.1193485745,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2023-01-01",
+    "value": 18685.5523679178,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2022-01-01",
+    "value": 18884.5152531698,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2021-01-01",
+    "value": 18569.7057246217,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2020-01-01",
+    "value": 17443.65526328,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2019-01-01",
+    "value": 17431.7239081591,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2018-01-01",
+    "value": 16604.9021440809,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2017-01-01",
+    "value": 15695.9993288456,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2016-01-01",
+    "value": 14823.107153522,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.PCAP.KD",
+    "period": "2015-01-01",
+    "value": 14269.8039878287,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP per capita (constant 2015 US$)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2024-01-01",
+    "value": 2.77263124530285,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2023-01-01",
+    "value": 0.342262716277261,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2022-01-01",
+    "value": 2.53752574011534,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2021-01-01",
+    "value": 6.38001606179873,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2020-01-01",
+    "value": 0.0428158336981426,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2019-01-01",
+    "value": 4.67735183530451,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2018-01-01",
+    "value": 4.91836780106811,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2017-01-01",
+    "value": 4.61224310312809,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2016-01-01",
+    "value": 2.67192215053329,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "period": "2015-01-01",
+    "value": 2.83280643343234,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "GDP growth (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2024-01-01",
+    "value": 0.715735835228723,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2023-01-01",
+    "value": 9.11731962390475,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2022-01-01",
+    "value": 19.7050461518394,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2021-01-01",
+    "value": 4.68354420903453,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2020-01-01",
+    "value": 1.19989444983569,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2019-01-01",
+    "value": 2.33450937988027,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2018-01-01",
+    "value": 2.69792779208394,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2017-01-01",
+    "value": 3.72288862303707,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2016-01-01",
+    "value": 0.905525075460342,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "FP.CPI.TOTL.ZG",
+    "period": "2015-01-01",
+    "value": -0.884097405500596,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Inflation, consumer prices (annual %)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2024-01-01",
+    "value": 7.504,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2023-01-01",
+    "value": 6.841,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2022-01-01",
+    "value": 5.955,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2021-01-01",
+    "value": 7.112,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2020-01-01",
+    "value": 8.487,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2019-01-01",
+    "value": 6.255,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2018-01-01",
+    "value": 6.147,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2017-01-01",
+    "value": 7.073,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2016-01-01",
+    "value": 7.862,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SL.UEM.TOTL.ZS",
+    "period": "2015-01-01",
+    "value": 9.12,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2023-01-01",
+    "value": 76.9878048780488,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2022-01-01",
+    "value": 75.6439024390244,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2021-01-01",
+    "value": 74.0365853658537,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2020-01-01",
+    "value": 75.0292682926829,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2019-01-01",
+    "value": 76.2829268292683,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2018-01-01",
+    "value": 75.6804878048781,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2017-01-01",
+    "value": 75.4804878048781,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2016-01-01",
+    "value": 74.6707317073171,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.DYN.LE00.IN",
+    "period": "2015-01-01",
+    "value": 74.3219512195122,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Life expectancy at birth, total (years)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2024-01-01",
+    "value": 2888055,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2023-01-01",
+    "value": 2871585,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2022-01-01",
+    "value": 2831639,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2021-01-01",
+    "value": 2808380,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2020-01-01",
+    "value": 2810369,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2019-01-01",
+    "value": 2811089,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2018-01-01",
+    "value": 2819200,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2017-01-01",
+    "value": 2842639,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2016-01-01",
+    "value": 2877325,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.POP.TOTL",
+    "period": "2015-01-01",
+    "value": 2911109,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Population, total"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2024-01-01",
+    "value": 68.936,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2023-01-01",
+    "value": 68.694,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2022-01-01",
+    "value": 68.465,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2021-01-01",
+    "value": 68.249,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2020-01-01",
+    "value": 68.046,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2019-01-01",
+    "value": 67.855,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2018-01-01",
+    "value": 67.679,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2017-01-01",
+    "value": 67.516,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2016-01-01",
+    "value": 67.366,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SP.URB.TOTL.IN.ZS",
+    "period": "2015-01-01",
+    "value": 67.23,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Urban population (% of total population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2021-01-01",
+    "value": 99.8300018310547,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2020-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2019-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2018-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2017-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2016-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "SE.ADT.LITR.ZS",
+    "period": "2015-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Literacy rate, adult total (% of people ages 15 and above)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2022-01-01",
+    "value": 35.2036435371542,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2021-01-01",
+    "value": 35.1807490816164,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2020-01-01",
+    "value": 35.1485148514851,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2019-01-01",
+    "value": 35.1325455126158,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2018-01-01",
+    "value": 35.0950023950184,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2017-01-01",
+    "value": 35.0569116074137,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2016-01-01",
+    "value": 34.9605695859008,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "AG.LND.FRST.ZS",
+    "period": "2015-01-01",
+    "value": 34.9082202713488,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 1,
+      "country_name": "Lithuania",
+      "indicator_name": "Forest area (% of land area)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2023-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2022-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2021-01-01",
+    "value": 33.2,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2020-01-01",
+    "value": 31.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2019-01-01",
+    "value": 33.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2018-01-01",
+    "value": 33.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2017-01-01",
+    "value": 33.8,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2016-01-01",
+    "value": 31.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "EG.FEC.RNEW.ZS",
+    "period": "2015-01-01",
+    "value": 29,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 2,
+      "country_name": "Lithuania",
+      "indicator_name": "Renewable energy consumption (% of total final energy consumption)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2023-01-01",
+    "value": 88.5,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2022-01-01",
+    "value": 87.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2021-01-01",
+    "value": 86.9,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2020-01-01",
+    "value": 83.1,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2019-01-01",
+    "value": 81.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2018-01-01",
+    "value": 79.7,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2017-01-01",
+    "value": 77.6,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2016-01-01",
+    "value": 74.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.NET.USER.ZS",
+    "period": "2015-01-01",
+    "value": 71.4,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Individuals using the Internet (% of population)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2024-01-01",
+    "value": null,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2023-01-01",
+    "value": 137.204,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2022-01-01",
+    "value": 135.834,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2021-01-01",
+    "value": 133.357,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2020-01-01",
+    "value": 131.341,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2019-01-01",
+    "value": 132.529,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2018-01-01",
+    "value": 134.334,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2017-01-01",
+    "value": 154.148,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2016-01-01",
+    "value": 146.55,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  },
+  {
+    "country_iso2": "LT",
+    "source": "worldbank",
+    "indicator_code": "IT.CEL.SETS.P2",
+    "period": "2015-01-01",
+    "value": 143.991,
+    "meta": {
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0,
+      "country_name": "Lithuania",
+      "indicator_name": "Mobile cellular subscriptions (per 100 people)"
+    }
+  }
+]
