@@ -47,6 +47,64 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
 
   const content = getContent(locale);
   const lang = locale === 'de' ? 'de' : 'en';
+  
+  // Labels for different languages
+  const labels = {
+    de: {
+      capital: 'Hauptstadt',
+      continent: 'Kontinent',
+      isoCode: 'ISO-Code',
+      population: 'Bevölkerung',
+      area: 'Fläche',
+      currency: 'Währung',
+      officialLanguage: 'Amtssprache',
+      gdp: 'BIP (nominal)',
+      administration: 'Verwaltung',
+      regionalDivision: 'Regionale Gliederung',
+      updated: 'Aktualisiert',
+      coordinates: 'Koordinaten',
+      geoDataNotAvailable: 'Geodaten nicht verfügbar',
+      inhabitants: 'Einwohner',
+      populationDensity: 'Bevölkerungsdichte',
+      statistics: 'Statistiken',
+      weblinks: 'Weblinks',
+      literature: 'Literatur',
+      additionalInfo: 'Weitere Informationen',
+      geodata: 'Geodaten',
+      inWikipedia: 'in der Wikipedia',
+      atGoogleMaps: 'bei Google Maps',
+      ciaFactbook: 'CIA World Factbook',
+      additionalSource: 'Weitere Quelle'
+    },
+    en: {
+      capital: 'Capital',
+      continent: 'Continent',
+      isoCode: 'ISO Code',
+      population: 'Population',
+      area: 'Area',
+      currency: 'Currency',
+      officialLanguage: 'Official Language',
+      gdp: 'GDP (nominal)',
+      administration: 'Administration',
+      regionalDivision: 'Regional Division',
+      updated: 'Updated',
+      coordinates: 'Coordinates',
+      geoDataNotAvailable: 'Geodata not available',
+      inhabitants: 'Inhabitants',
+      populationDensity: 'Population Density',
+      statistics: 'Statistics',
+      weblinks: 'External Links',
+      literature: 'Literature',
+      additionalInfo: 'Additional Information',
+      geodata: 'Geodata',
+      inWikipedia: 'on Wikipedia',
+      atGoogleMaps: 'on Google Maps',
+      ciaFactbook: 'CIA World Factbook',
+      additionalSource: 'Additional Source'
+    }
+  };
+  
+  const t = labels[lang] || labels.en;
 
   useEffect(() => {
     const loadCountryData = async () => {
@@ -231,47 +289,69 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
                   </div>
                 )}
 
-                {/* Basic Info Table */}
+                {/* Comprehensive Info Table */}
                 <table className="w-full text-xs">
                   <tbody>
                     {capital && (
                       <tr className="border-b border-gray-200">
-                        <td className="py-1 pr-2 text-gray-700 font-medium">Hauptstadt:</td>
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.capital}:</td>
                         <td className="py-1 text-black">{capital.value}</td>
                       </tr>
                     )}
                     <tr className="border-b border-gray-200">
-                      <td className="py-1 pr-2 text-gray-700 font-medium">Kontinent:</td>
+                      <td className="py-1 pr-2 text-gray-700 font-medium">{t.continent}:</td>
                       <td className="py-1 text-black">{country.continent}</td>
                     </tr>
                     <tr className="border-b border-gray-200">
-                      <td className="py-1 pr-2 text-gray-700 font-medium">ISO-Code:</td>
+                      <td className="py-1 pr-2 text-gray-700 font-medium">{t.isoCode}:</td>
                       <td className="py-1 text-black font-mono">{country.iso_code}</td>
                     </tr>
                     {population && (
                       <tr className="border-b border-gray-200">
-                        <td className="py-1 pr-2 text-gray-700 font-medium">Bevölkerung:</td>
-                        <td className="py-1 text-black">{formatNumber(population.value)} {population.unit}</td>
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.population}:</td>
+                        <td className="py-1 text-black">{formatNumber(population.value)}</td>
                       </tr>
                     )}
-                    {area && (
+                    {getFactByKey(facts, 'area_km2') && (
                       <tr className="border-b border-gray-200">
-                        <td className="py-1 pr-2 text-gray-700 font-medium">Fläche:</td>
-                        <td className="py-1 text-black">{formatNumber(area.value)} {area.unit}</td>
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.area}:</td>
+                        <td className="py-1 text-black">{formatNumber(getFactByKey(facts, 'area_km2')?.value || '')} km²</td>
                       </tr>
                     )}
                     {currency && (
                       <tr className="border-b border-gray-200">
-                        <td className="py-1 pr-2 text-gray-700 font-medium">Währung:</td>
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.currency}:</td>
                         <td className="py-1 text-black">{currency.value}</td>
                       </tr>
                     )}
-                    {language && (
-                      <tr>
-                        <td className="py-1 pr-2 text-gray-700 font-medium">Sprache:</td>
-                        <td className="py-1 text-black">{language.value}</td>
+                    {getFactByKey(facts, 'official_language') && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.officialLanguage}:</td>
+                        <td className="py-1 text-black">{getFactByKey(facts, 'official_language')?.value}</td>
                       </tr>
                     )}
+                    {getFactByKey(facts, 'gdp_nominal') && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.gdp}:</td>
+                        <td className="py-1 text-black">{formatNumber(getFactByKey(facts, 'gdp_nominal')?.value || '')}</td>
+                      </tr>
+                    )}
+                    {getFactByKey(facts, 'bip_nominal') && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.gdp}:</td>
+                        <td className="py-1 text-black">{formatNumber(getFactByKey(facts, 'bip_nominal')?.value || '')}</td>
+                      </tr>
+                    )}
+                    {country.has_subregions && (
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1 pr-2 text-gray-700 font-medium">{t.administration}:</td>
+                        <td className="py-1 text-black">{t.regionalDivision}</td>
+                      </tr>
+                    )}
+                    <tr>
+                      <td className="py-1 pr-2 text-gray-700 font-medium">{t.updated}:</td>
+                      <td className="py-1 text-gray-500 text-xs">{new Date(country.updated_at).toLocaleDateString(locale)}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -280,7 +360,7 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
             {/* Geodaten Box */}
             <div className="border border-gray-300 bg-gray-50 text-sm">
               <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
-                <h3 className="font-bold text-black">Geodaten</h3>
+                <h3 className="font-bold text-black">{t.geodata}</h3>
               </div>
               <div className="p-3">
                 {latitude && longitude ? (
@@ -288,9 +368,9 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
                     <table className="w-full text-xs">
                       <tbody>
                         <tr>
-                          <td className="py-1 pr-2 text-gray-700 font-medium">Koordinaten:</td>
+                          <td className="py-1 pr-2 text-gray-700 font-medium">{t.coordinates}:</td>
                           <td className="py-1 text-black font-mono text-xs">
-                            {parseFloat(latitude.value).toFixed(2)}° N, {parseFloat(longitude.value).toFixed(2)}° O
+                            {parseFloat(latitude.value).toFixed(2)}° N, {parseFloat(longitude.value).toFixed(2)}° {lang === 'de' ? 'O' : 'E'}
                           </td>
                         </tr>
                       </tbody>
@@ -304,14 +384,23 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
                   </div>
                 ) : (
                   <div className="text-xs text-gray-600">
-                    Geodaten nicht verfügbar
+                    {t.geoDataNotAvailable}
                   </div>
                 )}
               </div>
             </div>
 
+            {/* Statistiken Box */}
+            <StatisticsBox facts={facts} formatNumber={formatNumber} labels={t} lang={lang} />
+
+            {/* Externe Links Box */}
+            <ExternalLinksBox countryName={countryName} contents={contents} labels={t} lang={lang} />
+
+            {/* Literatur Box */}
+            <LiteratureBox contents={contents} labels={t} />
+
             {/* Additional Facts */}
-            <AdditionalFactsBox facts={facts} />
+            <AdditionalFactsBox facts={facts} labels={t} />
           </div>
         </aside>
       </div>
@@ -450,12 +539,197 @@ function DynamicContentSection({
   );
 }
 
+// Statistics Box Component
+interface StatisticsBoxProps {
+  facts: any[];
+  formatNumber: (num: string | number) => string | number;
+  labels: any;
+  lang: string;
+}
+
+function StatisticsBox({ facts, formatNumber, labels, lang }: StatisticsBoxProps) {
+  const population = getFactByKey(facts, 'population');
+  const area = getFactByKey(facts, 'area_km2');
+  const gdpNominal = getFactByKey(facts, 'gdp_nominal') || getFactByKey(facts, 'bip_nominal');
+  
+  // Calculate population density if we have both population and area
+  let populationDensity = null;
+  if (population && area) {
+    const popValue = parseFloat(population.value);
+    const areaValue = parseFloat(area.value);
+    if (!isNaN(popValue) && !isNaN(areaValue) && areaValue > 0) {
+      populationDensity = Math.round(popValue / areaValue);
+    }
+  }
+
+  const hasStatistics = population || area || gdpNominal || populationDensity;
+  
+  if (!hasStatistics) return null;
+
+  return (
+    <div className="border border-gray-300 bg-gray-50 text-sm">
+      <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
+        <h3 className="font-bold text-black">{labels.statistics}</h3>
+      </div>
+      <div className="p-3">
+        <table className="w-full text-xs">
+          <tbody>
+            {population && (
+              <tr className="border-b border-gray-200">
+                <td className="py-1 pr-2 text-gray-700 font-medium">{labels.inhabitants}:</td>
+                <td className="py-1 text-black">{formatNumber(population.value)}</td>
+              </tr>
+            )}
+            {area && (
+              <tr className="border-b border-gray-200">
+                <td className="py-1 pr-2 text-gray-700 font-medium">{labels.area}:</td>
+                <td className="py-1 text-black">{formatNumber(area.value)} km²</td>
+              </tr>
+            )}
+            {populationDensity && (
+              <tr className="border-b border-gray-200">
+                <td className="py-1 pr-2 text-gray-700 font-medium">{labels.populationDensity}:</td>
+                <td className="py-1 text-black">{populationDensity} {lang === 'de' ? 'Einw./km²' : 'inh./km²'}</td>
+              </tr>
+            )}
+            {gdpNominal && (
+              <tr>
+                <td className="py-1 pr-2 text-gray-700 font-medium">{labels.gdp}:</td>
+                <td className="py-1 text-black">{formatNumber(gdpNominal.value)}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// External Links Box Component
+interface ExternalLinksBoxProps {
+  countryName: string;
+  contents: any[];
+  labels: any;
+  lang: string;
+}
+
+function ExternalLinksBox({ countryName, contents, labels, lang }: ExternalLinksBoxProps) {
+  const externalLinksContent = getContentByType(contents, 'external_links');
+  
+  return (
+    <div className="border border-gray-300 bg-gray-50 text-sm">
+      <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
+        <h3 className="font-bold text-black">{labels.weblinks}</h3>
+      </div>
+      <div className="p-3">
+        <ul className="space-y-1 text-xs">
+          <li>
+            <a 
+              href={`https://${lang === 'de' ? 'de' : 'en'}.wikipedia.org/wiki/${encodeURIComponent(countryName)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              {countryName} {labels.inWikipedia}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`https://www.google.com/maps/search/${encodeURIComponent(countryName)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              {countryName} {labels.atGoogleMaps}
+            </a>
+          </li>
+          <li>
+            <a 
+              href={`https://www.cia.gov/the-world-factbook/countries/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              {labels.ciaFactbook}
+            </a>
+          </li>
+          {externalLinksContent && (
+            <li className="pt-2 border-t border-gray-200 mt-2">
+              <div className="text-gray-700 text-xs">
+                {processWikipediaContent(externalLinksContent.content).split('\n').slice(0, 3).map((link, index) => (
+                  <div key={index} className="mb-1">
+                    <a 
+                      href={link.trim()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      {labels.additionalSource} {index + 1}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+// Literature Box Component
+interface LiteratureBoxProps {
+  contents: any[];
+  labels: any;
+}
+
+function LiteratureBox({ contents, labels }: LiteratureBoxProps) {
+  const literatureContent = getContentByType(contents, 'literature');
+  
+  if (!literatureContent) return null;
+
+  // Process HTML content in literature
+  const processedContent = isHTMLContent(literatureContent.content) 
+    ? processWikipediaContent(literatureContent.content)
+    : literatureContent.content;
+
+  // Further clean up literature-specific HTML artifacts
+  const cleanedContent = processedContent
+    .replace(/<[^>]*>/g, '') // Remove any remaining HTML tags
+    .replace(/&[a-zA-Z0-9#]+;/g, '') // Remove HTML entities
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim();
+
+  return (
+    <div className="border border-gray-300 bg-gray-50 text-sm">
+      <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
+        <h3 className="font-bold text-black">{labels.literature}</h3>
+      </div>
+      <div className="p-3">
+        <div className="text-xs text-gray-700 leading-relaxed">
+          {cleanedContent.split(/[.!?]\s+/).slice(0, 5).map((item, index) => {
+            const trimmedItem = item.trim();
+            if (trimmedItem.length < 10) return null;
+            
+            return (
+              <div key={index} className="mb-2">
+                • {trimmedItem}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Additional Facts Box Component
 interface AdditionalFactsBoxProps {
   facts: any[];
+  labels: any;
 }
 
-function AdditionalFactsBox({ facts }: AdditionalFactsBoxProps) {
+function AdditionalFactsBox({ facts, labels }: AdditionalFactsBoxProps) {
   const additionalFacts = facts.filter(fact => 
     !['population', 'area', 'capital', 'currency', 'language', 'gdp', 'latitude', 'longitude'].includes(fact.key)
   );
@@ -465,7 +739,7 @@ function AdditionalFactsBox({ facts }: AdditionalFactsBoxProps) {
   return (
     <div className="border border-gray-300 bg-gray-50 text-sm">
       <div className="bg-gray-100 px-3 py-2 border-b border-gray-300">
-        <h3 className="font-bold text-black">Weitere Informationen</h3>
+        <h3 className="font-bold text-black">{labels.additionalInfo}</h3>
       </div>
       <div className="p-3">
         <table className="w-full text-xs">
