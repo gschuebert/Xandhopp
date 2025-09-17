@@ -3,7 +3,7 @@ import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
 import { getContent, type Locale } from "../../../../lib/i18n";
 import CountryFilters from "./CountryFilters";
-import { CountryDetailEnhanced } from "../../../../components/countries/CountryDetailEnhanced";
+import { CountryDetailWikipedia } from "../../../../components/countries/CountryDetailWikipedia";
 
 type Fact = { key: string; value: string; unit?: string | null };
 type Content = { content_key: string; content_type?: string; content: string };
@@ -160,8 +160,8 @@ export default async function CountryDetailPage({
           currentLang={lang}
         />
 
-        {/* Enhanced Country Detail Component */}
-        <CountryDetailEnhanced 
+        {/* Wikipedia-style Country Detail Component */}
+        <CountryDetailWikipedia 
           slug={params.slug}
           locale={params.locale}
         />
