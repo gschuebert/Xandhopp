@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portalis Admin",
-  description: "Administration panel for Portalis",
+  title: "Xandhopp Admin",
+  description: "Administration panel for Xandhopp",
 };
 
 export default function RootLayout({

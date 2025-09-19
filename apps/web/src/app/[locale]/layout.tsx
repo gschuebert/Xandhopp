@@ -4,6 +4,7 @@ import "../globals.css";
 import { getContent, isValidLocale, type Locale } from '../../lib/i18n';
 import { notFound } from 'next/navigation';
 import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
 import { Providers } from './providers';
 
 const inter = Inter({ subsets: ["latin"] });
@@ -51,11 +52,12 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
 
   return (
     <Providers>
-      <div lang={params.locale}>
+      <div lang={params.locale} className="min-h-screen flex flex-col">
         <Navigation locale={params.locale} />
-        <main>
+        <main className="flex-1">
           {children}
         </main>
+        <Footer locale={params.locale as Locale} />
       </div>
     </Providers>
   );

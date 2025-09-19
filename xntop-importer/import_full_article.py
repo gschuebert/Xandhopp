@@ -130,21 +130,79 @@ def get_cached_local_title(conn, country_id: int, lang: str) -> Optional[str]:
         row = cur.fetchone()
     return row[0] if row else None
 
-def upsert_localized_html(conn, country_id: int, lang: str, content_type_id: int, html: str, source_url: Optional[str]):
-    """Speichert HTML in localized_contents. Erwartet Unique-Constraint gemäß Empfehlung."""
+def norm_lang(lang: str, default: str = "en") -> str:
+    """Normalize language code to lowercase ISO 639-1"""
+    return (lang or default).strip().lower()
+
+def upsert_localized_html_with_status(conn, country_id: int, lang: str, content_type_id: int, html: str, source_url: Optional[str]) -> str:
+    """Advanced two-step UPSERT with detailed logging. Returns 'insert', 'update_changed', or 'update_unchanged'."""
     if not html:
-        return
+        return "skipped_empty"
+    
+    # Normalize inputs
+    normalized_lang = norm_lang(lang)
+    
+    # Two-step strategy: INSERT with DO NOTHING, then conditional UPDATE
+    INSERT_SQL = """
+        INSERT INTO localized_contents (
+          country_id, subregion_id, language_code, content_type_id,
+          content, source_url, updated_at, content_hash
+        ) VALUES (
+          %s, NULL, %s, %s, %s, %s, NOW(), md5(COALESCE(%s, ''))
+        )
+        ON CONFLICT ON CONSTRAINT uq_localized_content DO NOTHING
+        RETURNING country_id, language_code, content_type_id
+    """
+    
+    UPDATE_SQL = """
+        UPDATE localized_contents AS lc SET
+          content      = EXCLUDED.content,
+          source_url   = EXCLUDED.source_url,
+          content_hash = EXCLUDED.content_hash,
+          updated_at   = NOW()
+        FROM (
+          SELECT %s AS country_id,
+                 NULL AS subregion_id,
+                 %s AS language_code,
+                 %s AS content_type_id,
+                 %s AS content,
+                 %s AS source_url,
+                 md5(COALESCE(%s, '')) AS content_hash
+        ) AS EXCLUDED
+        WHERE lc.country_id = EXCLUDED.country_id
+          AND COALESCE(lc.subregion_id, 0) = COALESCE(EXCLUDED.subregion_id, 0)
+          AND lc.language_code = EXCLUDED.language_code
+          AND lc.content_type_id = EXCLUDED.content_type_id
+          AND lc.content_hash IS DISTINCT FROM EXCLUDED.content_hash
+        RETURNING lc.country_id
+    """
+    
     with conn.cursor() as cur:
-        # Wenn deine DB die benannte Constraint hat:
-        # ON CONFLICT ON CONSTRAINT uq_localized_content
-        # Andernfalls: ersatzweise WHERE (unique) prüfen.
-        cur.execute("""
-        INSERT INTO localized_contents(country_id, subregion_id, language_code, content_type_id, content, source_url, updated_at)
-        VALUES (%s, NULL, %s, %s, %s, %s, CURRENT_TIMESTAMP)
-        ON CONFLICT ON CONSTRAINT uq_localized_content
-        DO UPDATE SET content = EXCLUDED.content, source_url = EXCLUDED.source_url, updated_at = CURRENT_TIMESTAMP
-        """, (country_id, lang, content_type_id, html, source_url))
+        # Step 1: Try INSERT
+        cur.execute(INSERT_SQL, (country_id, normalized_lang, content_type_id, html, source_url, html))
+        ins_result = cur.fetchone()
+        
+        if ins_result:
+            logger.info(f"UPSERT: Inserted new content for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return "insert"
+        
+        # Step 2: Try UPDATE only if content changed
+        cur.execute(UPDATE_SQL, (country_id, normalized_lang, content_type_id, html, source_url, html))
+        upd_result = cur.fetchone()
+        
+        if upd_result:
+            logger.info(f"UPSERT: Updated content (changed) for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return "update_changed"
+        else:
+            logger.info(f"UPSERT: Content unchanged for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return "update_unchanged"
+
+# Backward compatibility wrapper
+def upsert_localized_html(conn, country_id: int, lang: str, content_type_id: int, html: str, source_url: Optional[str]):
+    """Legacy wrapper for backward compatibility."""
+    result = upsert_localized_html_with_status(conn, country_id, lang, content_type_id, html, source_url)
     conn.commit()
+    return result
 
 def upsert_fact(conn, country_id: int, lang: str, key: str, value: str, unit: Optional[str] = None):
     if not value:

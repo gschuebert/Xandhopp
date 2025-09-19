@@ -31,7 +31,6 @@ export default function HomePage({ params }: HomePageProps) {
       <HowItWorksSection locale={locale} />
       <TestimonialsSection locale={locale} />
       <CTASection locale={locale} />
-      <Footer locale={locale} />
     </div>
   );
 }

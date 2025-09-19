@@ -30,7 +30,7 @@ export default function Hero({ locale }: HeroProps) {
             <div className="relative w-24 h-24 mx-auto mb-6">
               <Image
                 src="/logo.png"
-                alt="Portalis"
+                alt="Xandhopp"
                 fill
                 className="object-contain"
                 priority

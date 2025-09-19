@@ -1,4 +1,4 @@
-import { PortalisLogo } from "../../components/xandhopp-logo";
+import { XandhoppLogo } from "../../components/xandhopp-logo";
 import { Button } from "@xandhopp/ui";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ export default function SimplePage() {
       <nav className="absolute top-0 left-0 right-0 z-10 p-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <PortalisLogo size="sm" />
+            <XandhoppLogo size="md" />
             <span className="text-xl font-bold text-amber-900">PORTALIS</span>
           </div>
           <div className="hidden md:flex space-x-8">
@@ -29,7 +29,7 @@ export default function SimplePage() {
           <div className="text-center">
             {/* Logo */}
             <div className="flex justify-center mb-8">
-              <PortalisLogo size="xl" className="drop-shadow-lg" />
+              <XandhoppLogo size="xl" className="drop-shadow-lg" />
             </div>
             
             {/* Description */}
@@ -104,7 +104,7 @@ export default function SimplePage() {
               Ready to make your move?
             </h2>
             <p className="text-xl text-amber-800 mb-8">
-              Join thousands of satisfied customers who trusted Portalis with their global relocation.
+              Join thousands of satisfied customers who trusted Xandhopp with their global relocation.
             </p>
             <Button 
               size="lg"
@@ -122,7 +122,7 @@ export default function SimplePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <PortalisLogo size="sm" />
+                <XandhoppLogo size="md" />
                 <span className="text-2xl font-bold">PORTALIS</span>
               </div>
               <p className="text-amber-200 max-w-md">
@@ -148,7 +148,7 @@ export default function SimplePage() {
             </div>
           </div>
           <div className="border-t border-amber-800 mt-8 pt-8 text-center text-amber-300">
-            <p>&copy; 2024 Portalis. All rights reserved.</p>
+            <p>&copy; 2024 Xandhopp. All rights reserved.</p>
           </div>
         </div>
       </footer>

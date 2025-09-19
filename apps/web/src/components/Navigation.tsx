@@ -68,20 +68,20 @@ export default function Navigation({ locale }: NavigationProps) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center space-x-3">
-            <div className="relative w-10 h-10">
+          <Link href={`/${locale}`} className="flex items-center">
+            <div className="relative" style={{ width: '305px', height: '80px' }}>
               <Image
                 src="/logo.png"
-                alt="Portalis"
+                alt="Xandhopp"
+                title="Xandhopp"
                 fill
-                sizes="40px"
+                sizes="305px"
                 className="object-contain"
                 priority
               />
             </div>
-            <span className="text-xl font-bold text-gray-900">Portalis</span>
           </Link>
 
           {/* Desktop Navigation */}

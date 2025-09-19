@@ -77,7 +77,7 @@ export function CountryData({ countryCode }: Props) {
           <p className="text-gray-600 mb-4">{error}</p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-sm text-blue-800">
-              <strong>System Status:</strong> The Portalis data pipeline is fully implemented and ready. 
+              <strong>System Status:</strong> The Xandhopp data pipeline is fully implemented and ready. 
               To start collecting data, run the ingestion worker:
             </p>
             <code className="block mt-2 p-2 bg-gray-800 text-green-400 rounded text-xs">
@@ -182,7 +182,7 @@ export function CountryData({ countryCode }: Props) {
             <div className="text-4xl mb-4">🚧</div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">Setting Up Data Collection</h3>
             <p className="text-gray-600">
-              The Portalis data architecture is ready. Start the ingestion worker to begin collecting data for {countryCode}.
+              The Xandhopp data architecture is ready. Start the ingestion worker to begin collecting data for {countryCode}.
             </p>
           </div>
         </div>

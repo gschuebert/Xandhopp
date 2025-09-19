@@ -69,6 +69,16 @@ class DatabaseManager:
             self.connection.rollback()
             logger.error(f"Fehler bei UPSERT: {e}")
             raise
+
+    def execute_select_one(self, query: str, params: tuple) -> tuple:
+        """Führt SELECT aus und gibt ein Ergebnis zurück"""
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute(query, params)
+                return cursor.fetchone()
+        except psycopg2.Error as e:
+            logger.error(f"Fehler bei SELECT: {e}")
+            raise
     
     def upsert_language(self, code: str, name: str) -> str:
         """Fügt Sprache hinzu oder aktualisiert sie"""
@@ -108,20 +118,73 @@ class DatabaseManager:
         """
         return self.execute_upsert(query, (iso_code, name_en, continent, has_subregions, slug_en, slug_de))
     
-    def upsert_localized_content(self, country_id: int, language_code: str, 
-                                content_type_id: int, content: str, source_url: str = None) -> int:
-        """Fügt lokalisierten Inhalt hinzu oder aktualisiert ihn"""
-        query = """
-        INSERT INTO localized_contents (country_id, language_code, content_type_id, content, source_url) 
-        VALUES (%s, %s, %s, %s, %s) 
-        ON CONFLICT (country_id, subregion_id, language_code, content_type_id) 
-        DO UPDATE SET 
-            content = EXCLUDED.content,
-            source_url = EXCLUDED.source_url,
-            updated_at = CURRENT_TIMESTAMP
+    def upsert_localized_content_with_status(self, country_id: int, language_code: str, 
+                                            content_type_id: int, content: str, source_url: str = None) -> tuple[int, str]:
+        """Advanced two-step UPSERT with detailed logging. Returns (id, status)."""
+        # Normalize inputs
+        normalized_lang = (language_code or "en").strip().lower()
+        
+        # Step 1: Try INSERT
+        insert_query = """
+        INSERT INTO localized_contents (
+          country_id, subregion_id, language_code, content_type_id,
+          content, source_url, updated_at, content_hash
+        ) VALUES (
+          %s, NULL, %s, %s, %s, %s, NOW(), md5(COALESCE(%s, ''))
+        )
+        ON CONFLICT ON CONSTRAINT uq_localized_content DO NOTHING
         RETURNING id
         """
-        return self.execute_upsert(query, (country_id, language_code, content_type_id, content, source_url))
+        
+        insert_result = self.execute_upsert(insert_query, (country_id, normalized_lang, content_type_id, content, source_url, content))
+        if insert_result:
+            logger.info(f"UPSERT: Inserted new content for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return insert_result, "insert"
+        
+        # Step 2: Try UPDATE only if content changed
+        update_query = """
+        UPDATE localized_contents AS lc SET
+          content      = EXCLUDED.content,
+          source_url   = EXCLUDED.source_url,
+          content_hash = EXCLUDED.content_hash,
+          updated_at   = NOW()
+        FROM (
+          SELECT %s AS country_id,
+                 NULL AS subregion_id,
+                 %s AS language_code,
+                 %s AS content_type_id,
+                 %s AS content,
+                 %s AS source_url,
+                 md5(COALESCE(%s, '')) AS content_hash
+        ) AS EXCLUDED
+        WHERE lc.country_id = EXCLUDED.country_id
+          AND COALESCE(lc.subregion_id, 0) = COALESCE(EXCLUDED.subregion_id, 0)
+          AND lc.language_code = EXCLUDED.language_code
+          AND lc.content_type_id = EXCLUDED.content_type_id
+          AND lc.content_hash IS DISTINCT FROM EXCLUDED.content_hash
+        RETURNING lc.id
+        """
+        
+        update_result = self.execute_upsert(update_query, (country_id, normalized_lang, content_type_id, content, source_url, content))
+        if update_result:
+            logger.info(f"UPSERT: Updated content (changed) for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return update_result, "update_changed"
+        else:
+            # Get existing ID for unchanged content
+            select_query = """
+            SELECT id FROM localized_contents 
+            WHERE country_id = %s AND COALESCE(subregion_id, 0) = 0 
+              AND language_code = %s AND content_type_id = %s
+            """
+            existing_id = self.execute_select_one(select_query, (country_id, normalized_lang, content_type_id))
+            logger.info(f"UPSERT: Content unchanged for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+            return existing_id[0] if existing_id else None, "update_unchanged"
+
+    def upsert_localized_content(self, country_id: int, language_code: str, 
+                                content_type_id: int, content: str, source_url: str = None) -> int:
+        """Legacy wrapper for backward compatibility."""
+        result_id, status = self.upsert_localized_content_with_status(country_id, language_code, content_type_id, content, source_url)
+        return result_id
     
     def upsert_media_asset(self, country_id: int, language_code: str, title: str, 
                           asset_type: str, url: str, attribution: str = None, source_url: str = None) -> int:
@@ -129,6 +192,12 @@ class DatabaseManager:
         query = """
         INSERT INTO media_assets (country_id, language_code, title, type, url, attribution, source_url) 
         VALUES (%s, %s, %s, %s, %s, %s, %s) 
+        ON CONFLICT (country_id, language_code, type, url)
+        DO UPDATE SET 
+            title = EXCLUDED.title,
+            attribution = EXCLUDED.attribution,
+            source_url = EXCLUDED.source_url,
+            uploaded_at = CURRENT_TIMESTAMP
         RETURNING id
         """
         return self.execute_upsert(query, (country_id, language_code, title, asset_type, url, attribution, source_url))

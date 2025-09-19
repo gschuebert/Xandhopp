@@ -393,6 +393,26 @@ class CountryController extends AbstractController
         }
     }
 
+    #[Route('/{slug}/media', name: 'media', methods: ['GET'])]
+    public function media(string $slug, Request $request): JsonResponse
+    {
+        $lang = $request->query->get('lang', 'en');
+        $type = $request->query->get('type'); // 'thumbnail' or 'image'
+        
+        try {
+            $media = $this->countryService->getCountryMediaNew($slug, $lang, $type);
+            
+            return new JsonResponse([
+                'media' => $media,
+                'country' => $slug,
+                'language' => $lang,
+                'type' => $type
+            ]);
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Media not found'], Response::HTTP_NOT_FOUND);
+        }
+    }
+
     #[Route('/refresh-views', name: 'refresh_views', methods: ['POST'])]
     public function refreshViews(): JsonResponse
     {

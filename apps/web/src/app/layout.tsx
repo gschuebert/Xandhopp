@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portalis - Your Gateway to the World",
+  title: "Xandhopp - Your Gateway to the World",
   description: "Discover the best countries for residency, work, and investment opportunities worldwide.",
 };
 

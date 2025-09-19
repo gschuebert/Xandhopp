@@ -41,7 +41,7 @@ export function LoginForm() {
         <CardHeader>
           <CardTitle>Admin Login</CardTitle>
           <CardDescription>
-            Sign in to access the Portalis admin panel
+            Sign in to access the Xandhopp admin panel
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -7,6 +7,7 @@ import { countriesAPI, type CountryDetailResponse, type SupportedLanguage, getCo
 import { CountryMap } from './CountryMap';
 import { CountryComparison } from './CountryComparison';
 import { RelatedCountries } from './RelatedCountries';
+import { htmlToCleanText } from '../../lib/textCleaner';
 
 interface CountryDetailEnhancedProps {
   slug: string;
@@ -101,8 +102,8 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
   // Available sections
   const availableSections: ContentSection[] = [
     'overview', 'culture', 'demography', 'economy', 'history', 'geography', 'politics', 'visa'
-  ].filter(section => {
-    const contentMap = {
+  ].filter((section: string) => {
+    const contentMap: Record<string, any> = {
       overview: overviewContent,
       culture: cultureContent,
       demography: getFactByKey(facts, 'demography'),
@@ -357,10 +358,25 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
                     <h3 className="text-2xl font-bold text-xandhopp-blue mb-4 capitalize">
                       {activeSection}
                     </h3>
-                    <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                      {currentContent.content || currentContent.value}
+                    <div className="text-gray-700 leading-relaxed">
+                      {(() => {
+                        const rawContent = 'content' in currentContent ? currentContent.content : currentContent.value;
+                        const cleanedContent = htmlToCleanText(rawContent || '');
+                        
+                        // Split into paragraphs and render
+                        return cleanedContent.split('\n\n').map((paragraph, index) => {
+                          const trimmedParagraph = paragraph.trim();
+                          if (trimmedParagraph.length === 0) return null;
+                          
+                          return (
+                            <p key={index} className="mb-4 text-justify">
+                              {trimmedParagraph}
+                            </p>
+                          );
+                        });
+                      })()}
                     </div>
-                    {currentContent.source_url && (
+                    {'source_url' in currentContent && currentContent.source_url && (
                       <div className="mt-4 pt-4 border-t border-gray-200">
                         <a
                           href={currentContent.source_url}

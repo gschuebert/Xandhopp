@@ -10,7 +10,7 @@ const testimonials = [
     location: "Singapore",
     avatar: "/avatars/sarah.jpg",
     rating: 5,
-    text: "Portalis made my move from San Francisco to Singapore incredibly smooth. The document management system saved me weeks of paperwork, and the local expert guidance was invaluable.",
+    text: "Xandhopp made my move from San Francisco to Singapore incredibly smooth. The document management system saved me weeks of paperwork, and the local expert guidance was invaluable.",
     flag: "🇸🇬"
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     location: "Barcelona",
     avatar: "/avatars/marcus.jpg",
     rating: 5,
-    text: "I was overwhelmed by the visa process for Spain, but Portalis broke it down into manageable steps. The real-time updates kept me informed every step of the way.",
+    text: "I was overwhelmed by the visa process for Spain, but Xandhopp broke it down into manageable steps. The real-time updates kept me informed every step of the way.",
     flag: "🇪🇸"
   },
   {
@@ -47,7 +47,7 @@ export default function TestimonialsSection({ locale }: TestimonialsSectionProps
             <span className="block text-primary">successful relocators</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See how Portalis has helped people from around the world 
+            See how Xandhopp has helped people from around the world 
             achieve their relocation dreams with confidence and ease.
           </p>
         </div>

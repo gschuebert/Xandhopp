@@ -1,26 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface PortalisLogoProps {
+interface XandhoppLogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export const PortalisLogo: React.FC<PortalisLogoProps> = ({ 
+export const XandhoppLogo: React.FC<XandhoppLogoProps> = ({ 
   className = '', 
   size = 'md' 
 }) => {
   const sizeClasses = {
-    sm: 'w-12 h-12',
-    md: 'w-16 h-16',
-    lg: 'w-24 h-24',
+    sm: 'w-20 h-20',
+    md: 'w-24 h-24',
+    lg: 'w-40 h-40',
     xl: 'w-auto h-auto'
   };
 
   const pixelSizes = {
-    sm: 48,
-    md: 64,
-    lg: 96,
+    sm: 80,
+    md: 96,
+    lg: 160,
     xl: 1024
   };
 

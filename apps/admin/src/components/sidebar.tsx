@@ -17,7 +17,7 @@ export function Sidebar() {
   return (
     <div className="w-64 bg-card border-r min-h-screen">
       <div className="p-6">
-        <h2 className="text-lg font-semibold">Portalis Admin</h2>
+        <h2 className="text-lg font-semibold">Xandhopp Admin</h2>
       </div>
       <nav className="px-4 space-y-2">
         {navigation.map((item) => (

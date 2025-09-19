@@ -51,14 +51,14 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href={`/${currentLocale}`} className="flex items-center">
               <img 
                 src="/logo.png" 
-                alt="Portalis Logo" 
-                className="h-8 w-auto"
+                alt="Xandhopp Logo" 
+                className="h-20 w-auto"
                 onError={(e) => {
                   // Fallback to text if image fails to load
                   e.currentTarget.style.display = 'none';
@@ -68,7 +68,7 @@ export default function Header() {
                   }
                 }}
               />
-              <span className="text-2xl font-bold text-blue-600 hidden">Portalis</span>
+              <span className="text-2xl font-bold text-blue-600 hidden">Xandhopp</span>
             </Link>
           </div>
 

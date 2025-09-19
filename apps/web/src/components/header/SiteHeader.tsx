@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { PortalisLogo } from '../xandhopp-logo';
+import { XandhoppLogo } from '../xandhopp-logo';
 import { MobileNav } from './MobileNav';
 import { SearchForm } from './SearchForm';
 import { useScrollSpy } from '../../lib/useScrollSpy';
@@ -55,10 +55,10 @@ export function SiteHeader({ content, locale }: SiteHeaderProps) {
       }`}
     >
       <div className="container-default">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center space-x-3">
-            <PortalisLogo size="sm" />
+            <XandhoppLogo size="sm" />
             <span className="text-xl font-bold text-xandhopp-blue">Xandhopp</span>
           </Link>
 

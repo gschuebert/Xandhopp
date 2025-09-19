@@ -67,32 +67,61 @@ function stripHTMLTags(html: string): string {
  * Cleans up Wikipedia-specific text artifacts and structures paragraphs
  */
 function cleanupWikipediaText(text: string): string {
-  return text
+  let cleaned = text
     // Remove citation markers like [1], [2], etc.
     .replace(/\[\d+\]/g, '')
-    // Remove multiple spaces
-    .replace(/\s+/g, ' ')
-    // Remove leading/trailing whitespace
-    .trim()
-    // Clean up common Wikipedia artifacts
-    .replace(/\s*\|\s*/g, ' | ')
-    .replace(/\s*=\s*/g, ' = ')
     // Remove template artifacts
     .replace(/\{\{[^}]*\}\}/g, '')
     .replace(/\[\[[^\]]*\|([^\]]*)\]\]/g, '$1') // [[Link|Text]] -> Text
     .replace(/\[\[([^\]]*)\]\]/g, '$1') // [[Link]] -> Link
-    // Structure into paragraphs based on sentence patterns
-    .replace(/([.!?])\s+([A-ZÄÖÜ])/g, '$1\n\n$2') // New paragraph after sentence end + capital letter
-    .replace(/([.!?])\s+(Der|Die|Das|Ein|Eine|Es|Sie|Er|Heute|Seit|Nach|Vor|In|Im|Am|Auf|Mit|Durch|Während|Trotz|Wegen|Aufgrund|Infolge)\s/g, '$1\n\n$2 ') // German sentence starters
-    // Handle numbered lists and dates
-    .replace(/(\d{4})\s+([A-ZÄÖÜ])/g, '$1\n\n$2') // Year followed by capital letter
-    .replace(/(\w)\.\s+(\d+\.)/g, '$1.\n\n$2') // Numbered list items
+    // Clean up common Wikipedia artifacts
+    .replace(/\s*\|\s*/g, ' | ')
+    .replace(/\s*=\s*/g, ' = ');
+
+  // FIRST: Fix unwanted line breaks in specific patterns BEFORE general paragraph structuring
+  cleaned = cleaned
+    // Fix organization names with abbreviations that got split
+    .replace(/(Weltgesundheitsorganisation|Welttourismusorganisation|Internationale Fernmeldeunion|Vereinte Nationen|Europäische Union|World Health Organization|United Nations|European Union)\s*\n\s*\(([A-Z]+)\)/g, '$1 ($2)')
+    
+    // Fix dates that got split (like "15.\nJanuar 1997")
+    .replace(/(\d{1,2})\.\s*\n\s*([A-ZÄÖÜ][a-zäöü]+)\s+(\d{4})/g, '$1. $2 $3')
+    
+    // Fix "seit" constructions that got split
+    .replace(/,?\s*seit\s*\n\s*(\d{1,2})\.\s*([A-ZÄÖÜ][a-zäöü]+)\s*(\d{4})/g, ', seit $1. $2 $3')
+    
+    // Fix general organization + date patterns
+    .replace(/([A-ZÄÖÜ][a-zäöü\s]+)\s*\(([A-Z]+)\),?\s*\n\s*seit\s*\n?\s*(\d{1,2})\.\s*([A-ZÄÖÜ][a-zäöü]+)\s*(\d{4})/g, '$1 ($2), seit $3. $4 $5')
+    
+    // Fix line breaks in the middle of sentences (not at sentence boundaries)
+    .replace(/([a-zäöü])\s*\n\s*([a-zäöü])/g, '$1 $2')
+    
+    // Fix line breaks after commas in lists
+    .replace(/,\s*\n\s*([a-zäöü])/g, ', $1')
+    
+    // Fix numbers with units that got split
+    .replace(/(\d+(?:[.,]\d+)?)\s*\n\s*(km²|km|m²|m|%|°C|°F|Euro|Dollar|USD|EUR)/g, '$1 $2')
+    
+    // Remove multiple spaces
+    .replace(/\s+/g, ' ')
+    // Remove leading/trailing whitespace
+    .trim();
+
+  // THEN: Structure into proper paragraphs
+  cleaned = cleaned
+    // New paragraph after sentence end + capital letter (but not for organization names we just fixed)
+    .replace(/([.!?])\s+([A-ZÄÖÜ][a-z])/g, '$1\n\n$2')
+    // German sentence starters that should start new paragraphs
+    .replace(/([.!?])\s+(Der|Die|Das|Ein|Eine|Es|Sie|Er|Heute|Seit|Nach|Vor|In|Im|Am|Auf|Mit|Durch|Während|Trotz|Wegen|Aufgrund|Infolge)\s/g, '$1\n\n$2 ')
+    // Year followed by capital letter (for historical sections)
+    .replace(/(\d{4})\s+([A-ZÄÖÜ][a-z])/g, '$1\n\n$2')
     // Clean up excessive line breaks
     .replace(/\n{3,}/g, '\n\n')
-    // Remove empty lines and normalize line breaks
+    // Remove empty lines
     .replace(/^\s*\n/gm, '')
     // Final cleanup
     .trim();
+
+  return cleaned;
 }
 
 /**

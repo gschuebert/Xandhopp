@@ -6,6 +6,8 @@ import { getContent } from '../../lib/i18n';
 import { countriesAPI, type CountryDetailResponse, type SupportedLanguage, getContentByType, getFactByKey, formatCountryName } from '../../lib/countries-api';
 import { CountryMap } from './CountryMap';
 import { processWikipediaContent, processWikipediaHTML, intelligentParagraphBreaker, isHTMLContent } from '../../lib/html-utils';
+import { htmlToCleanText } from '../../lib/textCleaner';
+import { CountryFlagBox } from './CountryFlagBox';
 
 interface CountryDetailWikipediaProps {
   slug: string;
@@ -272,22 +274,19 @@ export function CountryDetailWikipedia({ slug, locale, onBack }: CountryDetailWi
         {/* Right Sidebar - Infobox */}
         <aside className="col-span-12 lg:col-span-3">
           <div className="sticky top-6 space-y-4">
+            {/* Flag and Coat of Arms Box */}
+            <CountryFlagBox 
+              slug={slug}
+              countryName={countryName}
+              lang={lang}
+            />
+
             {/* Wikipedia-style Infobox */}
             <div className="border border-gray-300 bg-gray-50 text-sm">
               <div className="bg-gray-100 px-3 py-2 border-b border-gray-300 text-center">
                 <h3 className="font-bold text-black text-base">{countryName}</h3>
               </div>
               <div className="p-3">
-                {/* Flag */}
-                {country.flag_url && (
-                  <div className="text-center mb-3">
-                    <img
-                      src={country.flag_url}
-                      alt={`${countryName} Flagge`}
-                      className="w-full max-w-48 h-auto object-cover mx-auto border border-gray-400"
-                    />
-                  </div>
-                )}
 
                 {/* Comprehensive Info Table */}
                 <table className="w-full text-xs">
@@ -440,9 +439,9 @@ function DynamicContentSection({
       {/* Content from localized_contents table */}
       {content ? (
         <div className="text-black text-sm leading-relaxed">
-          {/* Process content with intelligent paragraph breaking */}
+          {/* Process content with enhanced text cleaning */}
           <div className="space-y-4">
-            {processWikipediaContent(content.content).split('\n\n').map((paragraph, index) => {
+            {htmlToCleanText(content.content).split('\n\n').map((paragraph, index) => {
               const trimmedParagraph = paragraph.trim();
               if (trimmedParagraph.length === 0) return null;
               

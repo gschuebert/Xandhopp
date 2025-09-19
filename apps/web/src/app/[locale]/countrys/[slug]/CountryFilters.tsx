@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { type Locale } from '../../../../../lib/i18n';
+import { type Locale } from '../../../../lib/i18n';
 
 type Country = {
   id: number;

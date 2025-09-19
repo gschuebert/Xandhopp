@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PortalisLogo } from '../../../components/xandhopp-logo';
+import { XandhoppLogo } from '../../../components/xandhopp-logo';
 import { getContent, type Locale } from '../../../lib/i18n';
 
 interface PrivacyPageProps {
@@ -18,7 +18,7 @@ export default function PrivacyPage({ params }: PrivacyPageProps) {
         <div className="container-default">
           <div className="flex items-center justify-between h-16">
             <Link href={`/${params.locale}`} className="flex items-center space-x-3">
-              <PortalisLogo size="sm" />
+              <XandhoppLogo size="md" />
               <span className="text-xl font-bold text-amber-900">PORTALIS</span>
             </Link>
             <Link

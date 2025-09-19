@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { getContent, type Locale } from "../../../lib/i18n";
+import { CountryCardWithMedia } from "../../../components/countries/CountryCardWithMedia";
 
 type Country = {
   id: number;
@@ -35,9 +36,9 @@ export default function CountriesPage({ params }: CountriesPageProps) {
   const router = useRouter();
   const sp = useSearchParams();
 
-  const [lang, setLang] = useState(sp.get("lang") || "de");
-  const [continent, setContinent] = useState(sp.get("continent") || "");
-  const [countrySlug, setCountrySlug] = useState(sp.get("country") || "");
+  const [lang, setLang] = useState(sp?.get("lang") || "de");
+  const [continent, setContinent] = useState(sp?.get("continent") || "");
+  const [countrySlug, setCountrySlug] = useState(sp?.get("country") || "");
   const [loading, setLoading] = useState(true);
 
   const [allCountries, setAllCountries] = useState<Country[]>([]);
@@ -147,10 +148,11 @@ export default function CountriesPage({ params }: CountriesPageProps) {
         ) : (
           <>
             {selectedCountry ? (
-              <CountryCard
+              <CountryCardWithMedia
                 c={selectedCountry}
                 lang={lang}
                 locale={locale}
+                showImage={true}
               />
             ) : (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -158,7 +160,7 @@ export default function CountriesPage({ params }: CountriesPageProps) {
                   .slice()
                   .sort((a, b) => a.name_en.localeCompare(b.name_en))
                   .map((c) => (
-                    <CountryCard key={c.id} c={c} lang={lang} locale={locale} />
+                    <CountryCardWithMedia key={c.id} c={c} lang={lang} locale={locale} showImage={true} />
                   ))}
               </div>
             )}
@@ -166,21 +168,8 @@ export default function CountriesPage({ params }: CountriesPageProps) {
         )}
       </main>
 
-      <Footer locale={locale} />
     </div>
   );
 }
 
-function CountryCard({ c, lang, locale }: { c: Country; lang: string; locale: string }) {
-  const slug = (c.slug_en || c.slug_de || c.name_en).toLowerCase().replace(/\s+/g, "-");
-  return (
-    <a
-      href={`/${locale}/countrys/${slug}?lang=${encodeURIComponent(lang)}`}
-      className="block rounded border border-gray-200 hover:shadow-md transition p-4"
-    >
-      <div className="text-sm text-gray-500">{c.continent}</div>
-      <div className="text-lg font-semibold">{c.name_en}</div>
-      <div className="mt-2 text-sm text-blue-600">View details →</div>
-    </a>
-  );
-}
+// Old CountryCard component removed - now using CountryCardWithMedia

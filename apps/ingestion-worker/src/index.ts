@@ -244,7 +244,7 @@ async function gracefulShutdown(): Promise<void> {
 
 // Main startup function
 async function main(): Promise<void> {
-  logger.info("Starting Portalis Ingestion Worker", {
+  logger.info("Starting Xandhopp Ingestion Worker", {
     countries: config.countries.length,
     redis: `${config.redis.host}:${config.redis.port}`,
     clickhouse: config.clickhouse.host,

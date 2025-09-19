@@ -387,4 +387,60 @@ class CountryService
         
         return $result->fetchAllAssociative();
     }
+
+    /**
+     * Get country media from new database structure
+     */
+    public function getCountryMediaNew(string $slug, string $lang = 'en', ?string $type = null): array
+    {
+        $sql = 'SELECT ma.id, ma.country_id, ma.language_code, ma.title, ma.type, ma.url, 
+                       ma.attribution, ma.source_url, ma.uploaded_at
+                FROM media_assets ma
+                JOIN countries c ON ma.country_id = c.id
+                WHERE (c.slug_en = :slug OR c.slug_de = :slug)
+                AND ma.language_code = :lang';
+        
+        $params = [
+            'slug' => $slug,
+            'lang' => $lang
+        ];
+        
+        if ($type) {
+            $sql .= ' AND ma.type = :type';
+            $params['type'] = $type;
+        }
+        
+        $sql .= ' ORDER BY ma.type, ma.uploaded_at DESC';
+        
+        $stmt = $this->entityManager->getConnection()->prepare($sql);
+        $result = $stmt->executeQuery($params);
+        
+        $media = $result->fetchAllAssociative();
+        
+        // Fix URLs that don't have protocol and optimize image sizes
+        return array_map(function($item) {
+            if ($item['url'] && !str_starts_with($item['url'], 'http')) {
+                $item['url'] = 'https:' . $item['url'];
+            }
+            
+            // Optimize Wikipedia image URLs for better performance
+            if ($item['type'] === 'thumbnail' && str_contains($item['url'], 'upload.wikimedia.org')) {
+                // For thumbnails, ensure reasonable size (max 400px width)
+                if (!str_contains($item['url'], 'px-')) {
+                    $item['url'] = str_replace(
+                        '/commons/thumb/',
+                        '/commons/thumb/',
+                        $item['url']
+                    );
+                    // Add size parameter if not present
+                    $parts = explode('/', $item['url']);
+                    $filename = end($parts);
+                    $parts[count($parts) - 1] = '400px-' . $filename;
+                    $item['url'] = implode('/', $parts);
+                }
+            }
+            
+            return $item;
+        }, $media);
+    }
 }
