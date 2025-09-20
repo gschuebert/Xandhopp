@@ -135,67 +135,52 @@ def norm_lang(lang: str, default: str = "en") -> str:
     return (lang or default).strip().lower()
 
 def upsert_localized_html_with_status(conn, country_id: int, lang: str, content_type_id: int, html: str, source_url: Optional[str]) -> str:
-    """Advanced two-step UPSERT with detailed logging. Returns 'insert', 'update_changed', or 'update_unchanged'."""
+    """Advanced UPSERT with xmax-based status detection. Returns 'insert', 'update_changed', or 'update_unchanged'."""
     if not html:
+        logger.info(f"UPSERT: Skipped empty content for country_id={country_id}, lang={lang}, type={content_type_id}")
         return "skipped_empty"
     
     # Normalize inputs
     normalized_lang = norm_lang(lang)
     
-    # Two-step strategy: INSERT with DO NOTHING, then conditional UPDATE
-    INSERT_SQL = """
+    # Single UPSERT with xmax-based status detection
+    UPSERT_SQL = """
         INSERT INTO localized_contents (
           country_id, subregion_id, language_code, content_type_id,
           content, source_url, updated_at, content_hash
         ) VALUES (
           %s, NULL, %s, %s, %s, %s, NOW(), md5(COALESCE(%s, ''))
         )
-        ON CONFLICT ON CONSTRAINT uq_localized_content DO NOTHING
-        RETURNING country_id, language_code, content_type_id
-    """
-    
-    UPDATE_SQL = """
-        UPDATE localized_contents AS lc SET
-          content      = EXCLUDED.content,
+        ON CONFLICT ON CONSTRAINT uq_localized_content
+        DO UPDATE SET
+          content      = CASE WHEN localized_contents.content_hash <> EXCLUDED.content_hash THEN EXCLUDED.content ELSE localized_contents.content END,
           source_url   = EXCLUDED.source_url,
           content_hash = EXCLUDED.content_hash,
-          updated_at   = NOW()
-        FROM (
-          SELECT %s AS country_id,
-                 NULL AS subregion_id,
-                 %s AS language_code,
-                 %s AS content_type_id,
-                 %s AS content,
-                 %s AS source_url,
-                 md5(COALESCE(%s, '')) AS content_hash
-        ) AS EXCLUDED
-        WHERE lc.country_id = EXCLUDED.country_id
-          AND COALESCE(lc.subregion_id, 0) = COALESCE(EXCLUDED.subregion_id, 0)
-          AND lc.language_code = EXCLUDED.language_code
-          AND lc.content_type_id = EXCLUDED.content_type_id
-          AND lc.content_hash IS DISTINCT FROM EXCLUDED.content_hash
-        RETURNING lc.country_id
+          updated_at   = CASE WHEN localized_contents.content_hash <> EXCLUDED.content_hash THEN NOW() ELSE localized_contents.updated_at END
+        RETURNING
+          (xmax = 0) AS inserted,
+          (xmax <> 0) AS updated
     """
     
     with conn.cursor() as cur:
-        # Step 1: Try INSERT
-        cur.execute(INSERT_SQL, (country_id, normalized_lang, content_type_id, html, source_url, html))
-        ins_result = cur.fetchone()
+        cur.execute(UPSERT_SQL, (country_id, normalized_lang, content_type_id, html, source_url, html))
+        result = cur.fetchone()
         
-        if ins_result:
-            logger.info(f"UPSERT: Inserted new content for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
-            return "insert"
+        if result:
+            inserted, updated = result
+            if inserted:
+                log.info(f"UPSERT: Inserted new content for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+                return "insert"
+            elif updated:
+                log.info(f"UPSERT: Updated content for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+                return "update"
+            else:
+                log.info(f"UPSERT: No change for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+                return "no_change"
         
-        # Step 2: Try UPDATE only if content changed
-        cur.execute(UPDATE_SQL, (country_id, normalized_lang, content_type_id, html, source_url, html))
-        upd_result = cur.fetchone()
-        
-        if upd_result:
-            logger.info(f"UPSERT: Updated content (changed) for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
-            return "update_changed"
-        else:
-            logger.info(f"UPSERT: Content unchanged for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
-            return "update_unchanged"
+        # Fallback (should not happen)
+        log.warning(f"UPSERT: Unexpected result for country_id={country_id}, lang={normalized_lang}, type={content_type_id}")
+        return "unknown"
 
 # Backward compatibility wrapper
 def upsert_localized_html(conn, country_id: int, lang: str, content_type_id: int, html: str, source_url: Optional[str]):
@@ -215,6 +200,70 @@ def upsert_fact(conn, country_id: int, lang: str, key: str, value: str, unit: Op
         DO UPDATE SET value = EXCLUDED.value, unit = EXCLUDED.unit, last_updated = CURRENT_TIMESTAMP
         """, (country_id, lang, key, value, unit))
     conn.commit()
+
+def normalize_media_url(url: str) -> str:
+    """Normalize media URL to avoid duplicates."""
+    if not url:
+        return ""
+    
+    # Strip whitespace
+    normalized = url.strip()
+    
+    # Fix protocol-relative URLs
+    if normalized.startswith("//"):
+        normalized = "https:" + normalized
+    
+    # Prefer original Commons URLs over thumbnails when possible
+    if "upload.wikimedia.org" in normalized and "/thumb/" in normalized:
+        # Try to get original URL by removing thumb path and size parameters
+        parts = normalized.split("/")
+        if "thumb" in parts:
+            thumb_idx = parts.index("thumb")
+            if thumb_idx + 3 < len(parts):
+                # Remove size prefix (e.g., "250px-") from filename
+                filename = parts[-1]
+                if filename.count("-") > 0 and filename.split("-")[0].endswith("px"):
+                    original_filename = "-".join(filename.split("-")[1:])
+                    # Construct original URL
+                    original_parts = parts[:thumb_idx] + ["commons"] + parts[thumb_idx+2:-1] + [original_filename]
+                    original_url = "/".join(original_parts)
+                    log.debug(f"Normalized thumbnail URL: {url} -> {original_url}")
+                    return original_url
+    
+    return normalized
+
+def upsert_media_asset_safe(conn, country_id: int, lang: str, title: str, media_type: str, url: str, attribution: str, source_url: str):
+    """Save media asset with SAVEPOINT protection against duplicates."""
+    if not url:
+        return
+    
+    # Normalize URL to avoid duplicates
+    normalized_url = normalize_media_url(url)
+    if not normalized_url:
+        return
+    
+    with conn.cursor() as cur:
+        # Use SAVEPOINT to protect against duplicate key errors
+        cur.execute("SAVEPOINT sp_media")
+        try:
+            cur.execute("""
+            INSERT INTO media_assets (country_id, language_code, title, type, url, attribution, source_url, uploaded_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, NOW())
+            """, (country_id, lang, title, media_type, normalized_url, attribution, source_url))
+            log.info(f"Inserted new media asset: {title[:50]}...")
+            cur.execute("RELEASE SAVEPOINT sp_media")
+        except Exception as e:
+            cur.execute("ROLLBACK TO SAVEPOINT sp_media")
+            if "duplicate key" in str(e).lower():
+                log.info(f"Media duplicate skipped: {title[:50]}... ({normalized_url[:60]}...)")
+            else:
+                log.warning(f"Media insert error: {e}")
+
+# Backward compatibility wrapper
+def upsert_media_asset(conn, country_id: int, lang: str, title: str, media_type: str, url: str, attribution: str, source_url: str):
+    """Legacy wrapper for backward compatibility."""
+    upsert_media_asset_safe(conn, country_id, lang, title, media_type, url, attribution, source_url)
+    # Don't commit here - let the caller handle transactions
 
 # ──────────────────────────────────────────────────────────────
 # Wikipedia + Wikidata Helpers
@@ -298,13 +347,25 @@ def get_localized_title_via_langlinks(source_title: str, source_lang: str, targe
     return None
 
 def fetch_summary_plain(title: str, lang: str) -> Tuple[Optional[str], Optional[str]]:
-    """Optional, falls du eine kurze Plaintext-Zusammenfassung willst."""
+    """Fetch Wikipedia summary with graceful error handling."""
     url = f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{title}"
     data, status = req_json(url)
+    
+    # Graceful handling for missing Wikipedia data
     if not data:
+        log.warning(f"No summary data returned for {title} ({lang})")
         return None, None
+        
+    # Safe access with dict.get() to avoid NoneType errors
     extract = data.get("extract")
-    page_url = (data.get("content_urls", {}).get("desktop") or {}).get("page")
+    if not extract:
+        log.info(f"No extract available for {title} ({lang})")
+    
+    # Safe nested access for page URL
+    content_urls = data.get("content_urls", {})
+    desktop_urls = content_urls.get("desktop", {}) if content_urls else {}
+    page_url = desktop_urls.get("page") if desktop_urls else None
+    
     return extract, page_url
 
 def fetch_parsoid_html(title: str, lang: str) -> Optional[str]:
@@ -315,17 +376,39 @@ def fetch_parsoid_html(title: str, lang: str) -> Optional[str]:
     return html if status == 200 else None
 
 def fetch_action_parse_html(title: str, lang: str) -> Optional[str]:
-    """Fallback: Action API parse → HTML."""
+    """Fallback: Action API parse → HTML with graceful error handling."""
     url = f"https://{lang}.wikipedia.org/w/api.php"
     params = {
         "action": "parse", "format": "json", "prop": "text",
         "page": title, "redirects": 1
     }
     data, status = req_json(url, params=params)
+    
+    # Graceful handling for missing Wikipedia data
+    if not data:
+        log.warning(f"No Wikipedia data returned for {title} ({lang})")
+        return None
+        
     try:
-        html = data["parse"]["text"]["*"]
+        # Safe access with dict.get() to avoid NoneType errors
+        parse_data = data.get("parse")
+        if not parse_data:
+            log.warning(f"No parse data for {title} ({lang}) - article may not exist")
+            return None
+            
+        text_data = parse_data.get("text")
+        if not text_data:
+            log.warning(f"No text content for {title} ({lang})")
+            return None
+            
+        html = text_data.get("*")
+        if not html:
+            log.warning(f"Empty HTML content for {title} ({lang})")
+            return None
+            
         return html
-    except Exception:
+    except (KeyError, TypeError, AttributeError) as e:
+        log.warning(f"Error parsing Wikipedia data for {title} ({lang}): {e}")
         return None
 
 # ──────────────────────────────────────────────────────────────
@@ -414,6 +497,113 @@ def normalize_section_key(title: str, lang: str) -> str:
                 return key
     return "other"
 
+def extract_wikipedia_images(html: str, country_name: str, lang: str) -> List[Dict[str, str]]:
+    """Extract images from Wikipedia HTML content, categorized by type."""
+    if not html:
+        return []
+    
+    soup = BeautifulSoup(html, "html.parser")
+    images = []
+    
+    # Find all images in the content
+    for img_tag in soup.find_all("img"):
+        src = img_tag.get("src")
+        if not src:
+            continue
+            
+        # Fix protocol-relative URLs
+        if src.startswith("//"):
+            src = "https:" + src
+        elif not src.startswith("http"):
+            continue  # Skip relative URLs we can't resolve
+            
+        # Get image metadata
+        alt_text = img_tag.get("alt", "")
+        title = img_tag.get("title", alt_text)
+        
+        # Skip very small images (likely icons)
+        width = img_tag.get("width")
+        height = img_tag.get("height")
+        if width and height:
+            try:
+                w, h = int(width), int(height)
+                if w < 100 or h < 100:
+                    continue
+            except ValueError:
+                pass
+        
+        # Categorize image type based on URL and alt text
+        image_type = categorize_wikipedia_image(src, alt_text, title, country_name)
+        
+        # Include all images but mark flags/coats of arms differently
+        images.append({
+            'url': src,
+            'title': title or f"Image of {country_name}",
+            'alt': alt_text,
+            'type': image_type,
+            'source': 'wikipedia_content'
+        })
+    
+    # Sort by priority for hero images (scenic > landmark > city > other)
+    priority_order = {'scenic': 0, 'landmark': 1, 'city': 2, 'building': 3, 'other': 4}
+    images.sort(key=lambda x: priority_order.get(x['type'], 999))
+    
+    log.info(f"Extracted {len(images)} hero-suitable images from Wikipedia content for {country_name} ({lang})")
+    return images
+
+def categorize_wikipedia_image(url: str, alt_text: str, title: str, country_name: str) -> str:
+    """Categorize Wikipedia image by type based on URL patterns and metadata."""
+    url_lower = url.lower()
+    alt_lower = alt_text.lower()
+    title_lower = title.lower()
+    country_lower = country_name.lower()
+    
+    # Flag detection
+    if ('flag' in url_lower or 'flag' in alt_lower or 'flag' in title_lower or
+        'flagge' in alt_lower or 'flagge' in title_lower):
+        return 'flag'
+    
+    # Coat of arms detection
+    if ('coat' in url_lower or 'arms' in url_lower or 'wappen' in url_lower or
+        'coat' in alt_lower or 'arms' in alt_lower or 'wappen' in alt_lower):
+        return 'coat_of_arms'
+    
+    # Scenic/landscape detection
+    scenic_keywords = [
+        'landscape', 'beach', 'mountain', 'forest', 'lake', 'river', 'valley', 'coast',
+        'landschaft', 'strand', 'berg', 'wald', 'see', 'fluss', 'tal', 'küste',
+        'nature', 'natural', 'natur', 'scenic', 'vista', 'view', 'panorama'
+    ]
+    if any(keyword in alt_lower or keyword in title_lower for keyword in scenic_keywords):
+        return 'scenic'
+    
+    # Landmark detection
+    landmark_keywords = [
+        'monument', 'temple', 'church', 'cathedral', 'palace', 'castle', 'fortress',
+        'denkmal', 'tempel', 'kirche', 'dom', 'palast', 'schloss', 'festung',
+        'tower', 'bridge', 'statue', 'turm', 'brücke', 'statue'
+    ]
+    if any(keyword in alt_lower or keyword in title_lower for keyword in landmark_keywords):
+        return 'landmark'
+    
+    # City/urban detection
+    city_keywords = [
+        'city', 'town', 'capital', 'downtown', 'skyline', 'street', 'square',
+        'stadt', 'hauptstadt', 'zentrum', 'straße', 'platz', 'markt'
+    ]
+    if any(keyword in alt_lower or keyword in title_lower for keyword in city_keywords):
+        return 'city'
+    
+    # Building detection
+    building_keywords = [
+        'building', 'house', 'hotel', 'market', 'school', 'university',
+        'gebäude', 'haus', 'markt', 'schule', 'universität'
+    ]
+    if any(keyword in alt_lower or keyword in title_lower for keyword in building_keywords):
+        return 'building'
+    
+    return 'other'
+
 def split_sections_from_html(html: str, lang: str) -> Dict[str, str]:
     soup = BeautifulSoup(html, "html.parser")
 
@@ -490,19 +680,46 @@ def wikidata_facts(qid: str, lang: str = "en") -> Dict[str, str]:
         )
         if r.status_code != 200:
             return {}
-        b = r.json().get("results", {}).get("bindings", [])
-        if not b:
+        data = r.json()
+        if not data:
+            log.warning(f"No data returned from Wikidata for {qid}")
             return {}
-        row = b[0]
-        val = lambda k: row.get(k, {}).get("value")
-        return {
-            "population": val("pop"),
-            "area_km2": val("area"),
-            "capital": val("capitalLabel"),
-            "currency": val("currencyLabel"),
-            "official_language": val("languageLabel"),
-        }
-    except requests.RequestException:
+            
+        # Safe access with dict.get()
+        results = data.get("results", {})
+        bindings = results.get("bindings", []) if results else []
+        
+        if not bindings:
+            log.info(f"No facts found in Wikidata for {qid}")
+            return {}
+            
+        row = bindings[0]
+        
+        # Safe value extraction with fallback
+        def safe_val(key: str) -> Optional[str]:
+            field = row.get(key, {})
+            return field.get("value") if field else None
+        
+        facts = {}
+        if safe_val("pop"):
+            facts["population"] = safe_val("pop")
+        if safe_val("area"):
+            facts["area_km2"] = safe_val("area")
+        if safe_val("capitalLabel"):
+            facts["capital"] = safe_val("capitalLabel")
+        if safe_val("currencyLabel"):
+            facts["currency"] = safe_val("currencyLabel")
+        if safe_val("languageLabel"):
+            facts["official_language"] = safe_val("languageLabel")
+            
+        log.info(f"Retrieved {len(facts)} facts from Wikidata for {qid}")
+        return facts
+        
+    except requests.RequestException as e:
+        log.warning(f"Request error fetching Wikidata facts for {qid}: {e}")
+        return {}
+    except (KeyError, TypeError, ValueError) as e:
+        log.warning(f"Error parsing Wikidata response for {qid}: {e}")
         return {}
 
 # ──────────────────────────────────────────────────────────────
@@ -596,6 +813,36 @@ def import_one_country_language(conn, country: Dict, lang: str, ct_ids: Dict[str
             if not ctid:
                 continue
             upsert_localized_html(conn, cid, lang, ctid, sections[key], page_url)
+
+    # Extract and save Wikipedia images for hero sections
+    try:
+        wikipedia_images = extract_wikipedia_images(html, name_en, lang)
+        
+        # Deduplicate URLs before inserting
+        seen_urls = set()
+        unique_images = []
+        for img in wikipedia_images:
+            normalized_url = normalize_media_url(img['url'])
+            if normalized_url and normalized_url not in seen_urls:
+                seen_urls.add(normalized_url)
+                unique_images.append(img)
+        
+        log.info(f"Extracted {len(wikipedia_images)} images, {len(unique_images)} unique for {name_en} ({lang})")
+        
+        for img in unique_images:
+            # Save flags and coats of arms with their original types, others as hero types
+            if img['type'] == 'flag':
+                media_type = 'flag'
+            elif img['type'] == 'coat_of_arms':
+                media_type = 'coat_of_arms'
+            else:
+                media_type = 'hero_' + img['type']  # hero_scenic, hero_landmark, etc.
+            
+            upsert_media_asset_safe(conn, cid, lang, img['title'], media_type, img['url'], 'Wikipedia', page_url)
+        
+        log.info(f"Saved {len(unique_images)} unique Wikipedia images for {name_en} ({lang})")
+    except Exception as e:
+        log.warning(f"Error extracting images for {name_en} ({lang}): {e}")
 
     # Wikidata-Fakten (rechte Spalte)
     if qid:

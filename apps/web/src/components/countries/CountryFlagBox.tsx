@@ -26,20 +26,32 @@ export function CountryFlagBox({
   const thumbnails = getThumbnails();
   const allMedia = [...images, ...thumbnails];
 
-  // Try to identify flag (contains "flag" in title or URL)
-  const flag = allMedia.find(media => 
-    media.title?.toLowerCase().includes('flag') || 
-    media.url?.toLowerCase().includes('flag')
+  // Try to identify flag - prioritize specific flag types, include fallback logic
+  let flag = allMedia.find(media => 
+    media.type === 'flag' ||
+    (media.title?.toLowerCase().includes('flag') && 
+     media.url?.toLowerCase().includes('flag') &&
+     !media.type?.startsWith('hero_')) || // Exclude hero images
+    // Fallback: use thumbnail/image if it contains flag URL patterns
+    (media.url?.toLowerCase().includes('flag') && 
+     (media.type === 'thumbnail' || media.type === 'image'))
   );
 
-  // Try to identify coat of arms (contains "coat", "arms", "wappen" in title or URL)
+  // Try to identify coat of arms - prioritize specific coat of arms types, exclude hero images  
   const coatOfArms = allMedia.find(media => 
-    media.title?.toLowerCase().includes('coat') ||
-    media.title?.toLowerCase().includes('arms') ||
-    media.title?.toLowerCase().includes('wappen') ||
-    media.url?.toLowerCase().includes('coat') ||
-    media.url?.toLowerCase().includes('arms') ||
-    media.url?.toLowerCase().includes('wappen')
+    media.type === 'coat_of_arms' ||
+    ((media.title?.toLowerCase().includes('coat') ||
+      media.title?.toLowerCase().includes('arms') ||
+      media.title?.toLowerCase().includes('wappen') ||
+      media.url?.toLowerCase().includes('coat') ||
+      media.url?.toLowerCase().includes('arms') ||
+      media.url?.toLowerCase().includes('wappen')) &&
+     !media.type?.startsWith('hero_')) || // Exclude hero images
+    // Fallback: use thumbnail/image if it contains coat of arms URL patterns
+    ((media.url?.toLowerCase().includes('coat') || 
+      media.url?.toLowerCase().includes('arms') ||
+      media.url?.toLowerCase().includes('wappen')) && 
+     (media.type === 'thumbnail' || media.type === 'image'))
   );
 
   // Fallback flag URL from reliable source
@@ -60,7 +72,10 @@ export function CountryFlagBox({
       'brazil': 'br', 'argentina': 'ar', 'chile': 'cl',
       'australia': 'au', 'new zealand': 'nz', 'japan': 'jp',
       'china': 'cn', 'india': 'in', 'russia': 'ru',
-      'south africa': 'za', 'egypt': 'eg', 'nigeria': 'ng'
+      'south africa': 'za', 'egypt': 'eg', 'nigeria': 'ng',
+      'angola': 'ao', 'burkina faso': 'bf', 'eswatini': 'sz',
+      'tonga': 'to', 'ghana': 'gh', 'kenya': 'ke', 'morocco': 'ma',
+      'montenegro': 'me'
     };
 
     const isoCode = countryToIso[countryName.toLowerCase()];
@@ -68,6 +83,21 @@ export function CountryFlagBox({
   };
 
   const fallbackFlagUrl = getFallbackFlagUrl(countryName);
+  
+  // Use fallback flag if no flag found in media
+  if (!flag && fallbackFlagUrl) {
+    flag = {
+      id: 0,
+      country_id: 0,
+      language_code: lang,
+      title: `Flag of ${countryName}`,
+      type: 'flag' as any,
+      url: fallbackFlagUrl,
+      attribution: 'FlagCDN',
+      source_url: 'https://flagcdn.com',
+      uploaded_at: new Date().toISOString()
+    };
+  }
 
   if (loading) {
     return (

@@ -7,7 +7,7 @@ export interface MediaAsset {
   country_id: number;
   language_code: string;
   title: string;
-  type: 'thumbnail' | 'image';
+  type: 'thumbnail' | 'image' | 'flag' | 'coat_of_arms' | 'hero_scenic' | 'hero_landmark' | 'hero_city' | 'hero_building' | 'hero_other';
   url: string;
   attribution: string;
   source_url: string;

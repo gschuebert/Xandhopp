@@ -28,6 +28,63 @@ const sectionIcons: Record<ContentSection, string> = {
   visa: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
 };
 
+// Function to get scenic/characteristic images for countries
+const getScenicImageUrl = (countryName: string): string => {
+  const scenicImages: Record<string, string> = {
+    // Africa - Diverse landscapes
+    'Nigeria': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80', // Sahara Desert
+    'Egypt': 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6b?w=1200&q=80', // Pyramids landscape
+    'South Africa': 'https://images.unsplash.com/photo-1484318571209-661cf29a69ea?w=1200&q=80', // Table Mountain
+    'Kenya': 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&q=80', // Savanna with wildlife
+    'Morocco': 'https://images.unsplash.com/photo-1461183479101-6c14cd5e4de1?w=1200&q=80', // Desert dunes
+    'Ghana': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80', // West African landscape
+    'Eswatini': 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1200&q=80', // African highlands
+    'Angola': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80', // African landscape
+    
+    // Oceania - Islands and atolls
+    'Samoa': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80', // Tropical beach/atoll
+    'Tonga': 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80', // Pacific island
+    'Fiji': 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80', // Fiji paradise
+    'Vanuatu': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Volcanic island
+    'Palau': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80', // Coral atolls
+    'Marshall Islands': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80', // Atoll landscape
+    'Kiribati': 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80', // Pacific atoll
+    'Australia': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Uluru/Outback
+    'New Zealand': 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&q=80', // Milford Sound
+    
+    // Europe - Architecture and landscapes
+    'Germany': 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1200&q=80', // Neuschwanstein
+    'Austria': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Alpine village
+    'Switzerland': 'https://images.unsplash.com/photo-1527004760525-6d6a8a0b3b11?w=1200&q=80', // Matterhorn
+    'France': 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=1200&q=80', // Eiffel Tower
+    'Italy': 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=1200&q=80', // Venice
+    'Spain': 'https://images.unsplash.com/photo-1539650116574-75c0c6d73f6b?w=1200&q=80', // Sagrada Familia
+    'United Kingdom': 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=1200&q=80', // London
+    'Netherlands': 'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=1200&q=80', // Amsterdam
+    'Greece': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=80', // Santorini
+    'Norway': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Fjords
+    'Montenegro': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80', // Balkan mountains
+    
+    // Asia - Iconic landmarks
+    'Japan': 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1200&q=80', // Mount Fuji
+    'China': 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&q=80', // Great Wall
+    'India': 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80', // Taj Mahal
+    'Thailand': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Thai temple
+    'Indonesia': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Bali temple
+    
+    // Americas
+    'United States': 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200&q=80', // Statue of Liberty
+    'Canada': 'https://images.unsplash.com/photo-1503614472-8c93d56cd2b2?w=1200&q=80', // Canadian Rockies
+    'Brazil': 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=1200&q=80', // Christ Redeemer
+    'Mexico': 'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=1200&q=80', // Chichen Itza
+    'Argentina': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Buenos Aires
+    'Chile': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', // Andes Mountains
+  };
+  
+  // Return specific image or fallback to generic nature image
+  return scenicImages[countryName] || 'https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?w=1200&q=80';
+};
+
 export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnhancedProps) {
   const [data, setData] = useState<CountryDetailResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -173,23 +230,23 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
         <span className="text-gray-900">{countryName}</span>
       </nav>
 
-      {/* Country Header */}
-      <div className="bg-gradient-to-r from-xandhopp-accent to-xandhopp-accent-light rounded-2xl p-8 text-white mb-8">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-6">
-            {country.flag_url ? (
-              <img
-                src={country.flag_url}
-                alt={`${countryName} flag`}
-                className="w-24 h-16 object-cover rounded-lg shadow-lg"
-              />
-            ) : (
-              <div className="w-24 h-16 bg-white/20 rounded-lg flex items-center justify-center">
-                <span className="text-2xl font-bold">{country.iso_code}</span>
-              </div>
-            )}
-            <div>
-              <h1 className="text-4xl font-bold mb-2">
+      {/* Country Header with Scenic Background */}
+      <div className="relative rounded-2xl overflow-hidden mb-8">
+        {/* Scenic Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('${getScenicImageUrl(countryName)}')`,
+          }}
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60" />
+        
+        {/* Content */}
+        <div className="relative p-8 text-white">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <h1 className="text-4xl font-bold mb-2 drop-shadow-lg">
                 {countryName}
                 {country.name_local && country.name_local !== country.name_en && (
                   <span className="text-2xl font-normal ml-3 opacity-90">
@@ -197,7 +254,7 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
                   </span>
                 )}
               </h1>
-              <div className="flex items-center space-x-4 text-lg opacity-90">
+              <div className="flex items-center space-x-4 text-lg opacity-90 drop-shadow">
                 <span>{country.continent}</span>
                 {capital && (
                   <>
@@ -207,7 +264,6 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
                 )}
               </div>
             </div>
-          </div>
           <div className="flex items-center space-x-3">
             {/* Compare Button */}
             <button

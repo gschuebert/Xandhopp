@@ -2,6 +2,7 @@
 import os
 import time
 import logging
+import random
 from typing import Optional, Dict, Tuple
 import requests
 
@@ -34,46 +35,92 @@ class WikipediaAPIClient:
             "User-Agent": _ua(),
             "Accept": "application/json"
         })
+        # Circuit breaker state
+        self.consecutive_failures = 0
+        self.max_consecutive_failures = 5
+        self.circuit_breaker_timeout = 60  # seconds
 
     def delay_request(self, seconds: float):
         if seconds and seconds > 0:
             time.sleep(seconds)
 
+    def _calculate_backoff(self, attempt: int, base_delay: float = None) -> float:
+        """Calculate exponential backoff with jitter"""
+        if base_delay is None:
+            base_delay = self.backoff_factor ** attempt
+        # Add jitter (random factor between 0.5 and 1.5)
+        jitter = random.uniform(0.5, 1.5)
+        return min(base_delay * jitter, 30.0)  # Max 30 seconds
+
+    def _should_circuit_break(self) -> bool:
+        """Check if circuit breaker should activate"""
+        return self.consecutive_failures >= self.max_consecutive_failures
+
+    def _reset_circuit_breaker(self):
+        """Reset circuit breaker on successful request"""
+        self.consecutive_failures = 0
+
     def _lang_base(self, lang: str) -> str:
         return f"https://{lang}.wikipedia.org/api/rest_v1"
 
     def _request_json(self, url: str, params=None, extra_headers=None) -> Tuple[Optional[Dict], Optional[int]]:
+        # Circuit breaker check
+        if self._should_circuit_break():
+            logger.warning(f"Circuit breaker active, skipping request to {url}")
+            return None, None
+            
         headers = {}
         if extra_headers:
             headers.update(extra_headers)
+            
         for attempt in range(1, self.max_retries + 1):
             try:
                 r = self.session.get(url, params=params, headers=headers, timeout=self.timeout)
                 status = r.status_code
+                
                 if status == 200:
+                    self._reset_circuit_breaker()  # Success resets circuit breaker
                     return r.json(), status
+                    
                 if status not in RETRYABLE_STATUS:
-                    logger.warning(f"Request failed: {status} {r.reason} for url: {r.url}")
+                    self.consecutive_failures += 1
+                    # Only log 404 as warning for non-media endpoints
+                    if status == 404 and '/page/media-list/' in r.url:
+                        logger.debug(f"Media-list not found (404): {r.url}")
+                    else:
+                        logger.warning(f"Request failed: {status} {r.reason} for url: {r.url}")
                     return None, status
-                sleep = min(self.backoff_factor ** attempt, 10)
-                logger.warning(f"Request failed: {status} {r.reason} for url: {r.url} – retry in {sleep:.1f}s")
+                    
+                # Retryable error - use improved backoff
+                sleep = self._calculate_backoff(attempt)
+                logger.warning(f"Request failed: {status} {r.reason} for url: {r.url} – retry in {sleep:.1f}s (attempt {attempt}/{self.max_retries})")
                 time.sleep(sleep)
+                
             except requests.RequestException as e:
+                self.consecutive_failures += 1
                 if attempt >= self.max_retries:
                     logger.error(f"HTTP error after {attempt} attempts: {e}")
                     return None, None
-                sleep = min(self.backoff_factor ** attempt, 10)
+                sleep = self._calculate_backoff(attempt)
                 logger.warning(f"Request exception: {e} – retry in {sleep:.1f}s (attempt {attempt}/{self.max_retries})")
                 time.sleep(sleep)
+                
+        self.consecutive_failures += 1
         return None, None
 
     # ---------- REST ----------
     def _rest_summary(self, title: str, lang: str) -> Tuple[Optional[Dict], Optional[int]]:
-        url = f"{self._lang_base(lang)}/page/summary/{title}"
+        # URL-encode the title to handle special characters
+        from urllib.parse import quote
+        encoded_title = quote(title.replace(' ', '_'), safe='')
+        url = f"{self._lang_base(lang)}/page/summary/{encoded_title}"
         return self._request_json(url)
 
     def _rest_media_list(self, title: str, lang: str) -> Tuple[Optional[Dict], Optional[int]]:
-        url = f"{self._lang_base(lang)}/page/media-list/{title}"
+        # URL-encode the title to handle special characters
+        from urllib.parse import quote
+        encoded_title = quote(title.replace(' ', '_'), safe='')
+        url = f"{self._lang_base(lang)}/page/media-list/{encoded_title}"
         return self._request_json(url)
 
     def _pick_best_image_from_media(self, media_json: Dict) -> Optional[str]:
@@ -149,9 +196,16 @@ class WikipediaAPIClient:
         thumb = (data.get("thumbnail") or {}).get("source")
         original = (data.get("originalimage") or {}).get("source")
         page_url = (data.get("content_urls", {}).get("desktop") or {}).get("page")
-        # Media-list versuchen (nicht kritisch)
-        ml, _ = self._rest_media_list(data.get("title", title), lang)
-        best = self._pick_best_image_from_media(ml)
+        
+        # Media-list versuchen (nicht kritisch, 404 ist normal)
+        ml, status = self._rest_media_list(data.get("title", title), lang)
+        best = None
+        if ml:
+            best = self._pick_best_image_from_media(ml)
+        elif status == 404:
+            # 404 für media-list ist normal, nicht als Fehler loggen
+            logger.debug(f"Media-list not found for {title} in {lang} (404 - normal)")
+        
         image_url = best or original or thumb
 
         return {
