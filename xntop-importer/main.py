@@ -353,9 +353,83 @@ class XNTOPImporter:
         pages = data["query"].get("pages") or {}
         if not pages:
             return None
-        page = next(iter(pages.values()), {}) or {}
+        try:
+            page = next(iter(pages.values()), {})
+        except StopIteration:
+            return None
+        if not page:
+            return None
         pp = page.get("pageprops") or {}
         return pp.get("wikibase_item")
+
+    def _search_title(self, lang: str, query: str) -> Optional[str]:
+        """Sucht den besten Titel in einer Sprachwiki (zur Not)."""
+        url = f"https://{lang}.wikipedia.org/w/api.php"
+        params = {
+            "action": "query", "format": "json",
+            "list": "search", "srlimit": 1, "srprop": "", "srsearch": query
+        }
+        data, _ = self._req_json(url, params)
+        try:
+            if not data:
+                return None
+            query_data = data.get("query", {})
+            if not query_data:
+                return None
+            hits = query_data.get("search", [])
+            if hits and len(hits) > 0 and hits[0]:
+                return hits[0].get("title")
+        except Exception:
+            pass
+        return None
+
+    def _get_local_title_via_wikidata(self, qid: str, target_lang: str) -> Optional[str]:
+        url = "https://www.wikidata.org/w/api.php"
+        params = {"action": "wbgetentities", "format": "json", "props": "sitelinks", "ids": qid}
+        data, _ = self._req_json(url, params)
+        if not data:
+            return None
+        entities = data.get("entities", {})
+        if not entities or qid not in entities:
+            return None
+        ent = entities.get(qid, {})
+        if not ent:
+            return None
+        sitelinks = ent.get("sitelinks", {})
+        if not sitelinks:
+            return None
+        site = f"{target_lang}wiki"
+        site_data = sitelinks.get(site, {})
+        return site_data.get("title") if site_data else None
+
+    def _get_local_title_via_langlinks(self, source_title: str, source_lang: str, target_lang: str) -> Optional[str]:
+        url = f"https://{source_lang}.wikipedia.org/w/api.php"
+        params = {
+            "action": "query", "format": "json",
+            "prop": "langlinks", "redirects": 1, "lllimit": "max", "titles": source_title
+        }
+        data, _ = self._req_json(url, params)
+        if not data:
+            return None
+        query_data = data.get("query", {})
+        if not query_data:
+            return None
+        pages = query_data.get("pages", {})
+        if not pages:
+            return None
+        try:
+            page = next(iter(pages.values()))
+        except StopIteration:
+            return None
+        if not page:
+            return None
+        langlinks = page.get("langlinks", [])
+        if not langlinks:
+            return None
+        for ll in langlinks:
+            if ll and ll.get("lang") == target_lang:
+                return ll.get("*")
+        return None
 
     def _resolve_title_and_qid(self, country_en: str, lang: str, qid_hint: Optional[str]) -> Tuple[Optional[str], Optional[str]]:
         """Sicher & defensiv: QID und lokaler Titel, ohne auf None zu indexieren."""
@@ -400,7 +474,11 @@ class XNTOPImporter:
         if not data or "parse" not in data:
             logger.warning(f"[Lead] no data/parse for {lang}:{title} (status {status})")
             return None
-        text_block = data["parse"].get("text") or {}
+        parse_data = data.get("parse", {})
+        if not parse_data:
+            logger.warning(f"[Lead] no parse data for {lang}:{title}")
+            return None
+        text_block = parse_data.get("text") or {}
         lead_html = text_block.get("*")
         if not lead_html:
             logger.warning(f"[Lead] empty text for {lang}:{title}")
@@ -495,29 +573,47 @@ class XNTOPImporter:
             wiki_lang = WIKIPEDIA_LANGUAGE_CODES.get(lang_code, lang_code)
 
             # 1) Korrekte Seitentitel + QID
-            local_title, qid = self._resolve_title_and_qid(country_name, wiki_lang, qid_hint)
+            try:
+                local_title, qid = self._resolve_title_and_qid(country_name, wiki_lang, qid_hint)
+            except Exception as e:
+                logger.error(f"Error resolving title for {country_name} ({lang_code}): {e}")
+                self.db.log_sync(country_id, lang_code, 'wikipedia', 'title_resolve_error')
+                return {'status': 'error', 'lang_code': lang_code, 'error': f'title_resolve: {str(e)}'}
+            
             if not local_title:
                 self.db.log_sync(country_id, lang_code, 'wikipedia', 'no_title')
                 return {'status': 'no_data', 'lang_code': lang_code}
 
             # 2) Lead 1:1 (section=0, HTML)
-            lead_html = self._fetch_lead_section_html(local_title, wiki_lang)
+            try:
+                lead_html = self._fetch_lead_section_html(local_title, wiki_lang)
+            except Exception as e:
+                logger.error(f"Error fetching lead for {country_name} ({lang_code}): {e}")
+                lead_html = None
 
             # 3) Gesamter Artikel (Parsoid HTML) → Abschnitte
             sections: Dict[str, str] = {}
-            parsoid_html = self._fetch_parsoid_html(local_title, wiki_lang)
-            if parsoid_html:
-                sections = self._split_sections_from_html(parsoid_html, wiki_lang)
+            try:
+                parsoid_html = self._fetch_parsoid_html(local_title, wiki_lang)
+                if parsoid_html:
+                    sections = self._split_sections_from_html(parsoid_html, wiki_lang)
+            except Exception as e:
+                logger.error(f"Error fetching/parsing parsoid for {country_name} ({lang_code}): {e}")
+                parsoid_html = None
+                sections = {}
 
-            # Lead sicherstellen/überschreiben (Lead aus parse ist „gold standard“)
+            # Lead sicherstellen/überschreiben (Lead aus parse ist „gold standard")
             if lead_html:
                 sections["overview"] = lead_html
 
             if not sections and not lead_html:
                 # Fallback: alter Summary-Client
-                wiki_data = self.wikipedia.get_country_data(local_title, wiki_lang)
-                if wiki_data and wiki_data.get('extract'):
-                    sections["overview"] = f"<p>{wiki_data['extract']}</p>"
+                try:
+                    wiki_data = self.wikipedia.get_country_data(local_title, wiki_lang)
+                    if wiki_data and isinstance(wiki_data, dict) and wiki_data.get('extract'):
+                        sections["overview"] = f"<p>{wiki_data['extract']}</p>"
+                except Exception as e:
+                    logger.error(f"Error fetching summary fallback for {country_name} ({lang_code}): {e}")
 
             if not sections:
                 self.db.log_sync(country_id, lang_code, 'wikipedia', 'no_content')
@@ -528,9 +624,15 @@ class XNTOPImporter:
             try:
                 w = self.wikipedia.get_country_data(local_title, wiki_lang)
                 if w and isinstance(w, dict):
-                    page_url = (w.get("content_urls", {}) or {}).get("desktop", {}).get("page") or w.get("page_url")
-            except Exception:
-                pass
+                    content_urls = w.get("content_urls")
+                    if content_urls and isinstance(content_urls, dict):
+                        desktop = content_urls.get("desktop")
+                        if desktop and isinstance(desktop, dict):
+                            page_url = desktop.get("page")
+                    if not page_url:
+                        page_url = w.get("page_url")
+            except Exception as e:
+                logger.debug(f"Error getting page URL for {country_name} ({lang_code}): {e}")
 
             order = [
                 "overview", "geography", "demography", "history", "politics",
@@ -543,43 +645,90 @@ class XNTOPImporter:
                 ctid = self.content_type_ids.get(key)
                 if not ctid:
                     continue
-                self.db.upsert_localized_content(
-                    country_id=country_id,
-                    language_code=lang_code,
-                    content_type_id=ctid,
-                    content=html,               # HTML inkl. Tabellen, Listen, Bilder-Wrapper etc.
-                    source_url=page_url or f"https://{wiki_lang}.wikipedia.org/wiki/{local_title.replace(' ', '_')}"
-                )
-                self.stats['contents_imported'] += 1
+                try:
+                    self.db.upsert_localized_content(
+                        country_id=country_id,
+                        language_code=lang_code,
+                        content_type_id=ctid,
+                        content=html,               # HTML inkl. Tabellen, Listen, Bilder-Wrapper etc.
+                        source_url=page_url or f"https://{wiki_lang}.wikipedia.org/wiki/{local_title.replace(' ', '_')}"
+                    )
+                    self.stats['contents_imported'] += 1
+                except Exception as e:
+                    msg = str(e)
+                    # 2) Fallback bei fehlender Constraint
+                    if "no unique or exclusion constraint matching the ON CONFLICT specification" in msg:
+                        try:
+                            with self.db.connection.cursor() as cur:
+                                # Eintrag suchen (NULL-sicher über COALESCE)
+                                cur.execute("""
+                                    SELECT id FROM localized_contents
+                                    WHERE country_id = %s
+                                    AND COALESCE(subregion_id,0) = 0
+                                    AND language_code = %s
+                                    AND content_type_id = %s
+                                    LIMIT 1
+                                """, (country_id, lang_code, content_type_id))
+                                row = cur.fetchone()
+                                if row and row[0]:
+                                    cur.execute("""
+                                        UPDATE localized_contents
+                                        SET content = %s,
+                                            source_url = %s,
+                                            updated_at = NOW()
+                                        WHERE id = %s
+                                    """, (html, source_url, row[0]))
+                                else:
+                                    cur.execute("""
+                                        INSERT INTO localized_contents
+                                            (country_id, subregion_id, language_code, content_type_id, content, source_url, updated_at)
+                                        VALUES (%s, NULL, %s, %s, %s, %s, NOW())
+                                    """, (country_id, lang_code, content_type_id, html, source_url))
+                            self.db.connection.commit()
+                            return
+                        except Exception as inner:
+                            raise inner
+                    # 3) sonst: echten Fehler weiterreichen, damit wir ihn sehen
+                    raise
 
             # 5) Medien (Thumbnail / best image) – wie bisher
-            wiki_data_for_media = self.wikipedia.get_country_data(local_title, wiki_lang)
             media_imported = 0
-            if wiki_data_for_media:
-                if wiki_data_for_media.get('thumbnail'):
-                    media_id = self.db.upsert_media_asset(
-                        country_id=country_id,
-                        language_code=lang_code,
-                        title=f"Thumbnail für {country_name}",
-                        asset_type='thumbnail',
-                        url=wiki_data_for_media['thumbnail'],
-                        attribution='Wikipedia',
-                        source_url=wiki_data_for_media.get('page_url', '')
-                    )
-                    if media_id:
-                        media_imported += 1
-                if wiki_data_for_media.get('image_url'):
-                    media_id = self.db.upsert_media_asset(
-                        country_id=country_id,
-                        language_code=lang_code,
-                        title=f"Bild für {country_name}",
-                        asset_type='image',
-                        url=wiki_data_for_media['image_url'],
-                        attribution='Wikipedia',
-                        source_url=wiki_data_for_media.get('page_url', '')
-                    )
-                    if media_id:
-                        media_imported += 1
+            try:
+                wiki_data_for_media = self.wikipedia.get_country_data(local_title, wiki_lang)
+                if wiki_data_for_media and isinstance(wiki_data_for_media, dict):
+                    if wiki_data_for_media.get('thumbnail'):
+                        try:
+                            media_id = self.db.upsert_media_asset(
+                                country_id=country_id,
+                                language_code=lang_code,
+                                title=f"Thumbnail für {country_name}",
+                                asset_type='thumbnail',
+                                url=wiki_data_for_media['thumbnail'],
+                                attribution='Wikipedia',
+                                source_url=wiki_data_for_media.get('page_url', '')
+                            )
+                            if media_id:
+                                media_imported += 1
+                        except Exception as e:
+                            logger.debug(f"Error saving thumbnail for {country_name} ({lang_code}): {e}")
+                    
+                    if wiki_data_for_media.get('image_url'):
+                        try:
+                            media_id = self.db.upsert_media_asset(
+                                country_id=country_id,
+                                language_code=lang_code,
+                                title=f"Bild für {country_name}",
+                                asset_type='image',
+                                url=wiki_data_for_media['image_url'],
+                                attribution='Wikipedia',
+                                source_url=wiki_data_for_media.get('page_url', '')
+                            )
+                            if media_id:
+                                media_imported += 1
+                        except Exception as e:
+                            logger.debug(f"Error saving image for {country_name} ({lang_code}): {e}")
+            except Exception as e:
+                logger.error(f"Error fetching media data for {country_name} ({lang_code}): {e}")
 
             # 6) Zusatzbilder (Flagge/Wappen/Fallback)
             try:
@@ -592,6 +741,8 @@ class XNTOPImporter:
 
         except Exception as e:
             logger.error(f"Fehler beim Import von {country_name} ({lang_code}): {e}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
             self.db.log_sync(country_id, lang_code, 'wikipedia', 'error')
             return {'status': 'error', 'lang_code': lang_code, 'error': str(e)}
 

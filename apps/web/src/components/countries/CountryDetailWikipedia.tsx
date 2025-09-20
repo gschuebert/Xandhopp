@@ -7,6 +7,7 @@ import { countriesAPI, type CountryDetailResponse, type SupportedLanguage, getCo
 import { CountryMap } from './CountryMap';
 import { processWikipediaContent, processWikipediaHTML, intelligentParagraphBreaker, isHTMLContent } from '../../lib/html-utils';
 import { htmlToCleanText } from '../../lib/textCleaner';
+import { SafeHTMLRenderer } from '../common/SafeHTMLRenderer';
 import { CountryFlagBox } from './CountryFlagBox';
 
 interface CountryDetailWikipediaProps {
@@ -439,19 +440,11 @@ function DynamicContentSection({
       {/* Content from localized_contents table */}
       {content ? (
         <div className="text-black text-sm leading-relaxed">
-          {/* Process content with enhanced text cleaning */}
-          <div className="space-y-4">
-            {htmlToCleanText(content.content).split('\n\n').map((paragraph, index) => {
-              const trimmedParagraph = paragraph.trim();
-              if (trimmedParagraph.length === 0) return null;
-              
-              return (
-                <p key={index} className="text-justify leading-6 mb-4 text-black">
-                  {trimmedParagraph}
-                </p>
-              );
-            })}
-          </div>
+          {/* Use SafeHTMLRenderer to preserve tables */}
+          <SafeHTMLRenderer 
+            html={content.content} 
+            className="text-black"
+          />
           {content.source_url && (
             <div className="mt-6 pt-3 border-t border-gray-300 text-xs text-gray-600">
               <a

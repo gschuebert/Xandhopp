@@ -8,6 +8,7 @@ import { CountryMap } from './CountryMap';
 import { CountryComparison } from './CountryComparison';
 import { RelatedCountries } from './RelatedCountries';
 import { htmlToCleanText } from '../../lib/textCleaner';
+import { SafeHTMLRenderer } from '../common/SafeHTMLRenderer';
 
 interface CountryDetailEnhancedProps {
   slug: string;
@@ -415,22 +416,10 @@ export function CountryDetailEnhanced({ slug, locale, onBack }: CountryDetailEnh
                       {activeSection}
                     </h3>
                     <div className="text-gray-700 leading-relaxed">
-                      {(() => {
-                        const rawContent = 'content' in currentContent ? currentContent.content : currentContent.value;
-                        const cleanedContent = htmlToCleanText(rawContent || '');
-                        
-                        // Split into paragraphs and render
-                        return cleanedContent.split('\n\n').map((paragraph, index) => {
-                          const trimmedParagraph = paragraph.trim();
-                          if (trimmedParagraph.length === 0) return null;
-                          
-                          return (
-                            <p key={index} className="mb-4 text-justify">
-                              {trimmedParagraph}
-                            </p>
-                          );
-                        });
-                      })()}
+                      <SafeHTMLRenderer 
+                        html={'content' in currentContent ? currentContent.content : currentContent.value || ''}
+                        className="text-gray-700"
+                      />
                     </div>
                     {'source_url' in currentContent && currentContent.source_url && (
                       <div className="mt-4 pt-4 border-t border-gray-200">

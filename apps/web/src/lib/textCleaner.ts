@@ -119,7 +119,7 @@ export function cleanWikipediaHTML(html: string): string {
 
   let cleaned = html;
 
-  // Remove Wikipedia-specific HTML elements first
+  // Remove Wikipedia-specific HTML elements first (but preserve tables)
   cleaned = cleaned
     // Remove infoboxes, references, etc.
     .replace(/<div[^>]*class="[^"]*(?:infobox|navbox|mw-ref|thumb|mw-file-element|hatnote)[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '')
@@ -128,7 +128,12 @@ export function cleanWikipediaHTML(html: string): string {
     .replace(/<sup[^>]*class="[^"]*reference[^"]*"[^>]*>[\s\S]*?<\/sup>/gi, '')
     .replace(/<a[^>]*class="[^"]*mw-ref[^"]*"[^>]*>[\s\S]*?<\/a>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    // Clean table attributes but preserve table structure
+    .replace(/<table[^>]*>/gi, '<table>')
+    .replace(/<tr[^>]*>/gi, '<tr>')
+    .replace(/<td[^>]*>/gi, '<td>')
+    .replace(/<th[^>]*>/gi, '<th>');
 
   // Fix line breaks in text nodes while preserving HTML structure
   cleaned = cleaned.replace(/>([^<]*)</g, (match, textContent) => {
@@ -142,7 +147,96 @@ export function cleanWikipediaHTML(html: string): string {
 }
 
 /**
- * Convert HTML to clean text with proper formatting
+ * Convert HTML to clean text with proper formatting, preserving tables
+ */
+export function htmlToCleanTextWithTables(html: string): string {
+  if (!html) return '';
+
+  // First clean the HTML but preserve tables
+  let cleaned = cleanWikipediaHTML(html);
+
+  // Convert to plain text but keep table structure
+  if (typeof window !== 'undefined') {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = cleaned;
+    
+    // Convert paragraphs to double line breaks
+    const paragraphs = tempDiv.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      const text = p.textContent?.trim() || '';
+      if (text) {
+        p.outerHTML = `<p>${text}</p>`;
+      }
+    });
+
+    // Convert headers
+    const headers = tempDiv.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headers.forEach(header => {
+      const text = header.textContent?.trim() || '';
+      if (text) {
+        header.outerHTML = `<${header.tagName.toLowerCase()}>${text}</${header.tagName.toLowerCase()}>`;
+      }
+    });
+
+    // Convert lists
+    const lists = tempDiv.querySelectorAll('ul, ol');
+    lists.forEach(list => {
+      const items = list.querySelectorAll('li');
+      let listHTML = `<${list.tagName.toLowerCase()}>`;
+      items.forEach(item => {
+        const text = item.textContent?.trim() || '';
+        if (text) {
+          listHTML += `<li>${text}</li>`;
+        }
+      });
+      listHTML += `</${list.tagName.toLowerCase()}>`;
+      list.outerHTML = listHTML;
+    });
+
+    // Clean tables but preserve structure
+    const tables = tempDiv.querySelectorAll('table');
+    tables.forEach(table => {
+      const cleanTableContent = cleanTableHTML(table.outerHTML);
+      table.outerHTML = cleanTableContent;
+    });
+
+    cleaned = tempDiv.innerHTML;
+  } else {
+    // Server-side fallback: keep essential HTML structure
+    cleaned = cleaned
+      .replace(/<p[^>]*>/g, '<p>')
+      .replace(/<h[1-6][^>]*>/g, (match) => match.replace(/[^>]*$/, '>'))
+      .replace(/<ul[^>]*>/g, '<ul>')
+      .replace(/<ol[^>]*>/g, '<ol>')
+      .replace(/<li[^>]*>/g, '<li>');
+  }
+
+  return cleaned;
+}
+
+/**
+ * Clean table HTML while preserving structure
+ */
+function cleanTableHTML(tableHTML: string): string {
+  let cleaned = tableHTML;
+  
+  // Clean table attributes
+  cleaned = cleaned
+    .replace(/<table[^>]*>/g, '<table class="table-auto w-full border-collapse border border-gray-300 my-4">')
+    .replace(/<th[^>]*>/g, '<th class="border border-gray-300 bg-gray-50 px-4 py-2 text-left font-semibold text-gray-900">')
+    .replace(/<td[^>]*>/g, '<td class="border border-gray-300 px-4 py-2 text-gray-700">')
+    .replace(/<tr[^>]*>/g, '<tr>')
+    .replace(/style="[^"]*"/g, '')
+    .replace(/id="[^"]*"/g, '')
+    .replace(/data-[^=]*="[^"]*"/g, '')
+    .replace(/class="[^"]*"/g, '');
+  
+  // Add responsive wrapper
+  return `<div class="overflow-x-auto my-4">${cleaned}</div>`;
+}
+
+/**
+ * Convert HTML to clean text with proper formatting (legacy function)
  */
 export function htmlToCleanText(html: string): string {
   if (!html) return '';

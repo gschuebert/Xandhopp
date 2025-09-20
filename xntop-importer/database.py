@@ -64,7 +64,10 @@ class DatabaseManager:
             with self.connection.cursor() as cursor:
                 cursor.execute(query, params)
                 self.connection.commit()
-                return cursor.fetchone()[0] if cursor.description else 0
+                result = cursor.fetchone()
+                if result is not None and len(result) > 0:
+                    return result[0]
+                return 0  # No row returned (e.g., ON CONFLICT DO NOTHING)
         except psycopg2.Error as e:
             self.connection.rollback()
             logger.error(f"Fehler bei UPSERT: {e}")
@@ -150,7 +153,7 @@ class DatabaseManager:
           updated_at   = NOW()
         FROM (
           SELECT %s AS country_id,
-                 NULL AS subregion_id,
+                 NULL::INTEGER AS subregion_id,
                  %s AS language_code,
                  %s AS content_type_id,
                  %s AS content,
