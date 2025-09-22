@@ -18,7 +18,7 @@ class EmailService
 
     public function sendVerificationEmail(string $toEmail, string $firstName, string $verificationToken): void
     {
-        $verificationUrl = "http://localhost:3000/verify-email?token={$verificationToken}";
+        $verificationUrl = "http://xandhopp.local/verify-email?token={$verificationToken}";
         
         $email = (new Email())
             ->from(new Address($this->fromEmail, $this->fromName))
@@ -100,7 +100,7 @@ class EmailService
             </ul>
             
             <div style='text-align: center; margin: 30px 0;'>
-                <a href='http://localhost:3000/login' style='background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;'>Login to Your Account</a>
+                <a href='http://xandhopp.local/login' style='background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;'>Login to Your Account</a>
             </div>
             
             <p>Thank you for joining Xandhopp!</p>
